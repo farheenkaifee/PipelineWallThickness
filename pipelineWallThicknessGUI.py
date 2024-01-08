@@ -9,9 +9,13 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtCore import *
+# from wallthicknessCalculation_copy.BUCKLINGCHECK.Installation import DataProcessor
+from wallthicknessCalculation_copy.BUCKLINGCHECK.Installation import DataProcessor
 
 
 class Ui_MainWindow(object):
+    
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(810, 754)
@@ -38,6 +42,12 @@ class Ui_MainWindow(object):
         self.groupBox_7.setObjectName("groupBox_7")
         self.gridLayout_8 = QtWidgets.QGridLayout(self.groupBox_7)
         self.gridLayout_8.setObjectName("gridLayout_8")
+       
+        self.result_label = QtWidgets.QLabel(self.groupBox_7)
+        self.result_label.setStyleSheet("selection-background-color: rgb(32, 47, 255);")
+        self.result_label.setObjectName("result_label")
+        self.result_label.setText("result_label")
+        # self.horizontalLayout_6.addWidget(self.result_label)
         spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout_8.addItem(spacerItem2, 0, 0, 1, 1)
         self.calculateButton = QtWidgets.QPushButton(self.groupBox_7)
@@ -69,9 +79,10 @@ class Ui_MainWindow(object):
         self.horizontalLayout_36.addLayout(self.horizontalLayout_37)
         self.selectcheckComboBox = QtWidgets.QComboBox(self.groupBox)
         self.selectcheckComboBox.setObjectName("selectcheckComboBox")
-        self.selectcheckComboBox.addItem("")
-        self.selectcheckComboBox.addItem("")
-        self.selectcheckComboBox.addItem("")
+        self.selectcheckComboBox.addItem("Select")
+        self.selectcheckComboBox.addItem("Pressure Containment Check (Bursting)")
+        self.selectcheckComboBox.addItem("External Pressure Collapse Check")
+        self.selectcheckComboBox.addItem("Propagation Buckling Check")
         self.horizontalLayout_36.addWidget(self.selectcheckComboBox)
         spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_36.addItem(spacerItem4)
@@ -80,12 +91,13 @@ class Ui_MainWindow(object):
         self.gradeLabel = QtWidgets.QLabel(self.groupBox)
         font = QtGui.QFont()
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(90)
         self.gradeLabel.setFont(font)
         self.gradeLabel.setObjectName("gradeLabel")
         self.horizontalLayout_38.addWidget(self.gradeLabel)
         self.gradeComboBox = QtWidgets.QComboBox(self.groupBox)
         self.gradeComboBox.setObjectName("gradeComboBox")
+        self.gradeComboBox.addItem("Select",["",""])
         self.gradeComboBox.addItem("X42/L290",["290","415"])
         self.gradeComboBox.addItem("X46/L320",['320',"435"])
         self.gradeComboBox.addItem("X52/L360",['360','460'])
@@ -97,6 +109,11 @@ class Ui_MainWindow(object):
         self.gradeComboBox.addItem("X90/L625",['625','695'])
         self.gradeComboBox.addItem("X100/L690",['690','760'])
         self.gradeComboBox.addItem("X120/L830",['830','915'])
+
+      
+
+        # self.gradeComboBox.setItemData(0, Qt.ItemIsEnabled, Qt.UserRole)
+
         
         self.horizontalLayout_38.addWidget(self.gradeComboBox)
         self.horizontalLayout_36.addLayout(self.horizontalLayout_38)
@@ -760,27 +777,80 @@ class Ui_MainWindow(object):
         # ____ function to connect combobox______________
 
         self.gradeComboBox.activated.connect(self.select_GradePipeline)
+        self.selectcheckComboBox.activated.connect(self.select_Check)
+        # my_function()
+        
+        self.calculateButton.clicked.connect(self.process_values)
+
+    #     self.line_edits = {f'line_edit_{i}': QtWidgets.QLineEdit() for i in range(1, 37)}
+
+    # def on_button_click(self):
+    #     # Call the function from the other file to update the label
+    #     # print_message_on_label(self.result_label)
+
+    #     values = {name: line_edit.text() for name, line_edit in self.line_edits.items()}
+    #     calculate(values,self.result_label)
+
+    def process_values(self):
+            Outside_Diameter_OD = float(self.OD_lineEdit.text())
+            Nominal_Wall_Thickness_tnom = float(self.tnom_lineEdit.text())
+            Fabrication_Thickness_Tolerance_tfab = float(self.tfab_lineEdit.text())
+            Corrosion_Allowance_tcorr = float(self.tcorr_lineEdit.text())
+            Ovality_of_Pipe_Oo = float(self.Oo_lineEdit.text())
+            SMYS_σsmys = float(self.SMYS_lineEdit.text())
+            SMTS_σsmts = float(self.SMTS_lineEdit.text())
+            Derating_value_temp_yieldStress_fy_temp = float(self.fytemp_lineEdit.text())
+            Derating_value_temp_tensileStress_fu_temp = float(self.futemp_lineEdit.text())
+            Youngs_Modulus_E = float(self.E_lineEdit.text())
+            Poission_s_Ratio_ν = float(self.v_lineEdit.text())
+            Maximum_Fabrication_Factor_alpha_fab = float(self.alphaFab_lineEdit.text())
+            Pd = float(self.Pd_lineEdit.text())
+            ptest_value = float(self.Ptest_lineEdit.text())
+            Pmin = float(self.Pmin_lineEdit.text())
+            Elevation_at_Pressure_Reference_Level_href = float(self.href_lineEdit.text())
+            Elevation_level_at_Pressure_Point_hl = float(self.h_lineEdit.text())
+            Product_Density_ρcont = float(self.rho_cont_lineEdit.text())
+            Density_of_relevant_test_medium_ρt = float(self.rho_t_lineEdit.text())
+            Incidental_to_Design_Pressure_Ratio_gamma_inc = float(self.gamma_inc_lineEdit.text())
+            Max_Water_Depth_WDmax =float( self.WD_min_lineEdit.text())
+            Sea_Water_Density_ρsea = float(self.rho_sea_lineEdit.text())
+            Max_Elevation_wrt_MSL_hmax = float(self.hmax_lineEdit.text())
+            Min_Elevation_wrt_MSL_hmin = float(self.hmin_lineEdit.text())
+            Plt = float(self.plt_lineEdit.text())
+        
+
+            # Create an instance of DataProcessor and pass the values
+
+        
+            data_processor = DataProcessor()
+            processed_data = data_processor.process_data(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,ptest_value,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Density_of_relevant_test_medium_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Max_Water_Depth_WDmax,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Min_Elevation_wrt_MSL_hmin,Plt)
+            print("processed Data " , processed_data)
+    
+        
+        
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "PIPELINE-WALLTHICKNESS ANALYSIS"))
         self.calculateButton.setText(_translate("MainWindow", "START"))
         self.selectcheckLabel.setText(_translate("MainWindow", "Select Check :"))
-        self.selectcheckComboBox.setItemText(0, _translate("MainWindow", "Pressure Containment Check (Bursting)"))
-        self.selectcheckComboBox.setItemText(1, _translate("MainWindow", "External Pressure Collapse Check"))
-        self.selectcheckComboBox.setItemText(2, _translate("MainWindow", "Propagation Buckling Check"))
+        self.selectcheckComboBox.setItemText(0, _translate("MainWindow", "Select"))
+        self.selectcheckComboBox.setItemText(1, _translate("MainWindow", "Pressure Containment Check (Bursting)"))
+        self.selectcheckComboBox.setItemText(2, _translate("MainWindow", "External Pressure Collapse Check"))
+        self.selectcheckComboBox.setItemText(3, _translate("MainWindow", "Propagation Buckling Check"))
         self.gradeLabel.setText(_translate("MainWindow", "Select Grade :"))
-        self.gradeComboBox.setItemText(0, _translate("MainWindow", "X42/L290"))
-        self.gradeComboBox.setItemText(1, _translate("MainWindow", "X46/L320"))
-        self.gradeComboBox.setItemText(2, _translate("MainWindow", "X52/L360"))
-        self.gradeComboBox.setItemText(3, _translate("MainWindow", "X56/L390"))
-        self.gradeComboBox.setItemText(4, _translate("MainWindow", "X60/L415"))
-        self.gradeComboBox.setItemText(5, _translate("MainWindow", "X65/L450"))
-        self.gradeComboBox.setItemText(6, _translate("MainWindow", "X70/L485"))
-        self.gradeComboBox.setItemText(7, _translate("MainWindow", "X80/L555"))
-        self.gradeComboBox.setItemText(8, _translate("MainWindow", "X90/L625"))
-        self.gradeComboBox.setItemText(9, _translate("MainWindow", "X100/L690"))
-        self.gradeComboBox.setItemText(10, _translate("MainWindow", "X120/L830"))
+        self.gradeComboBox.setItemText(0, _translate("MainWindow", "Select"))
+        self.gradeComboBox.setItemText(1, _translate("MainWindow", "X42/L290"))
+        self.gradeComboBox.setItemText(2, _translate("MainWindow", "X46/L320"))
+        self.gradeComboBox.setItemText(3, _translate("MainWindow", "X52/L360"))
+        self.gradeComboBox.setItemText(4, _translate("MainWindow", "X56/L390"))
+        self.gradeComboBox.setItemText(5, _translate("MainWindow", "X60/L415"))
+        self.gradeComboBox.setItemText(6, _translate("MainWindow", "X65/L450"))
+        self.gradeComboBox.setItemText(7, _translate("MainWindow", "X70/L485"))
+        self.gradeComboBox.setItemText(8, _translate("MainWindow", "X80/L555"))
+        self.gradeComboBox.setItemText(9, _translate("MainWindow", "X90/L625"))
+        self.gradeComboBox.setItemText(10, _translate("MainWindow", "X100/L690"))
+        self.gradeComboBox.setItemText(11, _translate("MainWindow", "X120/L830"))
         self.OD_label.setText(_translate("MainWindow", "OD [mm]"))
         self.tnom_label.setText(_translate("MainWindow", "tnom [mm]"))
         self.tfab_label.setText(_translate("MainWindow", "tfab [mm]"))
@@ -868,6 +938,51 @@ class Ui_MainWindow(object):
         self.SMTS_lineEdit.setText(data_SMYS[1])
         print("SMPS :",data_SMYS[1])
 
+    def select_Check(self):
+    
+        if (self.selectcheckComboBox.currentText() == "Pressure Containment Check (Bursting)"):
+            print("Pressure")
+            self.shutdown_comboBox.setEnabled(False)
+            self.installation_comboBox.setEnabled(False)
+            self.systemTest_combo_label.setEnabled(True)
+            self.operation_comboBox.setEnabled(True)
+
+            
+
+        elif (self.selectcheckComboBox.currentText() == "External Pressure Collapse Check"):
+            print("Collapse")
+            self.shutdown_comboBox.setEnabled(True)
+            self.installation_comboBox.setEnabled(True)
+            self.systemTest_combo_label.setEnabled(False)
+            self.operation_comboBox.setEnabled(False)
+
+        elif (self.selectcheckComboBox.currentText() == "Propagation Buckling Check"):
+            print("Propagation Buckling Check")
+            self.shutdown_comboBox.setEnabled(True)
+            self.installation_comboBox.setEnabled(True)
+            self.systemTest_combo_label.setEnabled(False)
+            self.operation_comboBox.setEnabled(False)
+
+        else :
+            print("Else")
+            self.shutdown_comboBox.setEnabled(True)
+            self.installation_comboBox.setEnabled(True)
+            self.systemTest_combo_label.setEnabled(True)
+            self.operation_comboBox.setEnabled(True)
+
+
+      
+
+
+
+
+
+
+        # self.SMYS_lineEdit.setText(data_SMYS[0])
+        # print("SMYS : ",data_SMYS[0])
+        # self.SMTS_lineEdit.setText(data_SMYS[1])
+        # print("SMPS :",data_SMYS[1])
+
         # Tn = float(self.Calculation_List_Tn[0])
         # Tp = float(self.Calculation_List_Tp[0])
         # Hs = float(self.Calculation_List_Hs[0])
@@ -880,11 +995,16 @@ class Ui_MainWindow(object):
         
 
 
+
 if __name__ == "__main__":
     import sys
+    from PyQt5 import QtWidgets
+
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
+
+
