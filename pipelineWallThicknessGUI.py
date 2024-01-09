@@ -828,6 +828,17 @@ class Ui_MainWindow(object):
                 print("processed Data " , processed_data)
 
             except:
+                
+                self.messageBox = QtWidgets.QMessageBox(self.dimensionsBox)
+                self.messageBox.setIcon(QtWidgets.QMessageBox.Information)
+                self.messageBox.setText("Please Fill All The Boxes")
+                self.messageBox.setWindowTitle("Alert")
+                self.messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel)
+                # self.msgBox.buttonClicked.connect(msgButtonClick)
+
+                returnValue = self.messageBox.exec()
+                if returnValue == QtWidgets.QMessageBox.Ok:
+                    print('OK clicked')
                 print("Please !!! Fill All the columns")
     
         

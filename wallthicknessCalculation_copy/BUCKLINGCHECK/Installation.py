@@ -212,8 +212,6 @@ class DataProcessor:
         # else:
         #     print("External Pressure Exceeds")
 
-        # D_upon_t2 = float(D/t2)
-        # print("D_upon_t2",D_upon_t2)
 
 
         # Utility Check
