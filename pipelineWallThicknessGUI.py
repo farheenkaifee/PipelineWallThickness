@@ -791,7 +791,7 @@ class Ui_MainWindow(object):
     #     values = {name: line_edit.text() for name, line_edit in self.line_edits.items()}
     #     calculate(values,self.result_label)
 
-    def process_values(self):
+    def process_values(self,UC_buck):
             try:
                 Outside_Diameter_OD = float(self.OD_lineEdit.text())
                 Nominal_Wall_Thickness_tnom = float(self.tnom_lineEdit.text())
@@ -818,14 +818,22 @@ class Ui_MainWindow(object):
                 Max_Elevation_wrt_MSL_hmax = float(self.hmax_lineEdit.text())
                 Min_Elevation_wrt_MSL_hmin = float(self.hmin_lineEdit.text())
                 Plt = float(self.plt_lineEdit.text())
+                
             
 
                 # Create an instance of DataProcessor and pass the values
 
             
                 data_processor = DataProcessor()
-                processed_data = data_processor.process_data(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,ptest_value,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Density_of_relevant_test_medium_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Max_Water_Depth_WDmax,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Min_Elevation_wrt_MSL_hmin,Plt)
+                processed_data,UC_buck = data_processor.process_data(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,ptest_value,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Density_of_relevant_test_medium_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Max_Water_Depth_WDmax,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Min_Elevation_wrt_MSL_hmin,Plt,UC_buck)
                 print("processed Data " , processed_data)
+
+
+                
+                self.utility_label_installation.setText(str(UC_buck))
+                # self.treq_label_installation.setText(str(Nominal_Wall_Thickness_tnom.te))
+                
+                
 
             except:
                 
@@ -839,7 +847,7 @@ class Ui_MainWindow(object):
                 returnValue = self.messageBox.exec()
                 if returnValue == QtWidgets.QMessageBox.Ok:
                     print('OK clicked')
-                print("Please !!! Fill All the columns")
+                print("Fill All The Boxes")
     
         
         
@@ -982,18 +990,10 @@ class Ui_MainWindow(object):
 
         else :
             print("Else")
-            self.shutdown_comboBox.setEnabled(True)
-            self.installation_comboBox.setEnabled(True)
-            self.systemTest_combo_label.setEnabled(True)
-            self.operation_comboBox.setEnabled(True)
-
-            
-
-
-      
-
-
-
+            self.shutdown_comboBox.setEnabled(False)
+            self.installation_comboBox.setEnabled(False)
+            self.systemTest_combo_label.setEnabled(False)
+            self.operation_comboBox.setEnabled(False)
 
 
 

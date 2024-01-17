@@ -6,7 +6,7 @@ import numpy.polynomial.polynomial  as roots
 
 
 class DataProcessor:
-    def process_data(self,Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,ptest_value,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Density_of_relevant_test_medium_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Max_Water_Depth_WDmax,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Min_Elevation_wrt_MSL_hmin,Plt ):
+    def process_data(self,Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,ptest_value,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Density_of_relevant_test_medium_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Max_Water_Depth_WDmax,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Min_Elevation_wrt_MSL_hmin,Plt ,UC_buck):
         print(DataProcessor)
     
         # Do something with the values
@@ -35,7 +35,9 @@ class DataProcessor:
             'rho_sea': Sea_Water_Density_ρsea,
             'hmax': Max_Elevation_wrt_MSL_hmax,
             'hmin': Min_Elevation_wrt_MSL_hmin,
-            'plt': Plt
+            'plt': Plt,
+           
+            
 
         }
         
@@ -117,6 +119,8 @@ class DataProcessor:
         print("Collapse_Pressure_y2",Collapse_Pressure_y2)
 
         s = (Collapse_Pressure_y2,-(Collapse_Pressure_Pp_t_sq+Collapse_Pressure_y1), -Pel_t,1)
+
+        
 
         smallNumber = []
 
@@ -229,5 +233,5 @@ class DataProcessor:
 
         
 
-        return processed_data
+        return processed_data,UC_buck
 

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>830</width>
-    <height>725</height>
+    <height>1264</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -113,40 +113,7 @@
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_36">
            <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_37">
-             <item>
-              <widget class="QLabel" name="selectcheckLabel">
-               <property name="font">
-                <font>
-                 <weight>75</weight>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="text">
-                <string>Select Check :</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <widget class="QComboBox" name="selectcheckComboBox">
-             <item>
-              <property name="text">
-               <string>Pressure Containment Check (Bursting)</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>External Pressure Collapse Check</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Propagation Buckling Check</string>
-              </property>
-             </item>
-            </widget>
+            <layout class="QHBoxLayout" name="horizontalLayout_37"/>
            </item>
            <item>
             <spacer name="horizontalSpacer_3">
@@ -1325,17 +1292,70 @@
            </property>
            <layout class="QGridLayout" name="gridLayout_7">
             <item row="0" column="0">
-             <widget class="QLabel" name="label_6">
-              <property name="font">
-               <font>
-                <weight>75</weight>
-                <bold>true</bold>
-               </font>
-              </property>
-              <property name="text">
-               <string>Design Factor as per DNV-GL</string>
-              </property>
-             </widget>
+             <layout class="QHBoxLayout" name="horizontalLayout_32">
+              <item>
+               <widget class="QLabel" name="label_6">
+                <property name="font">
+                 <font>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Design Factor as per DNV-GL</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_4">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_31">
+                <item>
+                 <widget class="QLabel" name="selectcheckLabel_2">
+                  <property name="font">
+                   <font>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Select Check :</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="selectcheckComboBox_2">
+                  <item>
+                   <property name="text">
+                    <string>Pressure Containment Check (Bursting)</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>External Pressure Collapse Check</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Propagation Buckling Check</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
             </item>
             <item row="1" column="0">
              <layout class="QHBoxLayout" name="horizontalLayout_15">
