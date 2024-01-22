@@ -12,6 +12,15 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import *
 # from wallthicknessCalculation_copy.BUCKLINGCHECK.Installation import DataProcessor
 from wallthicknessCalculation_copy.BUCKLINGCHECK.Installation import DataProcessor
+from wallthicknessCalculation.BUCKLINGCHECK.Installation import buck_installation
+from wallthicknessCalculation.BUCKLINGCHECK.shutdown import buck_shutdown
+
+from wallthicknessCalculation.COLLAPSECHECK.Installation import collapse_installation
+from wallthicknessCalculation.COLLAPSECHECK.shutdown import collapse_shutdown
+
+from wallthicknessCalculation.PRESSURECONTAINMENT.systemTest import pressure_sysTest
+from wallthicknessCalculation.PRESSURECONTAINMENT.operation import pressure_opt
+
 
 
 class Ui_MainWindow(object):
@@ -792,62 +801,71 @@ class Ui_MainWindow(object):
     #     calculate(values,self.result_label)
 
     def process_values(self,UC_buck):
-            try:
-                Outside_Diameter_OD = float(self.OD_lineEdit.text())
-                Nominal_Wall_Thickness_tnom = float(self.tnom_lineEdit.text())
-                Fabrication_Thickness_Tolerance_tfab = float(self.tfab_lineEdit.text())
-                Corrosion_Allowance_tcorr = float(self.tcorr_lineEdit.text())
-                Ovality_of_Pipe_Oo = float(self.Oo_lineEdit.text())
-                SMYS_σsmys = float(self.SMYS_lineEdit.text())
-                SMTS_σsmts = float(self.SMTS_lineEdit.text())
-                Derating_value_temp_yieldStress_fy_temp = float(self.fytemp_lineEdit.text())
-                Derating_value_temp_tensileStress_fu_temp = float(self.futemp_lineEdit.text())
-                Youngs_Modulus_E = float(self.E_lineEdit.text())
-                Poission_s_Ratio_ν = float(self.v_lineEdit.text())
-                Maximum_Fabrication_Factor_alpha_fab = float(self.alphaFab_lineEdit.text())
-                Pd = float(self.Pd_lineEdit.text())
-                ptest_value = float(self.Ptest_lineEdit.text())
-                Pmin = float(self.Pmin_lineEdit.text())
-                Elevation_at_Pressure_Reference_Level_href = float(self.href_lineEdit.text())
-                Elevation_level_at_Pressure_Point_hl = float(self.h_lineEdit.text())
-                Product_Density_ρcont = float(self.rho_cont_lineEdit.text())
-                Density_of_relevant_test_medium_ρt = float(self.rho_t_lineEdit.text())
-                Incidental_to_Design_Pressure_Ratio_gamma_inc = float(self.gamma_inc_lineEdit.text())
-                Max_Water_Depth_WDmax =float( self.WD_min_lineEdit.text())
-                Sea_Water_Density_ρsea = float(self.rho_sea_lineEdit.text())
-                Max_Elevation_wrt_MSL_hmax = float(self.hmax_lineEdit.text())
-                Min_Elevation_wrt_MSL_hmin = float(self.hmin_lineEdit.text())
-                Plt = float(self.plt_lineEdit.text())
-                
+        value = buck_installation()
+        buck_shutdown()
+        collapse_installation()
+        collapse_shutdown()
+        pressure_opt()
+        pressure_sysTest()
+        
+        self.result_label.setText(value)
+        
+        # try:
+        #     Outside_Diameter_OD = float(self.OD_lineEdit.text())
+        #     Nominal_Wall_Thickness_tnom = float(self.tnom_lineEdit.text())
+        #     Fabrication_Thickness_Tolerance_tfab = float(self.tfab_lineEdit.text())
+        #     Corrosion_Allowance_tcorr = float(self.tcorr_lineEdit.text())
+        #     Ovality_of_Pipe_Oo = float(self.Oo_lineEdit.text())
+        #     SMYS_σsmys = float(self.SMYS_lineEdit.text())
+        #     SMTS_σsmts = float(self.SMTS_lineEdit.text())
+        #     Derating_value_temp_yieldStress_fy_temp = float(self.fytemp_lineEdit.text())
+        #     Derating_value_temp_tensileStress_fu_temp = float(self.futemp_lineEdit.text())
+        #     Youngs_Modulus_E = float(self.E_lineEdit.text())
+        #     Poission_s_Ratio_ν = float(self.v_lineEdit.text())
+        #     Maximum_Fabrication_Factor_alpha_fab = float(self.alphaFab_lineEdit.text())
+        #     Pd = float(self.Pd_lineEdit.text())
+        #     ptest_value = float(self.Ptest_lineEdit.text())
+        #     Pmin = float(self.Pmin_lineEdit.text())
+        #     Elevation_at_Pressure_Reference_Level_href = float(self.href_lineEdit.text())
+        #     Elevation_level_at_Pressure_Point_hl = float(self.h_lineEdit.text())
+        #     Product_Density_ρcont = float(self.rho_cont_lineEdit.text())
+        #     Density_of_relevant_test_medium_ρt = float(self.rho_t_lineEdit.text())
+        #     Incidental_to_Design_Pressure_Ratio_gamma_inc = float(self.gamma_inc_lineEdit.text())
+        #     Max_Water_Depth_WDmax =float( self.WD_min_lineEdit.text())
+        #     Sea_Water_Density_ρsea = float(self.rho_sea_lineEdit.text())
+        #     Max_Elevation_wrt_MSL_hmax = float(self.hmax_lineEdit.text())
+        #     Min_Elevation_wrt_MSL_hmin = float(self.hmin_lineEdit.text())
+        #     Plt = float(self.plt_lineEdit.text())
+            
+        
+
+        #     # Create an instance of DataProcessor and pass the values
+
+        
+        #     data_processor = DataProcessor()
+        #     processed_data,UC_buck = data_processor.process_data(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,ptest_value,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Density_of_relevant_test_medium_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Max_Water_Depth_WDmax,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Min_Elevation_wrt_MSL_hmin,Plt,UC_buck)
+        #     print("processed Data " , processed_data)
+
+
+            
+        #     self.utility_label_installation.setText(str(UC_buck))
+        #     # self.treq_label_installation.setText(str(Nominal_Wall_Thickness_tnom.te))
+            
             
 
-                # Create an instance of DataProcessor and pass the values
-
+        # except:
             
-                data_processor = DataProcessor()
-                processed_data,UC_buck = data_processor.process_data(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,ptest_value,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Density_of_relevant_test_medium_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Max_Water_Depth_WDmax,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Min_Elevation_wrt_MSL_hmin,Plt,UC_buck)
-                print("processed Data " , processed_data)
+        #     self.messageBox = QtWidgets.QMessageBox(self.dimensionsBox)
+        #     self.messageBox.setIcon(QtWidgets.QMessageBox.Information)
+        #     self.messageBox.setText("Please Fill All The Boxes")
+        #     self.messageBox.setWindowTitle("Alert")
+        #     self.messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel)
+        #     # self.msgBox.buttonClicked.connect(msgButtonClick)
 
-
-                
-                self.utility_label_installation.setText(str(UC_buck))
-                # self.treq_label_installation.setText(str(Nominal_Wall_Thickness_tnom.te))
-                
-                
-
-            except:
-                
-                self.messageBox = QtWidgets.QMessageBox(self.dimensionsBox)
-                self.messageBox.setIcon(QtWidgets.QMessageBox.Information)
-                self.messageBox.setText("Please Fill All The Boxes")
-                self.messageBox.setWindowTitle("Alert")
-                self.messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel)
-                # self.msgBox.buttonClicked.connect(msgButtonClick)
-
-                returnValue = self.messageBox.exec()
-                if returnValue == QtWidgets.QMessageBox.Ok:
-                    print('OK clicked')
-                print("Fill All The Boxes")
+        #     returnValue = self.messageBox.exec()
+        #     if returnValue == QtWidgets.QMessageBox.Ok:
+        #         print('OK clicked')
+        #     print("Fill All The Boxes")
     
         
         
