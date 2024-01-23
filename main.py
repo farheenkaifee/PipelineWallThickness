@@ -801,12 +801,15 @@ class Ui_MainWindow(object):
     #     calculate(values,self.result_label)
 
     def process_values(self,UC_buck):
-        value = buck_installation()
-        buck_shutdown()
-        collapse_installation()
-        collapse_shutdown()
-        pressure_opt()
-        pressure_sysTest()
+        tnom = float(self.tnom_lineEdit.text())
+        tfab = float(self.tfab_lineEdit.text())
+        # print(tnom)
+        # value = buck_installation()
+        # buck_shutdown()
+        # collapse_installation()
+        # collapse_shutdown()
+        # pressure_opt()
+        value = pressure_sysTest(9.461, 0.05, 32.941, tnom, tfab, 1.15, 1.046, 27.39)
         
         self.result_label.setText(value)
         

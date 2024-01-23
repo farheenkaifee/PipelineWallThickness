@@ -8,9 +8,14 @@ import numpy.polynomial.polynomial  as roots
 
 
 
-def pressure_sysTest():
-    # self.OD_lineEdit.setText("55")
-    return print("Pressure containment System Test..!!!")
+def pressure_sysTest(Plt, Pe, Pb, tnom, tfab, Ym, Yscpc, Pmpt):
+    t1 = tnom - tfab
+    
+    if (Plt - Pe) <= min((Pb * t1)/(Ym * Yscpc), Pmpt) :
+        return ("Wall Thickness Accepted..!!")
+    else:
+        return ("Redesign Wall Thickness..!!")
+    # return print("Pressure containment System Test..!!!")
 
 
 # print("___________________PIPELINE INPUTS___________________")
