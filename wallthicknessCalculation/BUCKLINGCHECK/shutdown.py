@@ -8,7 +8,7 @@ import numpy.polynomial.polynomial  as roots
 
 
 def buck_shutdown():
-    return print("Buckling shutdown..!!!")
+    return "Buckling shutdown..!!!"
 
 # print("___________________PIPELINE INPUTS___________________")
 

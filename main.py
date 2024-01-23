@@ -10,7 +10,6 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import *
-# from wallthicknessCalculation_copy.BUCKLINGCHECK.Installation import DataProcessor
 from wallthicknessCalculation_copy.BUCKLINGCHECK.Installation import DataProcessor
 from wallthicknessCalculation.BUCKLINGCHECK.Installation import buck_installation
 from wallthicknessCalculation.BUCKLINGCHECK.shutdown import buck_shutdown
@@ -787,28 +786,22 @@ class Ui_MainWindow(object):
 
         self.gradeComboBox.activated.connect(self.select_GradePipeline)
         self.selectcheckComboBox.activated.connect(self.select_Check)
-        # my_function()
+    
         
         self.calculateButton.clicked.connect(self.process_values)
 
-    #     self.line_edits = {f'line_edit_{i}': QtWidgets.QLineEdit() for i in range(1, 37)}
-
-    # def on_button_click(self):
-    #     # Call the function from the other file to update the label
-    #     # print_message_on_label(self.result_label)
-
-    #     values = {name: line_edit.text() for name, line_edit in self.line_edits.items()}
-    #     calculate(values,self.result_label)
 
     def process_values(self,UC_buck):
-        value = buck_installation()
-        buck_shutdown()
+        value1 = buck_installation()
+        value2 = buck_shutdown()
+
+        combined_text = f"{value2}, {value1}"
         collapse_installation()
         collapse_shutdown()
         pressure_opt()
         pressure_sysTest()
         
-        self.result_label.setText(value)
+        self.result_label.setText(combined_text)
         
         # try:
         #     Outside_Diameter_OD = float(self.OD_lineEdit.text())
