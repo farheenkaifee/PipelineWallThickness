@@ -187,10 +187,7 @@ def collapse_installation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabr
         print("t2",t2)
         Effective_wall_Thickness_Ppr_t2 = 35*fy*Maximum_Fabrication_Factor_alpha_fab*((t2/Outside_Diameter_OD)**2.5)
         print("Effective_wall_Thickness_Ppr_t2",Effective_wall_Thickness_Ppr_t2)
-        # if(Pe - Pmin <= Effective_wall_Thickness_Ppr_t2/Pressure_testFactor_gamma_m*γSC_LB):
-        #     print("Effective_wall_Thickness_Ppr_t2")
-        # else:
-        #     print("External Pressure Exceeds")
+    
 
         D_upon_t2 = float(D/t2)
         print("D_upon_t2",D_upon_t2)
