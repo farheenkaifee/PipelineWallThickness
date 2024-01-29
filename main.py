@@ -10,7 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import *
-from wallthicknessCalculation_copy.BUCKLINGCHECK.Installation import DataProcessor
+# from wallthicknessCalculation_copy.BUCKLINGCHECK.Installation import DataProcessor
 from wallthicknessCalculation.BUCKLINGCHECK.Installation import buck_installation
 from wallthicknessCalculation.BUCKLINGCHECK.shutdown import buck_shutdown
 
