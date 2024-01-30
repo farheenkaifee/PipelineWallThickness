@@ -827,7 +827,7 @@ class Ui_MainWindow(object):
         
 #............................... ALL FUNCTION IS STATED  BELOW THIS LINE  --------------------------
     def all(self):
-        print("Hello World..!!")
+        print("Hello World..!!") 
             
             
 
