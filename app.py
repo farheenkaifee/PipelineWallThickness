@@ -68,8 +68,9 @@ class Ui_MainWindow(object):
         self.analysis_modecombobox = QtWidgets.QComboBox(self.groupBox)
         self.analysis_modecombobox.setObjectName("analysis_modecombobox")
         self.analysis_modecombobox.addItem("")
-        self.analysis_modecombobox.addItem("")
-        self.analysis_modecombobox.addItem("")
+        # self.analysis_modecombobox.addItem("")
+        # self.analysis_modecombobox.addItem("")
+        self.analysis_modecombobox.setDisabled(True)
         self.horizontalLayout_36.addWidget(self.analysis_modecombobox)
         self.horizontalLayout_37.addLayout(self.horizontalLayout_36)
         self.horizontalLayout_42.addLayout(self.horizontalLayout_37)
@@ -829,7 +830,43 @@ class Ui_MainWindow(object):
 #............................... ALL FUNCTION IS STATED  BELOW THIS LINE  --------------------------
     def all(self):
         print("Hello World..!!")
-            
+        i = self.analysis_combobox.currentIndex()
+        print(i)
+        self.analysis_modecombobox.clear()
+        match  i :
+            case 1 :
+                print("Pressure")
+                self.analysis_modecombobox.setDisabled(False)
+                self.analysis_modecombobox.addItem("Select")
+                self.analysis_modecombobox.addItem("System Check")
+                self.analysis_modecombobox.addItem("Operation")
+                self.analysis_modecombobox.activated.connect(self.child)
+            case 2 :
+                print("Collapse")
+                self.analysis_modecombobox.setDisabled(False)
+                self.analysis_modecombobox.addItem("Select")
+                self.analysis_modecombobox.addItem("Installation Check")
+                self.analysis_modecombobox.addItem("Shut Down")
+                self.analysis_modecombobox.activated.connect(self.child)
+            case 3 :
+                print("Buckling")
+                self.analysis_modecombobox.setDisabled(False)
+                self.analysis_modecombobox.addItem("Select")
+                self.analysis_modecombobox.addItem("Installation Check")
+                self.analysis_modecombobox.addItem("Shut Down")
+                self.analysis_modecombobox.activated.connect(self.child)
+            case 0 :
+                print("No Selection")
+                self.analysis_modecombobox.setDisabled(True)
+                
+                
+        
+    def child(self):
+        i = self.analysis_modecombobox.currentIndex()
+        print(f"You have selected :  {i}")
+        
+        
+    
             
 
     def retranslateUi(self, MainWindow):
@@ -841,9 +878,9 @@ class Ui_MainWindow(object):
         self.analysis_combobox.setItemText(2, _translate("MainWindow", "External Pressure Collapse Check"))
         self.analysis_combobox.setItemText(3, _translate("MainWindow", "Propagation Buckling Check"))
         self.analysis_modelabel.setText(_translate("MainWindow", "Analysis Mode :"))
-        self.analysis_modecombobox.setItemText(0, _translate("MainWindow", "Select"))
-        self.analysis_modecombobox.setItemText(1, _translate("MainWindow", "System Check"))
-        self.analysis_modecombobox.setItemText(2, _translate("MainWindow", "Operation "))
+        self.analysis_modecombobox.setItemText(0, _translate("MainWindow", "Select          "))
+        self.analysis_modecombobox.setItemText(1, _translate("MainWindow", " "))
+        self.analysis_modecombobox.setItemText(2, _translate("MainWindow", " "))
         self.gradeLabel.setText(_translate("MainWindow", "Pipeline Grade :"))
         self.gradeComboBox.setItemText(0, _translate("MainWindow", "Select"))
         self.gradeComboBox.setItemText(1, _translate("MainWindow", "X42/L290"))
