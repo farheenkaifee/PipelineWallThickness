@@ -521,10 +521,10 @@ class Ui_MainWindow(object):
         self.horizontalLayout_39.addWidget(self.alpha_fab_label)
         self.alpha_fab_comboBox = QtWidgets.QComboBox(self.materialBox)
         self.alpha_fab_comboBox.setObjectName("alpha_fab_comboBox")
-        self.alpha_fab_comboBox.addItem("")
-        self.alpha_fab_comboBox.addItem("")
-        self.alpha_fab_comboBox.addItem("")
-        self.alpha_fab_comboBox.addItem("")
+        self.alpha_fab_comboBox.addItem("Select",["",""])
+        self.alpha_fab_comboBox.addItem("seamless",["1.00"])
+        self.alpha_fab_comboBox.addItem("UO,TRB,ERW and HFW",["0.93"])
+        self.alpha_fab_comboBox.addItem("seamless",["0.85"])
         self.horizontalLayout_39.addWidget(self.alpha_fab_comboBox)
         spacerItem52 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_39.addItem(spacerItem52)
@@ -826,6 +826,7 @@ class Ui_MainWindow(object):
 #................................ ALL LINKS  ARE HERE <------------------------------->
         self.analysis_combobox.activated.connect(self.all)
         self.gamma_m_comboBox.activated.connect(self.select_gamma_m)
+        self.alpha_fab_comboBox.activated.connect(self.select_alpha_fab)
         
 #............................... ALL FUNCTION IS STATED  BELOW THIS LINE  --------------------------
     def all(self):
@@ -874,6 +875,14 @@ class Ui_MainWindow(object):
         # print("Function is working")
         self.gamma_m_lineEdit.setText(data_gamma_m[0])
         print("gamma_m : ",data_gamma_m[0])
+        
+
+    def select_alpha_fab(self,index):
+       
+        data_alpha_fab = self.alpha_fab_comboBox.itemData(index)
+        
+        self.alpha_fab_lineEdit.setText(data_alpha_fab[0])
+        print("alpha_fab : ",data_alpha_fab[0])
         
         
     
