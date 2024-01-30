@@ -87,18 +87,18 @@ class Ui_MainWindow(object):
         self.horizontalLayout_38.addWidget(self.gradeLabel)
         self.gradeComboBox = QtWidgets.QComboBox(self.groupBox)
         self.gradeComboBox.setObjectName("gradeComboBox")
-        self.gradeComboBox.addItem("")
-        self.gradeComboBox.addItem("")
-        self.gradeComboBox.addItem("")
-        self.gradeComboBox.addItem("")
-        self.gradeComboBox.addItem("")
-        self.gradeComboBox.addItem("")
-        self.gradeComboBox.addItem("")
-        self.gradeComboBox.addItem("")
-        self.gradeComboBox.addItem("")
-        self.gradeComboBox.addItem("")
-        self.gradeComboBox.addItem("")
-        self.gradeComboBox.addItem("")
+        self.gradeComboBox.addItem("Select",["",""])
+        self.gradeComboBox.addItem("X42/L290",["290","415"])
+        self.gradeComboBox.addItem("X46/L320",['320',"435"])
+        self.gradeComboBox.addItem("X52/L360",['360','460'])
+        self.gradeComboBox.addItem("X56/L390",['390','490'])
+        self.gradeComboBox.addItem("X60/L415",['415','520'])
+        self.gradeComboBox.addItem("X65/L450",['450','535'])
+        self.gradeComboBox.addItem("X70/L485",['485','570'])
+        self.gradeComboBox.addItem("X80/L555",['555','625'])
+        self.gradeComboBox.addItem("X90/L625",['625','695'])
+        self.gradeComboBox.addItem("X100/L690",['690','760'])
+        self.gradeComboBox.addItem("X120/L830",['830','915'])
         self.horizontalLayout_38.addWidget(self.gradeComboBox)
         self.horizontalLayout_42.addLayout(self.horizontalLayout_38)
         self.gridLayout_2.addLayout(self.horizontalLayout_42, 0, 0, 1, 1)
@@ -826,6 +826,7 @@ class Ui_MainWindow(object):
 #................................ ALL LINKS  ARE HERE <------------------------------->
         self.analysis_combobox.activated.connect(self.all)
         self.gamma_m_comboBox.activated.connect(self.select_gamma_m)
+        self.gradeComboBox.activated.connect(self.select_GradePipeline)
         
 #............................... ALL FUNCTION IS STATED  BELOW THIS LINE  --------------------------
     def all(self):
@@ -864,6 +865,18 @@ class Ui_MainWindow(object):
     def child(self):
         i = self.analysis_modecombobox.currentIndex()
         print(f"You have selected :  {i}")
+
+
+    def select_GradePipeline(self,index):
+
+        
+        data_SMYS = self.gradeComboBox.itemData(index)
+        # UsTn_by_Hs_100 = float(data_100)
+        print("Function is working")
+        self.SMYS_lineEdit.setText(data_SMYS[0])
+        print("SMYS : ",data_SMYS[0])
+        self.SMTS_lineEdit.setText(data_SMYS[1])
+        print("SMPS :",data_SMYS[1])
     
     
     
@@ -888,7 +901,7 @@ class Ui_MainWindow(object):
         self.analysis_combobox.setItemText(2, _translate("MainWindow", "External Pressure Collapse Check"))
         self.analysis_combobox.setItemText(3, _translate("MainWindow", "Propagation Buckling Check"))
         self.analysis_modelabel.setText(_translate("MainWindow", "Analysis Mode :"))
-        self.analysis_modecombobox.setItemText(0, _translate("MainWindow", "Select          "))
+        self.analysis_modecombobox.setItemText(0, _translate("MainWindow", "Select                  "))
         self.analysis_modecombobox.setItemText(1, _translate("MainWindow", " "))
         self.analysis_modecombobox.setItemText(2, _translate("MainWindow", " "))
         self.gradeLabel.setText(_translate("MainWindow", "Pipeline Grade :"))
