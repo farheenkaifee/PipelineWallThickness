@@ -248,9 +248,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addItem(spacerItem22)
         self.gamma_m_comboBox = QtWidgets.QComboBox(self.loadsBox)
         self.gamma_m_comboBox.setObjectName("gamma_m_comboBox")
-        self.gamma_m_comboBox.addItem("")
-        self.gamma_m_comboBox.addItem("")
-        self.gamma_m_comboBox.addItem("")
+        self.gamma_m_comboBox.addItem("Select",["",""])
+        self.gamma_m_comboBox.addItem("SLS/ULS/ALS",["1.15"])
+        self.gamma_m_comboBox.addItem("FLS",["1.00"])
         self.horizontalLayout.addWidget(self.gamma_m_comboBox)
         spacerItem23 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem23)
@@ -824,6 +824,7 @@ class Ui_MainWindow(object):
         
 #................................ ALL LINKS  ARE HERE <------------------------------->
         self.analysis_combobox.activated.connect(self.all)
+        self.gamma_m_comboBox.activated.connect(self.select_gamma_m)
         
 #............................... ALL FUNCTION IS STATED  BELOW THIS LINE  --------------------------
     def all(self):
@@ -936,6 +937,17 @@ class Ui_MainWindow(object):
         self.actionMaximize.setShortcut(_translate("MainWindow", "Shift+M"))
         self.actionMinimize_Shift_N.setText(_translate("MainWindow", "Minimize"))
         self.actionMinimize_Shift_N.setShortcut(_translate("MainWindow", "Shift+N"))
+
+
+
+    def select_gamma_m(self,index):
+       
+        data_gamma_m = self.gamma_m_comboBox.itemData(index)
+        # UsTn_by_Hs_100 = float(data_100)
+        # print("Function is working")
+        self.gamma_m_lineEdit.setText(data_gamma_m[0])
+        print("gamma_m : ",data_gamma_m[0])
+
 
 
 if __name__ == "__main__":
