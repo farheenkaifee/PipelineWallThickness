@@ -1,7 +1,7 @@
-from ast import Str
+# from ast import Str
 from cmath import sqrt
 import math
-from cgitb import small
+# from cgitb import small
 from unittest import result
 import numpy as np  
 import numpy.polynomial.polynomial  as roots
