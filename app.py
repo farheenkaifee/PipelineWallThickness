@@ -864,6 +864,16 @@ class Ui_MainWindow(object):
     def child(self):
         i = self.analysis_modecombobox.currentIndex()
         print(f"You have selected :  {i}")
+    
+    
+    
+    def select_gamma_m(self,index):
+       
+        data_gamma_m = self.gamma_m_comboBox.itemData(index)
+        # UsTn_by_Hs_100 = float(data_100)
+        # print("Function is working")
+        self.gamma_m_lineEdit.setText(data_gamma_m[0])
+        print("gamma_m : ",data_gamma_m[0])
         
         
     
@@ -976,14 +986,6 @@ class Ui_MainWindow(object):
         self.actionMinimize_Shift_N.setShortcut(_translate("MainWindow", "Shift+N"))
 
 
-
-    def select_gamma_m(self,index):
-       
-        data_gamma_m = self.gamma_m_comboBox.itemData(index)
-        # UsTn_by_Hs_100 = float(data_100)
-        # print("Function is working")
-        self.gamma_m_lineEdit.setText(data_gamma_m[0])
-        print("gamma_m : ",data_gamma_m[0])
 
 
 
