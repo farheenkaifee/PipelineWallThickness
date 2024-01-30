@@ -820,6 +820,16 @@ class Ui_MainWindow(object):
         self.actionExit.triggered.connect(MainWindow.close) # type: ignore
         self.actionReset.triggered.connect(MainWindow.update) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        
+        
+#................................ ALL LINKS  ARE HERE <------------------------------->
+        self.analysis_combobox.activated.connect(self.all)
+        
+#............................... ALL FUNCTION IS STATED  BELOW THIS LINE  --------------------------
+    def all(self):
+        print("Hello World..!!")
+            
+            
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
