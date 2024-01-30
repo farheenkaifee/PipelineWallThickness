@@ -820,8 +820,6 @@ class Ui_MainWindow(object):
         self.actionExit.triggered.connect(MainWindow.close) # type: ignore
         self.actionReset.triggered.connect(MainWindow.update) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-<<<<<<< HEAD
-=======
         
         
 #................................ ALL LINKS  ARE HERE <------------------------------->
@@ -833,7 +831,6 @@ class Ui_MainWindow(object):
         print("Hello World..!!")
             
             
->>>>>>> wallThicknessUpdate
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -950,7 +947,6 @@ class Ui_MainWindow(object):
         # print("Function is working")
         self.gamma_m_lineEdit.setText(data_gamma_m[0])
         print("gamma_m : ",data_gamma_m[0])
-
 
 
 if __name__ == "__main__":
