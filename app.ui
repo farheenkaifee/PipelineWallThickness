@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1582</width>
-    <height>655</height>
+    <width>1470</width>
+    <height>746</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -71,7 +71,7 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_31">
              <item>
-              <widget class="QLabel" name="selectcheckLabel_2">
+              <widget class="QLabel" name="analysis_label">
                <property name="font">
                 <font>
                  <weight>75</weight>
@@ -84,7 +84,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QComboBox" name="selectcheckComboBox_2">
+              <widget class="QComboBox" name="analysis_combobox">
                <item>
                 <property name="text">
                  <string>Select</string>
@@ -128,7 +128,7 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_36">
              <item>
-              <widget class="QLabel" name="selectcheckLabel_3">
+              <widget class="QLabel" name="analysis_modelabel">
                <property name="font">
                 <font>
                  <weight>75</weight>
@@ -141,7 +141,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QComboBox" name="selectcheckComboBox_3">
+              <widget class="QComboBox" name="analysis_modecombobox">
                <item>
                 <property name="text">
                  <string>Select</string>
@@ -278,7 +278,7 @@
                  <string notr="true">selection-background-color: rgb(32, 47, 255);</string>
                 </property>
                 <property name="text">
-                 <string>Outer Diameter OD  [mm]</string>
+                 <string>Outer Diameter OD  [mm]     </string>
                 </property>
                </widget>
               </item>
@@ -301,7 +301,36 @@
              </layout>
             </item>
             <item>
+             <spacer name="horizontalSpacer_62">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::MinimumExpanding</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
              <layout class="QHBoxLayout" name="horizontalLayout_6">
+              <item>
+               <spacer name="horizontalSpacer_60">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
               <item>
                <spacer name="horizontalSpacer_13">
                 <property name="orientation">
@@ -321,7 +350,7 @@
                  <string notr="true">selection-background-color: rgb(32, 47, 255);</string>
                 </property>
                 <property name="text">
-                 <string>Nominal Wall Thickness tnom [mm]</string>
+                 <string>Nominal Wall Thickness tnom [mm]       </string>
                 </property>
                </widget>
               </item>
@@ -357,6 +386,22 @@
              </spacer>
             </item>
             <item>
+             <spacer name="horizontalSpacer_61">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::MinimumExpanding</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
              <layout class="QHBoxLayout" name="horizontalLayout_7">
               <item>
                <widget class="QLabel" name="tfab_label">
@@ -364,7 +409,7 @@
                  <string notr="true">selection-background-color: rgb(32, 47, 255);</string>
                 </property>
                 <property name="text">
-                 <string>Fabrication Thickness Tolerance tfab [mm]</string>
+                 <string>Fabrication Thickness Tolerance tfab [mm]        </string>
                 </property>
                </widget>
               </item>
@@ -387,6 +432,22 @@
              </layout>
             </item>
             <item>
+             <spacer name="horizontalSpacer_63">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Expanding</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
              <layout class="QHBoxLayout" name="horizontalLayout_8">
               <item>
                <spacer name="horizontalSpacer_15">
@@ -407,7 +468,7 @@
                  <string notr="true">selection-background-color: rgb(32, 47, 255);</string>
                 </property>
                 <property name="text">
-                 <string> Corrosion Allowance tcorr [mm]</string>
+                 <string> Corrosion Allowance tcorr [mm]            </string>
                 </property>
                </widget>
               </item>
@@ -430,6 +491,22 @@
              </layout>
             </item>
             <item>
+             <spacer name="horizontalSpacer_64">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Expanding</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
              <spacer name="horizontalSpacer_16">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
@@ -450,7 +527,7 @@
                  <string notr="true">selection-background-color: rgb(32, 47, 255);</string>
                 </property>
                 <property name="text">
-                 <string>Ovality of Pipe Oo [%]</string>
+                 <string>Ovality of Pipe Oo [%]     </string>
                 </property>
                </widget>
               </item>
@@ -488,7 +565,7 @@
            </spacer>
           </item>
           <item row="2" column="0">
-           <widget class="QLabel" name="label_16">
+           <widget class="QLabel" name="note_position">
             <property name="enabled">
              <bool>false</bool>
             </property>
@@ -505,7 +582,7 @@
            </widget>
           </item>
           <item row="0" column="0">
-           <widget class="QLabel" name="label_3">
+           <widget class="QLabel" name="dimension_label">
             <property name="font">
              <font>
               <weight>75</weight>
@@ -529,6 +606,19 @@
           <bool>true</bool>
          </property>
          <layout class="QGridLayout" name="gridLayout_4">
+          <item row="0" column="0">
+           <widget class="QLabel" name="LOAD_title">
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>LOADS</string>
+            </property>
+           </widget>
+          </item>
           <item row="0" column="1">
            <spacer name="horizontalSpacer_20">
             <property name="orientation">
@@ -542,33 +632,7 @@
             </property>
            </spacer>
           </item>
-          <item row="0" column="0">
-           <widget class="QLabel" name="label_5">
-            <property name="font">
-             <font>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>LOADS</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <spacer name="verticalSpacer_4">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="2" column="0" colspan="2">
+          <item row="1" column="0" colspan="2">
            <layout class="QHBoxLayout" name="horizontalLayout_14">
             <item>
              <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -580,7 +644,7 @@
                    <string notr="true">selection-background-color: rgb(32, 47, 255);</string>
                   </property>
                   <property name="text">
-                   <string>Design Pressure Pd [barg]     </string>
+                   <string>Design Pressure Pd [barg]                                                                           </string>
                   </property>
                  </widget>
                 </item>
@@ -603,19 +667,19 @@
                </layout>
               </item>
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_19">
+               <layout class="QHBoxLayout" name="horizontalLayout">
                 <item>
-                 <widget class="QLabel" name="Ptest_label">
+                 <widget class="QLabel" name="gamma_m_label">
                   <property name="styleSheet">
                    <string notr="true">selection-background-color: rgb(32, 47, 255);</string>
                   </property>
                   <property name="text">
-                   <string>Ptest [barg]</string>
+                   <string>Material Resistant Factor γm [- ]     </string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <spacer name="horizontalSpacer_28">
+                 <spacer name="horizontalSpacer_22">
                   <property name="orientation">
                    <enum>Qt::Horizontal</enum>
                   </property>
@@ -628,7 +692,42 @@
                  </spacer>
                 </item>
                 <item>
-                 <widget class="QLineEdit" name="Ptest_lineEdit"/>
+                 <widget class="QComboBox" name="gamma_m_comboBox">
+                  <item>
+                   <property name="text">
+                    <string>Select</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>SLS/ULS/ALS               </string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>FLS</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_21">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeType">
+                   <enum>QSizePolicy::Fixed</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="gamma_m_lineEdit"/>
                 </item>
                </layout>
               </item>
@@ -640,7 +739,7 @@
                    <string notr="true">selection-background-color: rgb(32, 47, 255);</string>
                   </property>
                   <property name="text">
-                   <string>Min Internal Pressure Pmin [barg]</string>
+                   <string>Min Internal Pressure Pmin [barg]                                                              </string>
                   </property>
                  </widget>
                 </item>
@@ -665,6 +764,35 @@
              </layout>
             </item>
             <item>
+             <spacer name="horizontalSpacer_23">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_32">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
              <layout class="QVBoxLayout" name="verticalLayout_6">
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_21">
@@ -674,7 +802,7 @@
                    <string notr="true">selection-background-color: rgb(32, 47, 255);</string>
                   </property>
                   <property name="text">
-                   <string>Elevation at Pressure Reference Level href [m]          </string>
+                   <string>Pressure Reference Level href [m]          </string>
                   </property>
                  </widget>
                 </item>
@@ -699,12 +827,12 @@
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_24">
                 <item>
-                 <widget class="QLabel" name="h_label">
+                 <widget class="QLabel" name="hl_label">
                   <property name="styleSheet">
                    <string notr="true">selection-background-color: rgb(32, 47, 255);</string>
                   </property>
                   <property name="text">
-                   <string>Elevation at Pressure Point h [m]               </string>
+                   <string>Elevation at Pressure Point hl [m]             </string>
                   </property>
                  </widget>
                 </item>
@@ -722,7 +850,7 @@
                  </spacer>
                 </item>
                 <item>
-                 <widget class="QLineEdit" name="h_lineEdit"/>
+                 <widget class="QLineEdit" name="hl_lineEdit"/>
                 </item>
                </layout>
               </item>
@@ -734,22 +862,9 @@
                    <string notr="true">selection-background-color: rgb(32, 47, 255);</string>
                   </property>
                   <property name="text">
-                   <string>Product Density ρcont [kg/m3]</string>
+                   <string>Product Density ρcont [kg/m3]                 </string>
                   </property>
                  </widget>
-                </item>
-                <item>
-                 <spacer name="horizontalSpacer_32">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>40</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
                 </item>
                 <item>
                  <widget class="QLineEdit" name="rho_cont_lineEdit"/>
@@ -757,6 +872,35 @@
                </layout>
               </item>
              </layout>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_26">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_39">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
             </item>
             <item>
              <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -798,7 +942,7 @@
                    <string notr="true">selection-background-color: rgb(32, 47, 255);</string>
                   </property>
                   <property name="text">
-                   <string>Design Pressure Ratio γinc [- ]    </string>
+                   <string>Design Pressure Ratio γinc [- ]          </string>
                   </property>
                  </widget>
                 </item>
@@ -828,7 +972,7 @@
                    <string notr="true">selection-background-color: rgb(32, 47, 255);</string>
                   </property>
                   <property name="text">
-                   <string> Min Water Depth WDmin [m]</string>
+                   <string> Min Water Depth WDmin [m]            </string>
                   </property>
                  </widget>
                 </item>
@@ -853,6 +997,35 @@
              </layout>
             </item>
             <item>
+             <spacer name="horizontalSpacer_49">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_28">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
              <layout class="QVBoxLayout" name="verticalLayout_8">
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_22">
@@ -862,7 +1035,7 @@
                    <string notr="true">selection-background-color: rgb(32, 47, 255);</string>
                   </property>
                   <property name="text">
-                   <string>Sea Water Density ρsea [kg/m3]</string>
+                   <string>Sea Water Density ρsea [kg/m3]     </string>
                   </property>
                  </widget>
                 </item>
@@ -922,7 +1095,7 @@
                    <string notr="true">selection-background-color: rgb(32, 47, 255);</string>
                   </property>
                   <property name="text">
-                   <string>Min elevation wrt MSL hmin [m]       </string>
+                   <string>Min elevation wrt MSL hmin [m]        </string>
                   </property>
                  </widget>
                 </item>
@@ -946,86 +1119,7 @@
               </item>
              </layout>
             </item>
-            <item>
-             <layout class="QVBoxLayout" name="verticalLayout_13">
-              <item>
-               <widget class="QLabel" name="gamma_m_label">
-                <property name="styleSheet">
-                 <string notr="true">selection-background-color: rgb(32, 47, 255);</string>
-                </property>
-                <property name="text">
-                 <string>Material Resistant Factor γm [- ]     </string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout">
-                <item>
-                 <widget class="QComboBox" name="gamma_m_comboBox">
-                  <item>
-                   <property name="text">
-                    <string>Select</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>SLS/ULS/ALS               </string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>FLS</string>
-                   </property>
-                  </item>
-                 </widget>
-                </item>
-                <item>
-                 <spacer name="horizontalSpacer_23">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>40</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-                <item>
-                 <widget class="QLineEdit" name="gamma_m_lineEdit"/>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <spacer name="verticalSpacer_3">
-                <property name="orientation">
-                 <enum>Qt::Vertical</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>20</width>
-                  <height>40</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-             </layout>
-            </item>
            </layout>
-          </item>
-          <item row="3" column="0">
-           <spacer name="verticalSpacer_5">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
           </item>
          </layout>
         </widget>
@@ -1040,7 +1134,7 @@
          </property>
          <layout class="QGridLayout" name="gridLayout_3">
           <item row="0" column="0">
-           <widget class="QLabel" name="label_4">
+           <widget class="QLabel" name="material_label">
             <property name="font">
              <font>
               <weight>75</weight>
@@ -1054,6 +1148,38 @@
           </item>
           <item row="1" column="0">
            <layout class="QGridLayout" name="gridLayout_7">
+            <item row="0" column="5">
+             <spacer name="horizontalSpacer_53">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="0" column="2">
+             <spacer name="horizontalSpacer_50">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
             <item row="0" column="0">
              <layout class="QVBoxLayout" name="verticalLayout_2">
               <item>
@@ -1064,12 +1190,25 @@
                    <string notr="true">selection-background-color: rgb(32, 47, 255);</string>
                   </property>
                   <property name="text">
-                   <string>SMYS [Mpa]</string>
+                   <string>SMYS [Mpa]     </string>
                   </property>
                  </widget>
                 </item>
                 <item>
                  <spacer name="horizontalSpacer_40">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_58">
                   <property name="orientation">
                    <enum>Qt::Horizontal</enum>
                   </property>
@@ -1094,12 +1233,25 @@
                    <string notr="true">selection-background-color: rgb(32, 47, 255);</string>
                   </property>
                   <property name="text">
-                   <string>SMTS [Mpa]</string>
+                   <string>SMTS [Mpa]     </string>
                   </property>
                  </widget>
                 </item>
                 <item>
                  <spacer name="horizontalSpacer_41">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_59">
                   <property name="orientation">
                    <enum>Qt::Horizontal</enum>
                   </property>
@@ -1134,7 +1286,7 @@
               </property>
              </spacer>
             </item>
-            <item row="0" column="2">
+            <item row="0" column="3">
              <layout class="QVBoxLayout" name="verticalLayout_3">
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_10">
@@ -1144,7 +1296,7 @@
                    <string notr="true">selection-background-color: rgb(32, 47, 255);</string>
                   </property>
                   <property name="text">
-                   <string>Yield Stress fy.temp [Mpa]</string>
+                   <string>Yield Stress fy.temp [Mpa]        </string>
                   </property>
                  </widget>
                 </item>
@@ -1198,7 +1350,7 @@
               </item>
              </layout>
             </item>
-            <item row="0" column="3">
+            <item row="0" column="4">
              <spacer name="horizontalSpacer_18">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
@@ -1214,7 +1366,7 @@
               </property>
              </spacer>
             </item>
-            <item row="0" column="4">
+            <item row="0" column="6">
              <layout class="QVBoxLayout" name="verticalLayout_4">
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_12">
@@ -1224,7 +1376,7 @@
                    <string notr="true">selection-background-color: rgb(32, 47, 255);</string>
                   </property>
                   <property name="text">
-                   <string>Young's Modulus E [Mpa]</string>
+                   <string>Young's Modulus E [Mpa]       </string>
                   </property>
                  </widget>
                 </item>
@@ -1254,7 +1406,7 @@
                    <string notr="true">selection-background-color: rgb(32, 47, 255);</string>
                   </property>
                   <property name="text">
-                   <string>Poission's Ratio v [-]    </string>
+                   <string>Poission's Ratio v [-]              </string>
                   </property>
                  </widget>
                 </item>
@@ -1278,7 +1430,7 @@
               </item>
              </layout>
             </item>
-            <item row="0" column="5">
+            <item row="0" column="7">
              <spacer name="horizontalSpacer_19">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
@@ -1294,7 +1446,7 @@
               </property>
              </spacer>
             </item>
-            <item row="0" column="6">
+            <item row="0" column="9">
              <layout class="QVBoxLayout" name="verticalLayout">
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_39">
@@ -1304,7 +1456,7 @@
                    <string notr="true">selection-background-color: rgb(32, 47, 255);</string>
                   </property>
                   <property name="text">
-                   <string>Max Fabrication Factor αfab     </string>
+                   <string>Max Fabrication Factor αfab       </string>
                   </property>
                  </widget>
                 </item>
@@ -1407,6 +1559,22 @@
               </item>
              </layout>
             </item>
+            <item row="0" column="8">
+             <spacer name="horizontalSpacer_57">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
            </layout>
           </item>
          </layout>
@@ -1428,7 +1596,7 @@
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_15">
                 <item>
-                 <widget class="QLabel" name="condition_label">
+                 <widget class="QLabel" name="safety_classlabel">
                   <property name="font">
                    <font>
                     <weight>75</weight>
@@ -1441,7 +1609,7 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QComboBox" name="condition_comboBox">
+                 <widget class="QComboBox" name="safety_classcombobox">
                   <item>
                    <property name="text">
                     <string>Select                     </string>
@@ -1512,7 +1680,7 @@
                      </spacer>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="WD_min_lineEdit_8"/>
+                     <widget class="QLineEdit" name="limitState_gamma_SCPC_lineedit"/>
                     </item>
                    </layout>
                   </item>
@@ -1542,7 +1710,7 @@
                      </spacer>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="WD_min_lineEdit_3"/>
+                     <widget class="QLineEdit" name="limitState_gamma_SCLB_lineedit"/>
                     </item>
                    </layout>
                   </item>
@@ -1571,7 +1739,7 @@
                        <string notr="true">selection-background-color: rgb(32, 47, 255);</string>
                       </property>
                       <property name="text">
-                       <string>αmpt                   </string>
+                       <string>Mill Pressure Test Factor αmpt                   </string>
                       </property>
                      </widget>
                     </item>
@@ -1589,7 +1757,7 @@
                      </spacer>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="WD_min_lineEdit_6"/>
+                     <widget class="QLineEdit" name="alpha_mpt_lineedit"/>
                     </item>
                    </layout>
                   </item>
@@ -1601,7 +1769,7 @@
                        <string notr="true">selection-background-color: rgb(32, 47, 255);</string>
                       </property>
                       <property name="text">
-                       <string>αspt                 </string>
+                       <string>System Pressure Test Factor αspt                 </string>
                       </property>
                      </widget>
                     </item>
@@ -1619,7 +1787,7 @@
                      </spacer>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="WD_min_lineEdit_7"/>
+                     <widget class="QLineEdit" name="alpha_spt_lineedit"/>
                     </item>
                    </layout>
                   </item>
@@ -1690,12 +1858,12 @@
                    </font>
                   </property>
                   <property name="text">
-                   <string>             Treq [mm]</string>
+                   <string>Min Req. Nominal Wall Thickness  tm [mm]</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLineEdit" name="treq_label_2"/>
+                 <widget class="QLineEdit" name="treq_lineedit"/>
                 </item>
                </layout>
               </item>
@@ -1710,12 +1878,12 @@
                    </font>
                   </property>
                   <property name="text">
-                   <string>               Utility [-]</string>
+                   <string>                              Utility Check</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLineEdit" name="utility_label_2"/>
+                 <widget class="QLineEdit" name="utility_lineedit"/>
                 </item>
                </layout>
               </item>
@@ -1740,7 +1908,7 @@
            </spacer>
           </item>
           <item row="0" column="0">
-           <widget class="QLabel" name="label_6">
+           <widget class="QLabel" name="DNV_Title">
             <property name="font">
              <font>
               <weight>75</weight>
@@ -1816,7 +1984,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1582</width>
+     <width>1470</width>
      <height>21</height>
     </rect>
    </property>
