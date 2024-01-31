@@ -543,9 +543,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout_43.addWidget(self.alpha_u_label)
         self.alpha_u_comboBox = QtWidgets.QComboBox(self.materialBox)
         self.alpha_u_comboBox.setObjectName("alpha_u_comboBox")
-        self.alpha_u_comboBox.addItem("Select",[" "])
-        self.alpha_u_comboBox.addItem("Normal",["0.96"])
-        self.alpha_u_comboBox.addItem("Supplementary requirement P",["1.00"])
+        self.alpha_u_comboBox.addItem("")
+        self.alpha_u_comboBox.addItem(" ")
+        self.alpha_u_comboBox.addItem(" ")
         self.alpha_u_comboBox.setEnabled(False)
         self.horizontalLayout_43.addWidget(self.alpha_u_comboBox)
         spacerItem53 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
@@ -899,7 +899,10 @@ class Ui_MainWindow(object):
     def child(self):
         i = self.analysis_modecombobox.currentIndex()
         print(f"You have selected :  {i}")
-
+        self.alpha_u_comboBox.clear()
+        
+ # Coding for combox box enabled & disabled according to the selected Analysis
+        
         match  i :
             case 1 :
                 print("case 1")
@@ -907,7 +910,7 @@ class Ui_MainWindow(object):
                 self.alpha_u_comboBox.setEnabled(True)
                 self.gamma_m_comboBox.setEnabled(True)
                 self.safety_classcombobox.setEnabled(True)
-                self.alpha_u_comboBox.clear()
+                
 
                 self.alpha_u_comboBox.addItem("Select",[" "])
                 self.alpha_u_comboBox.addItem("Normal",["1.00"])
@@ -918,6 +921,10 @@ class Ui_MainWindow(object):
                 self.alpha_u_comboBox.setEnabled(True)
                 self.gamma_m_comboBox.setEnabled(True)
                 self.safety_classcombobox.setEnabled(True)
+
+                self.alpha_u_comboBox.addItem("Select",[" "])
+                self.alpha_u_comboBox.addItem("Normal",["0.96"])
+                self.alpha_u_comboBox.addItem("Supplementary requirement P",["1.00"])
             
             case 0 :
                 print("case 0")
@@ -925,9 +932,16 @@ class Ui_MainWindow(object):
                 self.alpha_u_comboBox.setEnabled(False)
                 self.gamma_m_comboBox.setEnabled(False)
                 self.safety_classcombobox.setEnabled(False)
-        
-        
 
+             # For clearing lineedit connected with combo boxes when selection is null
+                   
+                self.alpha_u_lineEdit.clear()
+                self.alpha_fab_lineEdit.clear()
+                self.gamma_m_lineEdit.clear()
+                
+        
+        
+#  Functions for lineedits, automatically filled by activating combo boxes
 
     def select_GradePipeline(self,index):
 
