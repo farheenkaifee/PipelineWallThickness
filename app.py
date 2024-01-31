@@ -99,6 +99,7 @@ class Ui_MainWindow(object):
         self.gradeComboBox.addItem("X90/L625",['625','695'])
         self.gradeComboBox.addItem("X100/L690",['690','760'])
         self.gradeComboBox.addItem("X120/L830",['830','915'])
+        # self.gradeComboBox.setEnabled(False)
         self.horizontalLayout_38.addWidget(self.gradeComboBox)
         self.horizontalLayout_42.addLayout(self.horizontalLayout_38)
         self.gridLayout_2.addLayout(self.horizontalLayout_42, 0, 0, 1, 1)
