@@ -99,6 +99,7 @@ class Ui_MainWindow(object):
         self.gradeComboBox.addItem("X90/L625",['625','695'])
         self.gradeComboBox.addItem("X100/L690",['690','760'])
         self.gradeComboBox.addItem("X120/L830",['830','915'])
+        # self.gradeComboBox.setEnabled(False)
         self.horizontalLayout_38.addWidget(self.gradeComboBox)
         self.horizontalLayout_42.addLayout(self.horizontalLayout_38)
         self.gridLayout_2.addLayout(self.horizontalLayout_42, 0, 0, 1, 1)
@@ -252,6 +253,7 @@ class Ui_MainWindow(object):
         self.gamma_m_comboBox.addItem("Select",["",""])
         self.gamma_m_comboBox.addItem("SLS/ULS/ALS",["1.15"])
         self.gamma_m_comboBox.addItem("FLS",["1.00"])
+        self.gamma_m_comboBox.setEnabled(False)
         self.horizontalLayout.addWidget(self.gamma_m_comboBox)
         spacerItem23 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem23)
@@ -525,6 +527,7 @@ class Ui_MainWindow(object):
         self.alpha_fab_comboBox.addItem("seamless",["1.00"])
         self.alpha_fab_comboBox.addItem("UO,TRB,ERW and HFW",["0.93"])
         self.alpha_fab_comboBox.addItem("seamless",["0.85"])
+        self.alpha_fab_comboBox.setEnabled(False)
         self.horizontalLayout_39.addWidget(self.alpha_fab_comboBox)
         spacerItem52 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_39.addItem(spacerItem52)
@@ -540,9 +543,10 @@ class Ui_MainWindow(object):
         self.horizontalLayout_43.addWidget(self.alpha_u_label)
         self.alpha_u_comboBox = QtWidgets.QComboBox(self.materialBox)
         self.alpha_u_comboBox.setObjectName("alpha_u_comboBox")
-        self.alpha_u_comboBox.addItem("Select",["",""])
-        self.alpha_u_comboBox.addItem("Normal",["1.00"])
+        self.alpha_u_comboBox.addItem("Select",[" "])
+        self.alpha_u_comboBox.addItem("Normal",["0.96"])
         self.alpha_u_comboBox.addItem("Supplementary requirement P",["1.00"])
+        self.alpha_u_comboBox.setEnabled(False)
         self.horizontalLayout_43.addWidget(self.alpha_u_comboBox)
         spacerItem53 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_43.addItem(spacerItem53)
@@ -580,6 +584,7 @@ class Ui_MainWindow(object):
         self.safety_classcombobox.addItem("")
         self.safety_classcombobox.addItem("")
         self.safety_classcombobox.addItem("")
+        self.safety_classcombobox.setEnabled(False)
         self.horizontalLayout_15.addWidget(self.safety_classcombobox)
         spacerItem55 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_15.addItem(spacerItem55)
@@ -598,6 +603,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_50.addItem(spacerItem56)
         self.limitState_gamma_SCPC_lineedit = QtWidgets.QLineEdit(self.designfactorBox)
         self.limitState_gamma_SCPC_lineedit.setObjectName("limitState_gamma_SCPC_lineedit")
+        self.limitState_gamma_SCPC_lineedit.setEnabled(False)
         self.horizontalLayout_50.addWidget(self.limitState_gamma_SCPC_lineedit)
         self.verticalLayout_9.addLayout(self.horizontalLayout_50)
         self.horizontalLayout_41 = QtWidgets.QHBoxLayout()
@@ -610,6 +616,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_41.addItem(spacerItem57)
         self.limitState_gamma_SCLB_lineedit = QtWidgets.QLineEdit(self.designfactorBox)
         self.limitState_gamma_SCLB_lineedit.setObjectName("limitState_gamma_SCLB_lineedit")
+        self.limitState_gamma_SCLB_lineedit.setEnabled(False)
         self.horizontalLayout_41.addWidget(self.limitState_gamma_SCLB_lineedit)
         self.verticalLayout_9.addLayout(self.horizontalLayout_41)
         self.horizontalLayout_2.addLayout(self.verticalLayout_9)
@@ -627,6 +634,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_48.addItem(spacerItem59)
         self.alpha_mpt_lineedit = QtWidgets.QLineEdit(self.designfactorBox)
         self.alpha_mpt_lineedit.setObjectName("alpha_mpt_lineedit")
+        self.alpha_mpt_lineedit.setEnabled(False)
         self.horizontalLayout_48.addWidget(self.alpha_mpt_lineedit)
         self.verticalLayout_14.addLayout(self.horizontalLayout_48)
         self.horizontalLayout_49 = QtWidgets.QHBoxLayout()
@@ -639,6 +647,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_49.addItem(spacerItem60)
         self.alpha_spt_lineedit = QtWidgets.QLineEdit(self.designfactorBox)
         self.alpha_spt_lineedit.setObjectName("alpha_spt_lineedit")
+        self.alpha_spt_lineedit.setEnabled(False)
         self.horizontalLayout_49.addWidget(self.alpha_spt_lineedit)
         self.verticalLayout_14.addLayout(self.horizontalLayout_49)
         self.horizontalLayout_2.addLayout(self.verticalLayout_14)
@@ -827,6 +836,7 @@ class Ui_MainWindow(object):
         self.analysis_combobox.activated.connect(self.all)
         self.gamma_m_comboBox.activated.connect(self.select_gamma_m)
         self.alpha_fab_comboBox.activated.connect(self.select_alpha_fab)
+        self.alpha_u_comboBox.activated.connect(self.select_alpha_u)
         self.gradeComboBox.activated.connect(self.select_GradePipeline)
         self.alpha_u_comboBox.activated.connect(self.select_alpha_u)
         
@@ -843,6 +853,12 @@ class Ui_MainWindow(object):
                 self.analysis_modecombobox.addItem("Select")
                 self.analysis_modecombobox.addItem("System Check")
                 self.analysis_modecombobox.addItem("Operation")
+
+                self.limitState_gamma_SCPC_lineedit.setEnabled(True)
+                self.alpha_mpt_lineedit.setEnabled(True)
+                self.limitState_gamma_SCLB_lineedit.setEnabled(False)
+                self.alpha_spt_lineedit.setEnabled(False)
+
                 self.analysis_modecombobox.activated.connect(self.child)
                 
             case 2 :
@@ -851,6 +867,11 @@ class Ui_MainWindow(object):
                 self.analysis_modecombobox.addItem("Select")
                 self.analysis_modecombobox.addItem("Installation Check")
                 self.analysis_modecombobox.addItem("Shut Down")
+
+                self.limitState_gamma_SCLB_lineedit.setEnabled(True)
+                self.alpha_spt_lineedit.setEnabled(True)
+                self.limitState_gamma_SCPC_lineedit.setEnabled(False)
+                self.alpha_mpt_lineedit.setEnabled(False)
                 self.analysis_modecombobox.activated.connect(self.child)
             case 3 :
                 print("Buckling")
@@ -858,16 +879,54 @@ class Ui_MainWindow(object):
                 self.analysis_modecombobox.addItem("Select")
                 self.analysis_modecombobox.addItem("Installation Check")
                 self.analysis_modecombobox.addItem("Shut Down")
+
+                self.limitState_gamma_SCLB_lineedit.setEnabled(True)
+                self.alpha_spt_lineedit.setEnabled(True)
+                self.limitState_gamma_SCPC_lineedit.setEnabled(False)
+                self.alpha_mpt_lineedit.setEnabled(False)
+
                 self.analysis_modecombobox.activated.connect(self.child)
             case 0 :
                 print("No Selection")
                 self.analysis_modecombobox.setDisabled(True)
+                self.limitState_gamma_SCLB_lineedit.setEnabled(False)
+                self.alpha_spt_lineedit.setEnabled(False)
+                self.limitState_gamma_SCPC_lineedit.setEnabled(False)
+                self.alpha_mpt_lineedit.setEnabled(False)
                 
                 
         
     def child(self):
         i = self.analysis_modecombobox.currentIndex()
         print(f"You have selected :  {i}")
+
+        match  i :
+            case 1 :
+                print("case 1")
+                self.alpha_fab_comboBox.setEnabled(True)
+                self.alpha_u_comboBox.setEnabled(True)
+                self.gamma_m_comboBox.setEnabled(True)
+                self.safety_classcombobox.setEnabled(True)
+                self.alpha_u_comboBox.clear()
+
+                self.alpha_u_comboBox.addItem("Select",[" "])
+                self.alpha_u_comboBox.addItem("Normal",["1.00"])
+                self.alpha_u_comboBox.addItem("Supplementary requirement P",["1.00"])
+            case 2 :
+                print("case 2")
+                self.alpha_fab_comboBox.setEnabled(True)
+                self.alpha_u_comboBox.setEnabled(True)
+                self.gamma_m_comboBox.setEnabled(True)
+                self.safety_classcombobox.setEnabled(True)
+            
+            case 0 :
+                print("case 0")
+                self.alpha_fab_comboBox.setEnabled(False)
+                self.alpha_u_comboBox.setEnabled(False)
+                self.gamma_m_comboBox.setEnabled(False)
+                self.safety_classcombobox.setEnabled(False)
+        
+        
 
 
     def select_GradePipeline(self,index):
@@ -898,6 +957,13 @@ class Ui_MainWindow(object):
         
         self.alpha_fab_lineEdit.setText(data_alpha_fab[0])
         print("alpha_fab : ",data_alpha_fab[0])
+
+    def select_alpha_u(self,index):
+       
+        data_alpha_u = self.alpha_u_comboBox.itemData(index)
+        
+        self.alpha_u_lineEdit.setText(data_alpha_u[0])
+        print("alpha_u : ",data_alpha_u[0])
         
         
     def select_alpha_u(self,index):
