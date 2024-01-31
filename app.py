@@ -910,9 +910,7 @@ class Ui_MainWindow(object):
                 self.safety_classcombobox.setEnabled(True)
                 
 
-                self.alpha_u_comboBox.addItem("Select",[" "])
-                self.alpha_u_comboBox.addItem("Normal",["1.00"])
-                self.alpha_u_comboBox.addItem("Supplementary requirement P",["1.00"])
+               
             case 2 :
                 print("case 2")
                 self.alpha_fab_comboBox.setEnabled(True)
@@ -920,9 +918,7 @@ class Ui_MainWindow(object):
                 self.gamma_m_comboBox.setEnabled(True)
                 self.safety_classcombobox.setEnabled(True)
 
-                self.alpha_u_comboBox.addItem("Select",[" "])
-                self.alpha_u_comboBox.addItem("Normal",["0.96"])
-                self.alpha_u_comboBox.addItem("Supplementary requirement P",["1.00"])
+                
             
             case 0 :
                 print("case 0")
@@ -994,7 +990,7 @@ class Ui_MainWindow(object):
         self.analysis_modecombobox.setItemText(1, _translate("MainWindow", " "))
         self.analysis_modecombobox.setItemText(2, _translate("MainWindow", " "))
         self.gradeLabel.setText(_translate("MainWindow", "Pipeline Grade :"))
-        self.gradeComboBox.setItemText(0, _translate("MainWindow", "Select"))
+        self.gradeComboBox.setItemText(0, _translate("MainWindow", "Select        "))
         self.gradeComboBox.setItemText(1, _translate("MainWindow", "X42/L290"))
         self.gradeComboBox.setItemText(2, _translate("MainWindow", "X46/L320"))
         self.gradeComboBox.setItemText(3, _translate("MainWindow", "X52/L360"))
