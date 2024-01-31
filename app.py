@@ -540,9 +540,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout_43.addWidget(self.alpha_u_label)
         self.alpha_u_comboBox = QtWidgets.QComboBox(self.materialBox)
         self.alpha_u_comboBox.setObjectName("alpha_u_comboBox")
-        self.alpha_u_comboBox.addItem("")
-        self.alpha_u_comboBox.addItem("")
-        self.alpha_u_comboBox.addItem("")
+        self.alpha_u_comboBox.addItem("Select",["",""])
+        self.alpha_u_comboBox.addItem("Normal",["1.00"])
+        self.alpha_u_comboBox.addItem("Supplementary requirement P",["1.00"])
         self.horizontalLayout_43.addWidget(self.alpha_u_comboBox)
         spacerItem53 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_43.addItem(spacerItem53)
@@ -828,6 +828,7 @@ class Ui_MainWindow(object):
         self.gamma_m_comboBox.activated.connect(self.select_gamma_m)
         self.alpha_fab_comboBox.activated.connect(self.select_alpha_fab)
         self.gradeComboBox.activated.connect(self.select_GradePipeline)
+        self.alpha_u_comboBox.activated.connect(self.select_alpha_u)
         
 #............................... ALL FUNCTION IS STATED  BELOW THIS LINE  --------------------------
     def all(self):
@@ -898,7 +899,12 @@ class Ui_MainWindow(object):
         print("alpha_fab : ",data_alpha_fab[0])
         
         
-    
+    def select_alpha_u(self,index):
+       
+        data_alpha_u = self.alpha_u_comboBox.itemData(index)
+        
+        self.alpha_u_lineEdit.setText(data_alpha_u[0])
+        print("alpha_u : ",data_alpha_u[0])
             
 
     def retranslateUi(self, MainWindow):
