@@ -603,6 +603,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_50.addItem(spacerItem56)
         self.limitState_gamma_SCPC_lineedit = QtWidgets.QLineEdit(self.designfactorBox)
         self.limitState_gamma_SCPC_lineedit.setObjectName("limitState_gamma_SCPC_lineedit")
+        self.limitState_gamma_SCPC_lineedit.setEnabled(False)
         self.horizontalLayout_50.addWidget(self.limitState_gamma_SCPC_lineedit)
         self.verticalLayout_9.addLayout(self.horizontalLayout_50)
         self.horizontalLayout_41 = QtWidgets.QHBoxLayout()
@@ -615,6 +616,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_41.addItem(spacerItem57)
         self.limitState_gamma_SCLB_lineedit = QtWidgets.QLineEdit(self.designfactorBox)
         self.limitState_gamma_SCLB_lineedit.setObjectName("limitState_gamma_SCLB_lineedit")
+        self.limitState_gamma_SCLB_lineedit.setEnabled(False)
         self.horizontalLayout_41.addWidget(self.limitState_gamma_SCLB_lineedit)
         self.verticalLayout_9.addLayout(self.horizontalLayout_41)
         self.horizontalLayout_2.addLayout(self.verticalLayout_9)
@@ -632,6 +634,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_48.addItem(spacerItem59)
         self.alpha_mpt_lineedit = QtWidgets.QLineEdit(self.designfactorBox)
         self.alpha_mpt_lineedit.setObjectName("alpha_mpt_lineedit")
+        self.alpha_mpt_lineedit.setEnabled(False)
         self.horizontalLayout_48.addWidget(self.alpha_mpt_lineedit)
         self.verticalLayout_14.addLayout(self.horizontalLayout_48)
         self.horizontalLayout_49 = QtWidgets.QHBoxLayout()
@@ -644,6 +647,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_49.addItem(spacerItem60)
         self.alpha_spt_lineedit = QtWidgets.QLineEdit(self.designfactorBox)
         self.alpha_spt_lineedit.setObjectName("alpha_spt_lineedit")
+        self.alpha_spt_lineedit.setEnabled(False)
         self.horizontalLayout_49.addWidget(self.alpha_spt_lineedit)
         self.verticalLayout_14.addLayout(self.horizontalLayout_49)
         self.horizontalLayout_2.addLayout(self.verticalLayout_14)
@@ -847,6 +851,12 @@ class Ui_MainWindow(object):
                 self.analysis_modecombobox.addItem("Select")
                 self.analysis_modecombobox.addItem("System Check")
                 self.analysis_modecombobox.addItem("Operation")
+
+                self.limitState_gamma_SCPC_lineedit.setEnabled(True)
+                self.alpha_mpt_lineedit.setEnabled(True)
+                self.limitState_gamma_SCLB_lineedit.setEnabled(False)
+                self.alpha_spt_lineedit.setEnabled(False)
+
                 self.analysis_modecombobox.activated.connect(self.child)
             case 2 :
                 print("Collapse")
@@ -854,6 +864,11 @@ class Ui_MainWindow(object):
                 self.analysis_modecombobox.addItem("Select")
                 self.analysis_modecombobox.addItem("Installation Check")
                 self.analysis_modecombobox.addItem("Shut Down")
+
+                self.limitState_gamma_SCLB_lineedit.setEnabled(True)
+                self.alpha_spt_lineedit.setEnabled(True)
+                self.limitState_gamma_SCPC_lineedit.setEnabled(False)
+                self.alpha_mpt_lineedit.setEnabled(False)
                 self.analysis_modecombobox.activated.connect(self.child)
             case 3 :
                 print("Buckling")
@@ -861,10 +876,20 @@ class Ui_MainWindow(object):
                 self.analysis_modecombobox.addItem("Select")
                 self.analysis_modecombobox.addItem("Installation Check")
                 self.analysis_modecombobox.addItem("Shut Down")
+
+                self.limitState_gamma_SCLB_lineedit.setEnabled(True)
+                self.alpha_spt_lineedit.setEnabled(True)
+                self.limitState_gamma_SCPC_lineedit.setEnabled(False)
+                self.alpha_mpt_lineedit.setEnabled(False)
+
                 self.analysis_modecombobox.activated.connect(self.child)
             case 0 :
                 print("No Selection")
                 self.analysis_modecombobox.setDisabled(True)
+                self.limitState_gamma_SCLB_lineedit.setEnabled(False)
+                self.alpha_spt_lineedit.setEnabled(False)
+                self.limitState_gamma_SCPC_lineedit.setEnabled(False)
+                self.alpha_mpt_lineedit.setEnabled(False)
                 
                 
         
