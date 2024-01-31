@@ -838,6 +838,7 @@ class Ui_MainWindow(object):
         self.alpha_fab_comboBox.activated.connect(self.select_alpha_fab)
         self.alpha_u_comboBox.activated.connect(self.select_alpha_u)
         self.gradeComboBox.activated.connect(self.select_GradePipeline)
+        self.alpha_u_comboBox.activated.connect(self.select_alpha_u)
         
 #............................... ALL FUNCTION IS STATED  BELOW THIS LINE  --------------------------
     def all(self):
@@ -859,6 +860,7 @@ class Ui_MainWindow(object):
                 self.alpha_spt_lineedit.setEnabled(False)
 
                 self.analysis_modecombobox.activated.connect(self.child)
+                
             case 2 :
                 print("Collapse")
                 self.analysis_modecombobox.setDisabled(False)
@@ -908,9 +910,21 @@ class Ui_MainWindow(object):
                 self.alpha_u_comboBox.setEnabled(True)
                 self.gamma_m_comboBox.setEnabled(True)
                 self.safety_classcombobox.setEnabled(True)
+                self.alpha_u_comboBox.addItem("Select",[" "])
                 
+                if (self.analysis_modecombobox.currentText() == "System Check"):
+                    print("Systyem check")
+                
+                    self.alpha_u_comboBox.addItem("Normal",["1.00"])
+                    self.alpha_u_comboBox.addItem("Supplementary requirement P",["1.00"])
 
-               
+                else:
+                    self.alpha_u_comboBox.addItem("Normal",["0.96"])
+                    self.alpha_u_comboBox.addItem("Supplementary requirement P",["1.00"])
+
+                # self.alpha_u_comboBox.addItem("Select",[" "])
+                # self.alpha_u_comboBox.addItem("Normal",["1.00"])
+                # self.alpha_u_comboBox.addItem("Supplementary requirement P",["1.00"])
             case 2 :
                 print("case 2")
                 self.alpha_fab_comboBox.setEnabled(True)
@@ -974,7 +988,12 @@ class Ui_MainWindow(object):
         print("alpha_u : ",data_alpha_u[0])
         
         
-    
+    def select_alpha_u(self,index):
+       
+        data_alpha_u = self.alpha_u_comboBox.itemData(index)
+        
+        self.alpha_u_lineEdit.setText(data_alpha_u[0])
+        print("alpha_u : ",data_alpha_u[0])
             
 
     def retranslateUi(self, MainWindow):
