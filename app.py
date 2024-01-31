@@ -252,6 +252,7 @@ class Ui_MainWindow(object):
         self.gamma_m_comboBox.addItem("Select",["",""])
         self.gamma_m_comboBox.addItem("SLS/ULS/ALS",["1.15"])
         self.gamma_m_comboBox.addItem("FLS",["1.00"])
+        self.gamma_m_comboBox.setEnabled(False)
         self.horizontalLayout.addWidget(self.gamma_m_comboBox)
         spacerItem23 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem23)
@@ -543,6 +544,7 @@ class Ui_MainWindow(object):
         self.alpha_u_comboBox.addItem("")
         self.alpha_u_comboBox.addItem("")
         self.alpha_u_comboBox.addItem("")
+        self.alpha_u_comboBox.setEnabled(False)
         self.horizontalLayout_43.addWidget(self.alpha_u_comboBox)
         spacerItem53 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_43.addItem(spacerItem53)
@@ -580,6 +582,7 @@ class Ui_MainWindow(object):
         self.safety_classcombobox.addItem("")
         self.safety_classcombobox.addItem("")
         self.safety_classcombobox.addItem("")
+        self.safety_classcombobox.setEnabled(False)
         self.horizontalLayout_15.addWidget(self.safety_classcombobox)
         spacerItem55 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_15.addItem(spacerItem55)
@@ -866,6 +869,29 @@ class Ui_MainWindow(object):
     def child(self):
         i = self.analysis_modecombobox.currentIndex()
         print(f"You have selected :  {i}")
+
+        match  i :
+            case 1 :
+                print("Pressure")
+                self.alpha_fab_comboBox.setEnabled(True)
+                self.alpha_u_comboBox.setEnabled(True)
+                self.gamma_m_comboBox.setEnabled(True)
+                self.safety_classcombobox.setEnabled(True)
+            case 2 :
+                print("Collapse")
+                self.alpha_fab_comboBox.setEnabled(True)
+                self.alpha_u_comboBox.setEnabled(True)
+                self.gamma_m_comboBox.setEnabled(True)
+                self.safety_classcombobox.setEnabled(True)
+            
+            case 0 :
+                print("No Selection")
+                self.alpha_fab_comboBox.setEnabled(False)
+                self.alpha_u_comboBox.setEnabled(False)
+                self.gamma_m_comboBox.setEnabled(False)
+                self.safety_classcombobox.setEnabled(False)
+        
+        
 
 
     def select_GradePipeline(self,index):
