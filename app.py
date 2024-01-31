@@ -844,6 +844,7 @@ class Ui_MainWindow(object):
                 self.analysis_modecombobox.addItem("System Check")
                 self.analysis_modecombobox.addItem("Operation")
                 self.analysis_modecombobox.activated.connect(self.child)
+                
             case 2 :
                 print("Collapse")
                 self.analysis_modecombobox.setDisabled(False)
