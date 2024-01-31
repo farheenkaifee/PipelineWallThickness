@@ -526,6 +526,7 @@ class Ui_MainWindow(object):
         self.alpha_fab_comboBox.addItem("seamless",["1.00"])
         self.alpha_fab_comboBox.addItem("UO,TRB,ERW and HFW",["0.93"])
         self.alpha_fab_comboBox.addItem("seamless",["0.85"])
+        self.alpha_fab_comboBox.setEnabled(False)
         self.horizontalLayout_39.addWidget(self.alpha_fab_comboBox)
         spacerItem52 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_39.addItem(spacerItem52)
@@ -872,20 +873,20 @@ class Ui_MainWindow(object):
 
         match  i :
             case 1 :
-                print("Pressure")
+                print("case 1")
                 self.alpha_fab_comboBox.setEnabled(True)
                 self.alpha_u_comboBox.setEnabled(True)
                 self.gamma_m_comboBox.setEnabled(True)
                 self.safety_classcombobox.setEnabled(True)
             case 2 :
-                print("Collapse")
+                print("case 2")
                 self.alpha_fab_comboBox.setEnabled(True)
                 self.alpha_u_comboBox.setEnabled(True)
                 self.gamma_m_comboBox.setEnabled(True)
                 self.safety_classcombobox.setEnabled(True)
             
             case 0 :
-                print("No Selection")
+                print("case 0")
                 self.alpha_fab_comboBox.setEnabled(False)
                 self.alpha_u_comboBox.setEnabled(False)
                 self.gamma_m_comboBox.setEnabled(False)
