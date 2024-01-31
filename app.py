@@ -922,15 +922,17 @@ class Ui_MainWindow(object):
                     self.alpha_u_comboBox.addItem("Normal",["0.96"])
                     self.alpha_u_comboBox.addItem("Supplementary requirement P",["1.00"])
 
-                # self.alpha_u_comboBox.addItem("Select",[" "])
-                # self.alpha_u_comboBox.addItem("Normal",["1.00"])
-                # self.alpha_u_comboBox.addItem("Supplementary requirement P",["1.00"])
+            
             case 2 :
                 print("case 2")
                 self.alpha_fab_comboBox.setEnabled(True)
                 self.alpha_u_comboBox.setEnabled(True)
                 self.gamma_m_comboBox.setEnabled(True)
                 self.safety_classcombobox.setEnabled(True)
+
+                self.alpha_u_comboBox.addItem("Select",[" "])
+                self.alpha_u_comboBox.addItem("Normal",["0.96"])
+                self.alpha_u_comboBox.addItem("Supplementary requirement P",["1.00"])
 
                 
             
