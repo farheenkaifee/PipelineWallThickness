@@ -839,9 +839,40 @@ class Ui_MainWindow(object):
         self.alpha_u_comboBox.activated.connect(self.select_alpha_u)
         self.gradeComboBox.activated.connect(self.select_GradePipeline)
         self.alpha_u_comboBox.activated.connect(self.select_alpha_u)
+<<<<<<< HEAD
         self.safety_classcombobox.activated.connect(self.select_safety_class)
+=======
+
+        self.calculateButton.clicked.connect(self.process_values)
+>>>>>>> wallThicknessUpdate
         
+
+
 #............................... ALL FUNCTION IS STATED  BELOW THIS LINE  --------------------------
+
+    def process_values(self,UC_buck):
+        OuterDiameter_OD = float(self.OD_lineEdit.text()) 
+        print(OuterDiameter_OD) 
+        t_nom = float(self.tnom_lineEdit.text()) 
+        print(t_nom)
+        t_fab = float(self.tfab_lineEdit.text()) 
+        print(t_fab)
+        t_corr = float(self.tcorr_lineEdit.text()) 
+        print(t_corr)
+        oo = float(self.Oo_lineEdit.text()) 
+        print(oo)
+        smys = float(self.SMYS_lineEdit.text()) 
+        print(smys)
+        smts = float(self.SMTS_lineEdit.text()) 
+        print(smts)
+        fy_temp = float(self.fytemp_lineEdit.text()) 
+        print(fy_temp)
+        fu_temp = float(self.futemp_lineEdit.text()) 
+        print(fu_temp)
+        fu_temp = float(self.futemp_lineEdit.text()) 
+        print(fu_temp)
+
+
     def all(self):
         i = self.analysis_combobox.currentIndex()
         self.analysis_modecombobox.clear()
