@@ -911,6 +911,10 @@ class Ui_MainWindow(object):
 
                 self.limitState_gamma_SCPC_lineedit.clear()
 
+                self.alpha_spt_lineedit.clear()
+
+                self.limitState_gamma_SCLB_lineedit.clear()
+
                 self.analysis_modecombobox.activated.connect(self.child)
             case 3 :
                 # print("Buckling")
@@ -927,6 +931,10 @@ class Ui_MainWindow(object):
                 self.alpha_mpt_lineedit.clear()
 
                 self.limitState_gamma_SCPC_lineedit.clear()
+
+                self.alpha_spt_lineedit.clear()
+
+                self.limitState_gamma_SCLB_lineedit.clear()
 
 
                 self.analysis_modecombobox.activated.connect(self.child)
