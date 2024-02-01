@@ -856,9 +856,11 @@ class Ui_MainWindow(object):
                 self.limitState_gamma_SCPC_lineedit.setEnabled(True)
                 self.alpha_mpt_lineedit.setEnabled(True)
                 self.limitState_gamma_SCLB_lineedit.setEnabled(False)
-                self.limitState_gamma_SCLB_lineedit.clear()
                 self.alpha_spt_lineedit.setEnabled(False)
+
                 self.alpha_spt_lineedit.clear()
+
+                self.limitState_gamma_SCLB_lineedit.clear()
 
                 self.analysis_modecombobox.activated.connect(self.child)
                 
@@ -873,6 +875,11 @@ class Ui_MainWindow(object):
                 self.alpha_spt_lineedit.setEnabled(True)
                 self.limitState_gamma_SCPC_lineedit.setEnabled(False)
                 self.alpha_mpt_lineedit.setEnabled(False)
+
+                self.alpha_mpt_lineedit.clear()
+
+                self.limitState_gamma_SCPC_lineedit.clear()
+
                 self.analysis_modecombobox.activated.connect(self.child)
             case 3 :
                 # print("Buckling")
@@ -885,6 +892,11 @@ class Ui_MainWindow(object):
                 self.alpha_spt_lineedit.setEnabled(True)
                 self.limitState_gamma_SCPC_lineedit.setEnabled(False)
                 self.alpha_mpt_lineedit.setEnabled(False)
+
+                self.alpha_mpt_lineedit.clear()
+
+                self.limitState_gamma_SCPC_lineedit.clear()
+
 
                 self.analysis_modecombobox.activated.connect(self.child)
             case 0 :
@@ -1015,9 +1027,8 @@ class Ui_MainWindow(object):
                 self.limitState_gamma_SCPC_lineedit.setText(data_safetyClass[0])
 
                 self.alpha_mpt_lineedit.setText(data_safetyClass[2])
-                self.alpha_spt_lineedit.clear()
 
-                self.limitState_gamma_SCLB_lineedit.clear()
+               
 
               
                 
@@ -1026,11 +1037,6 @@ class Ui_MainWindow(object):
                 self.limitState_gamma_SCLB_lineedit.setText(data_safetyClass[1])
 
                 self.alpha_spt_lineedit.setText(data_safetyClass[3])
-
-                self.alpha_mpt_lineedit.clear()
-
-                self.limitState_gamma_SCPC_lineedit.clear()
-
               
             case 3 :
                 # print("Buckling")
@@ -1038,10 +1044,7 @@ class Ui_MainWindow(object):
 
                 self.alpha_spt_lineedit.setText(data_safetyClass[3])
 
-                self.alpha_mpt_lineedit.clear()
-
-                self.limitState_gamma_SCPC_lineedit.clear()
-
+                
             case 0 :
                 # print("No Selection")
 
