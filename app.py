@@ -839,12 +839,9 @@ class Ui_MainWindow(object):
         self.alpha_u_comboBox.activated.connect(self.select_alpha_u)
         self.gradeComboBox.activated.connect(self.select_GradePipeline)
         self.alpha_u_comboBox.activated.connect(self.select_alpha_u)
-<<<<<<< HEAD
         self.safety_classcombobox.activated.connect(self.select_safety_class)
-=======
 
         self.calculateButton.clicked.connect(self.process_values)
->>>>>>> wallThicknessUpdate
         
 
 
