@@ -870,8 +870,14 @@ class Ui_MainWindow(object):
         print("E ",E)
         v = float(self.v_lineEdit.text()) 
         print("v ",v)
+        alpha_fab = float(self.alpha_fab_lineEdit.text()) 
+        print("alpha_fab ",alpha_fab)
+        alpha_u = float(self.alpha_u_lineEdit.text()) 
+        print("alpha_u ",alpha_u)
         Pd = float(self.Pd_lineEdit.text()) 
         print("Pd ",Pd)
+        gamma_m = float(self.gamma_m_lineEdit.text()) 
+        print("gamma_m ",gamma_m)
         Pmin = float(self.Pmin_lineEdit.text()) 
         print("Pmin ",Pmin)
         href = float(self.href_lineEdit.text()) 
@@ -892,6 +898,15 @@ class Ui_MainWindow(object):
         print("hmax ",hmax)
         hmin = float(self.hmin_lineEdit.text()) 
         print("hmin ",hmin)
+
+        gamma_SCPC = float(self.limitState_gamma_SCPC_lineedit.text()) 
+        print("gamma_SCPC ",gamma_SCPC)
+        gamma_SCLB = float(self.limitState_gamma_SCLB_lineedit.text()) 
+        print("gamma_SCLB ",gamma_SCLB)
+        alpha_spt = float(self.alpha_spt_lineedit.text()) 
+        print("alpha_spt ",alpha_spt)
+        alpha_mpt = float(self.alpha_mpt_lineedit.text()) 
+        print("alpha_mpt ",alpha_mpt)
        
 
 
