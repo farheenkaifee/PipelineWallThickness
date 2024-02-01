@@ -899,14 +899,14 @@ class Ui_MainWindow(object):
         hmin = float(self.hmin_lineEdit.text()) 
         print("hmin ",hmin)
 
-        gamma_SCPC = float(self.limitState_gamma_SCPC_lineedit.text()) 
-        print("gamma_SCPC ",gamma_SCPC)
-        gamma_SCLB = float(self.limitState_gamma_SCLB_lineedit.text()) 
-        print("gamma_SCLB ",gamma_SCLB)
-        alpha_spt = float(self.alpha_spt_lineedit.text()) 
-        print("alpha_spt ",alpha_spt)
-        alpha_mpt = float(self.alpha_mpt_lineedit.text()) 
-        print("alpha_mpt ",alpha_mpt)
+        # gamma_SCPC = float(self.limitState_gamma_SCPC_lineedit.text()) 
+        # print("gamma_SCPC ",gamma_SCPC)
+        # gamma_SCLB = float(self.limitState_gamma_SCLB_lineedit.text()) 
+        # print("gamma_SCLB ",gamma_SCLB)
+        # alpha_spt = float(self.alpha_spt_lineedit.text()) 
+        # print("alpha_spt ",alpha_spt)
+        # alpha_mpt = float(self.alpha_mpt_lineedit.text()) 
+        # print("alpha_mpt ",alpha_mpt)
        
 
 
