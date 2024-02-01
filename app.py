@@ -1009,48 +1009,56 @@ class Ui_MainWindow(object):
 
         data_safetyClass = self.safety_classcombobox.itemData(index)
         i = self.analysis_combobox.currentIndex()
-        match  i :
-            case 1 :
-                # print("Pressure")
-                self.limitState_gamma_SCPC_lineedit.setText(data_safetyClass[0])
+        j = self.analysis_modecombobox.currentIndex()
 
-                self.alpha_mpt_lineedit.setText(data_safetyClass[2])
-                self.alpha_spt_lineedit.clear()
 
-                self.limitState_gamma_SCLB_lineedit.clear()
+        if(j == 0):
+            print("First Select Analysis mode")
 
-              
+        else:
+
+            match  i :
+                case 1 :
+                    # print("Pressure")
+                    self.limitState_gamma_SCPC_lineedit.setText(data_safetyClass[0])
+
+                    self.alpha_mpt_lineedit.setText(data_safetyClass[2])
+                    self.alpha_spt_lineedit.clear()
+
+                    self.limitState_gamma_SCLB_lineedit.clear()
+
                 
-            case 2 :
-                # print("Collapse")
-                self.limitState_gamma_SCLB_lineedit.setText(data_safetyClass[1])
+                    
+                case 2 :
+                    # print("Collapse")
+                    self.limitState_gamma_SCLB_lineedit.setText(data_safetyClass[1])
 
-                self.alpha_spt_lineedit.setText(data_safetyClass[3])
+                    self.alpha_spt_lineedit.setText(data_safetyClass[3])
 
-                self.alpha_mpt_lineedit.clear()
+                    self.alpha_mpt_lineedit.clear()
 
-                self.limitState_gamma_SCPC_lineedit.clear()
+                    self.limitState_gamma_SCPC_lineedit.clear()
 
-              
-            case 3 :
-                # print("Buckling")
-                self.limitState_gamma_SCLB_lineedit.setText(data_safetyClass[1])
-
-                self.alpha_spt_lineedit.setText(data_safetyClass[3])
-
-                self.alpha_mpt_lineedit.clear()
-
-                self.limitState_gamma_SCPC_lineedit.clear()
-
-            case 0 :
-                # print("No Selection")
-
-                self.alpha_mpt_lineedit.clear()
-                self.alpha_spt_lineedit.clear()
-                self.limitState_gamma_SCPC_lineedit.clear()
-                self.limitState_gamma_SCLB_lineedit.clear()
                 
-            
+                case 3 :
+                    # print("Buckling")
+                    self.limitState_gamma_SCLB_lineedit.setText(data_safetyClass[1])
+
+                    self.alpha_spt_lineedit.setText(data_safetyClass[3])
+
+                    self.alpha_mpt_lineedit.clear()
+
+                    self.limitState_gamma_SCPC_lineedit.clear()
+
+                case 0 :
+                    # print("No Selection")
+
+                    self.alpha_mpt_lineedit.clear()
+                    self.alpha_spt_lineedit.clear()
+                    self.limitState_gamma_SCPC_lineedit.clear()
+                    self.limitState_gamma_SCLB_lineedit.clear()
+                    
+                
 
 
 
