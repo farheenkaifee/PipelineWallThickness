@@ -580,10 +580,10 @@ class Ui_MainWindow(object):
         self.horizontalLayout_15.addWidget(self.safety_classlabel)
         self.safety_classcombobox = QtWidgets.QComboBox(self.designfactorBox)
         self.safety_classcombobox.setObjectName("safety_classcombobox")
-        self.safety_classcombobox.addItem("")
-        self.safety_classcombobox.addItem("")
-        self.safety_classcombobox.addItem("")
-        self.safety_classcombobox.addItem("")
+        self.safety_classcombobox.addItem("Select",[""," "," "," "])
+        self.safety_classcombobox.addItem("Low",["1.046","1.04","1.000","1.03"])
+        self.safety_classcombobox.addItem("Medium",["1.138","1.14","1.088","1.05"])
+        self.safety_classcombobox.addItem("High",["1.308","1.26","1.251","1.05"])
         self.safety_classcombobox.setEnabled(False)
         self.horizontalLayout_15.addWidget(self.safety_classcombobox)
         spacerItem55 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.Minimum)
@@ -839,16 +839,15 @@ class Ui_MainWindow(object):
         self.alpha_u_comboBox.activated.connect(self.select_alpha_u)
         self.gradeComboBox.activated.connect(self.select_GradePipeline)
         self.alpha_u_comboBox.activated.connect(self.select_alpha_u)
+        self.safety_classcombobox.activated.connect(self.select_safety_class)
         
 #............................... ALL FUNCTION IS STATED  BELOW THIS LINE  --------------------------
     def all(self):
-        print("Hello World..!!")
         i = self.analysis_combobox.currentIndex()
-        print(i)
         self.analysis_modecombobox.clear()
         match  i :
             case 1 :
-                print("Pressure")
+                # print("Pressure")
                 self.analysis_modecombobox.setDisabled(False)
                 self.analysis_modecombobox.addItem("Select")
                 self.analysis_modecombobox.addItem("System Check")
@@ -857,12 +856,14 @@ class Ui_MainWindow(object):
                 self.limitState_gamma_SCPC_lineedit.setEnabled(True)
                 self.alpha_mpt_lineedit.setEnabled(True)
                 self.limitState_gamma_SCLB_lineedit.setEnabled(False)
+                self.limitState_gamma_SCLB_lineedit.clear()
                 self.alpha_spt_lineedit.setEnabled(False)
+                self.alpha_spt_lineedit.clear()
 
                 self.analysis_modecombobox.activated.connect(self.child)
                 
             case 2 :
-                print("Collapse")
+                # print("Collapse")
                 self.analysis_modecombobox.setDisabled(False)
                 self.analysis_modecombobox.addItem("Select")
                 self.analysis_modecombobox.addItem("Installation Check")
@@ -874,7 +875,7 @@ class Ui_MainWindow(object):
                 self.alpha_mpt_lineedit.setEnabled(False)
                 self.analysis_modecombobox.activated.connect(self.child)
             case 3 :
-                print("Buckling")
+                # print("Buckling")
                 self.analysis_modecombobox.setDisabled(False)
                 self.analysis_modecombobox.addItem("Select")
                 self.analysis_modecombobox.addItem("Installation Check")
@@ -887,12 +888,17 @@ class Ui_MainWindow(object):
 
                 self.analysis_modecombobox.activated.connect(self.child)
             case 0 :
-                print("No Selection")
+                # print("No Selection")
                 self.analysis_modecombobox.setDisabled(True)
                 self.limitState_gamma_SCLB_lineedit.setEnabled(False)
                 self.alpha_spt_lineedit.setEnabled(False)
                 self.limitState_gamma_SCPC_lineedit.setEnabled(False)
                 self.alpha_mpt_lineedit.setEnabled(False)
+
+                self.alpha_fab_comboBox.setEnabled(False)
+                self.alpha_u_comboBox.setEnabled(False)
+                self.gamma_m_comboBox.setEnabled(False)
+                self.safety_classcombobox.setEnabled(False)
                 
                 
         
@@ -905,7 +911,7 @@ class Ui_MainWindow(object):
         
         match  i :
             case 1 :
-                print("case 1")
+                # print("case 1")
                 self.alpha_fab_comboBox.setEnabled(True)
                 self.alpha_u_comboBox.setEnabled(True)
                 self.gamma_m_comboBox.setEnabled(True)
@@ -913,7 +919,7 @@ class Ui_MainWindow(object):
                 self.alpha_u_comboBox.addItem("Select",[" "])
                 
                 if (self.analysis_modecombobox.currentText() == "System Check"):
-                    print("Systyem check")
+                    # print("Systyem check")
                 
                     self.alpha_u_comboBox.addItem("Normal",["1.00"])
                     self.alpha_u_comboBox.addItem("Supplementary requirement P",["1.00"])
@@ -924,7 +930,7 @@ class Ui_MainWindow(object):
 
             
             case 2 :
-                print("case 2")
+                # print("case 2")
                 self.alpha_fab_comboBox.setEnabled(True)
                 self.alpha_u_comboBox.setEnabled(True)
                 self.gamma_m_comboBox.setEnabled(True)
@@ -937,7 +943,7 @@ class Ui_MainWindow(object):
                 
             
             case 0 :
-                print("case 0")
+                # print("case 0")
                 self.alpha_fab_comboBox.setEnabled(False)
                 self.alpha_u_comboBox.setEnabled(False)
                 self.gamma_m_comboBox.setEnabled(False)
@@ -962,7 +968,7 @@ class Ui_MainWindow(object):
         self.SMYS_lineEdit.setText(data_SMYS[0])
         print("SMYS : ",data_SMYS[0])
         self.SMTS_lineEdit.setText(data_SMYS[1])
-        print("SMPS :",data_SMYS[1])
+        # print("SMPS :",data_SMYS[1])
     
     
     
@@ -972,7 +978,7 @@ class Ui_MainWindow(object):
         # UsTn_by_Hs_100 = float(data_100)
         # print("Function is working")
         self.gamma_m_lineEdit.setText(data_gamma_m[0])
-        print("gamma_m : ",data_gamma_m[0])
+        # print("gamma_m : ",data_gamma_m[0])
         
 
     def select_alpha_fab(self,index):
@@ -980,14 +986,14 @@ class Ui_MainWindow(object):
         data_alpha_fab = self.alpha_fab_comboBox.itemData(index)
         
         self.alpha_fab_lineEdit.setText(data_alpha_fab[0])
-        print("alpha_fab : ",data_alpha_fab[0])
+        # print("alpha_fab : ",data_alpha_fab[0])
 
     def select_alpha_u(self,index):
        
         data_alpha_u = self.alpha_u_comboBox.itemData(index)
         
         self.alpha_u_lineEdit.setText(data_alpha_u[0])
-        print("alpha_u : ",data_alpha_u[0])
+        # print("alpha_u : ",data_alpha_u[0])
         
         
     def select_alpha_u(self,index):
@@ -995,7 +1001,59 @@ class Ui_MainWindow(object):
         data_alpha_u = self.alpha_u_comboBox.itemData(index)
         
         self.alpha_u_lineEdit.setText(data_alpha_u[0])
-        print("alpha_u : ",data_alpha_u[0])
+        # print("alpha_u : ",data_alpha_u[0])
+
+
+
+    def select_safety_class(self,index):
+
+        data_safetyClass = self.safety_classcombobox.itemData(index)
+        i = self.analysis_combobox.currentIndex()
+        match  i :
+            case 1 :
+                # print("Pressure")
+                self.limitState_gamma_SCPC_lineedit.setText(data_safetyClass[0])
+
+                self.alpha_mpt_lineedit.setText(data_safetyClass[2])
+                self.alpha_spt_lineedit.clear()
+
+                self.limitState_gamma_SCLB_lineedit.clear()
+
+              
+                
+            case 2 :
+                # print("Collapse")
+                self.limitState_gamma_SCLB_lineedit.setText(data_safetyClass[1])
+
+                self.alpha_spt_lineedit.setText(data_safetyClass[3])
+
+                self.alpha_mpt_lineedit.clear()
+
+                self.limitState_gamma_SCPC_lineedit.clear()
+
+              
+            case 3 :
+                # print("Buckling")
+                self.limitState_gamma_SCLB_lineedit.setText(data_safetyClass[1])
+
+                self.alpha_spt_lineedit.setText(data_safetyClass[3])
+
+                self.alpha_mpt_lineedit.clear()
+
+                self.limitState_gamma_SCPC_lineedit.clear()
+
+            case 0 :
+                # print("No Selection")
+
+                self.alpha_mpt_lineedit.clear()
+                self.alpha_spt_lineedit.clear()
+                self.limitState_gamma_SCPC_lineedit.clear()
+                self.limitState_gamma_SCLB_lineedit.clear()
+                
+            
+
+
+
             
 
     def retranslateUi(self, MainWindow):
@@ -1064,9 +1122,9 @@ class Ui_MainWindow(object):
         self.alpha_u_comboBox.setItemText(2, _translate("MainWindow", "Supplementry requirement P"))
         self.safety_classlabel.setText(_translate("MainWindow", "Safety Class : "))
         self.safety_classcombobox.setItemText(0, _translate("MainWindow", "Select                     "))
-        self.safety_classcombobox.setItemText(1, _translate("MainWindow", "High"))
+        self.safety_classcombobox.setItemText(1, _translate("MainWindow", "Low"))
         self.safety_classcombobox.setItemText(2, _translate("MainWindow", "Medium"))
-        self.safety_classcombobox.setItemText(3, _translate("MainWindow", "Low"))
+        self.safety_classcombobox.setItemText(3, _translate("MainWindow", "High"))
         self.limitState_gamma_SCPC_label.setText(_translate("MainWindow", "Limit State  γSCPC"))
         self.limitState_gamma_SCLB_label.setText(_translate("MainWindow", "Limit State  γSCLB"))
         self.alpha_mpt_label.setText(_translate("MainWindow", "Mill Pressure Test Factor αmpt                   "))
