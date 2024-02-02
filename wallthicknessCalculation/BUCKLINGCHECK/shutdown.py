@@ -7,13 +7,70 @@ import numpy as np
 import numpy.polynomial.polynomial  as roots
 
 
-def buck_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,ptest_value,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,
-        Density_of_relevant_test_medium_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Max_Water_Depth_WDmax,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Min_Elevation_wrt_MSL_hmin,Plt):
-    
-        Material_Strength_Factor_alpha_u = 1
+def buckling_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Safety_Class_RF_gamma_SCLB,Mill_Pressure_Test_Factor_alpha_mpt,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m,System_Pressure_Test_Factor_alpha_spt):
+    # return print("Collapsecheck Installation..!!!")
+        
+        # Material_Strength_Factor_alpha_u = 1
         Gravity_of_Acceleration_g = 9.81
-        Pressure_testFactor_gamma_SC_LB = 1
-        Pressure_testFactor_gamma_m = 1
+        # Pressure_testFactor_gamma_SC_LB = 1.04
+        # Pressure_testFactor_gamma_m = 1.15
+        ρemp = 0
+
+        Outside_Diameter_OD = float(Outside_Diameter_OD) 
+        # print(Outside_Diameter_OD) 
+        Nominal_Wall_Thickness_tnom = float(Nominal_Wall_Thickness_tnom) 
+        # print("t_nom  ", Nominal_Wall_Thickness_tnom)
+        Fabrication_Thickness_Tolerance_tfab = float(Fabrication_Thickness_Tolerance_tfab) 
+        # print("t_fab ", Fabrication_Thickness_Tolerance_tfab)
+        Corrosion_Allowance_tcorr = float(Corrosion_Allowance_tcorr) 
+        # print("t_corr",Corrosion_Allowance_tcorr)
+        Ovality_of_Pipe_Oo = float(Ovality_of_Pipe_Oo) 
+        # print("oo ",Ovality_of_Pipe_Oo)
+        SMYS_σsmys = float(SMYS_σsmys) 
+        # print("smys ",SMYS_σsmys)
+        SMTS_σsmts = float(SMTS_σsmts) 
+        # print("smts ",SMTS_σsmts)
+        Derating_value_temp_yieldStress_fy_temp = float(Derating_value_temp_yieldStress_fy_temp) 
+        # print("fy_temp ",Derating_value_temp_yieldStress_fy_temp)
+        Derating_value_temp_tensileStress_fu_temp = float(Derating_value_temp_tensileStress_fu_temp) 
+        # print("fu_temp ",Derating_value_temp_tensileStress_fu_temp)
+        Youngs_Modulus_E = float(Youngs_Modulus_E) 
+        # print("E ",Youngs_Modulus_E)
+        Poission_s_Ratio_ν = float(Poission_s_Ratio_ν) 
+        # print("v ",Poission_s_Ratio_ν)
+        Maximum_Fabrication_Factor_alpha_fab = float(Maximum_Fabrication_Factor_alpha_fab) 
+        # print("alpha_fab ",Maximum_Fabrication_Factor_alpha_fab)
+        Material_Strength_Factor_alpha_u = float(Material_Strength_Factor_alpha_u) 
+        # print("alpha_u ",Material_Strength_Factor_alpha_u)
+        Pd = float(Pd) 
+        # print("Pd ",Pd)
+        Material_resistant_factor_gamma_m = float(Material_resistant_factor_gamma_m) 
+        # print("gamma_m ",Material_resistant_factor_gamma_m)
+        Pmin = float(Pmin) 
+        # print("Pmin ",Pmin)
+        Elevation_at_Pressure_Reference_Level_href = float(Elevation_at_Pressure_Reference_Level_href) 
+        # print("href ",Elevation_at_Pressure_Reference_Level_href)
+        Elevation_level_at_Pressure_Point_hl = float(Elevation_level_at_Pressure_Point_hl) 
+        # print("hl ",Elevation_level_at_Pressure_Point_hl)
+        Product_Density_ρcont = float(Product_Density_ρcont) 
+        # print("rho_cont ",Product_Density_ρcont)
+        Hydrotest_Water_Density_ρt = float(Hydrotest_Water_Density_ρt) 
+        # print("rho_t ",Hydrotest_Water_Density_ρt)
+        Incidental_to_Design_Pressure_Ratio_gamma_inc = float(Incidental_to_Design_Pressure_Ratio_gamma_inc) 
+        # print("gamma_inc ",Incidental_to_Design_Pressure_Ratio_gamma_inc)
+        Water_Depth_WD = float(Water_Depth_WD) 
+        # print("WDmin ",Water_Depth_WD)
+        Sea_Water_Density_ρsea = float(Sea_Water_Density_ρsea) 
+        # print("rho_sea ",Sea_Water_Density_ρsea)
+        Max_Elevation_wrt_MSL_hmax = float(Max_Elevation_wrt_MSL_hmax)
+        # print("hmin ",Min_Elevation_wrt_MSL_hmin)
+
+        Safety_Class_RF_gamma_SCLB = float(Safety_Class_RF_gamma_SCLB) 
+        # print("gamma_SCPC ",Safety_Class_RF_gamma_SCPC)
+        
+        Mill_Pressure_Test_Factor_alpha_mpt = float(Mill_Pressure_Test_Factor_alpha_mpt) 
+
+        System_Pressure_Test_Factor_alpha_spt = float(System_Pressure_Test_Factor_alpha_spt)
 
 
 
@@ -33,7 +90,7 @@ def buck_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_
         # print("\n\t****...Environmental Data....****")
 
         
-        Depth = float(Max_Water_Depth_WDmax + Max_Elevation_wrt_MSL_hmax)
+        Depth = float(Water_Depth_WD + Max_Elevation_wrt_MSL_hmax)
         print(Depth)
 
         
@@ -71,7 +128,7 @@ def buck_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_
         # print("Pb_t1",Pb_t1)
         Pt = float(1.155*Pd)
         print("Pt",Pt)
-        Plt = float(Pt-((Density_of_relevant_test_medium_ρt*Gravity_of_Acceleration_g*(Elevation_level_at_Pressure_Point_hl-Elevation_at_Pressure_Reference_Level_href))/10**6))
+        Plt = float(Pt-((Hydrotest_Water_Density_ρt*Gravity_of_Acceleration_g*(Elevation_level_at_Pressure_Point_hl-Elevation_at_Pressure_Reference_Level_href))/10**6))
         print("Plt",Plt)
         # Pmpt = float(Constant_for_Mill_Pressure_test_k*((2*Measured_Minimum_Thickness_for_Test_Pressure_t1)/(Outside_Diameter_OD-Measured_Minimum_Thickness_for_Test_Pressure_t1))*min(SMYS_σsmys*0.96,SMTS_σsmts*0.84))
         # print(Pmpt)
@@ -89,7 +146,7 @@ def buck_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_
 
         # print("_______EXTERNAL PRESSURE COLLAPSE CHECK___________")
         # Pmin = float(input("Enter Minimum Internal pressure : "))
-        γSC_LB = Pressure_testFactor_gamma_SC_LB
+        γSC_LB = Safety_Class_RF_gamma_SCLB
 
         # System_Collapse_Check_Pc_ti  = 8.7
 
@@ -134,13 +191,13 @@ def buck_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_
         Pc_t1_3 = result[2]
         print(Pc_t1_1,Pc_t1_2,Pc_t1_3)
 
-        Collapse_Pressure_result_1 = float(Pc_t1_1/(Pressure_testFactor_gamma_m*γSC_LB))
+        Collapse_Pressure_result_1 = float(Pc_t1_1/(Material_resistant_factor_gamma_m*γSC_LB))
         print(Collapse_Pressure_result_1)
 
-        Collapse_Pressure_result_2 = float(Pc_t1_2/(Pressure_testFactor_gamma_m*γSC_LB))
+        Collapse_Pressure_result_2 = float(Pc_t1_2/(Material_resistant_factor_gamma_m*γSC_LB))
         print(Collapse_Pressure_result_2)
 
-        Collapse_Pressure_result_3 = float(Pc_t1_3/(Pressure_testFactor_gamma_m*γSC_LB))
+        Collapse_Pressure_result_3 = float(Pc_t1_3/(Material_resistant_factor_gamma_m*γSC_LB))
         print(Collapse_Pressure_result_3)
 
         Collapse_Pressure_result_list = []
@@ -162,7 +219,7 @@ def buck_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_
         print(min(smallNumber_2))
 
 
-        if(Pe-Pmin <= min(smallNumber_2)/(Pressure_testFactor_gamma_m*γSC_LB)):
+        if(Pe-Pmin <= min(smallNumber_2)/(Material_resistant_factor_gamma_m*γSC_LB)):
 
             Pel_t =  float(2*Youngs_Modulus_E*((Measured_Minimum_Thickness_for_Test_Pressure_t1/Outside_Diameter_OD)**3))/(1-Poission_s_Ratio_ν**2)
             print(Pel_t)
@@ -218,7 +275,7 @@ def buck_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_
         print("UC_buck",UC_buck)
 
         # PBuckle
-        if(Pe <= Effective_wall_Thickness_Ppr_t2/(Pressure_testFactor_gamma_m*γSC_LB)):
+        if(Pe <= Effective_wall_Thickness_Ppr_t2/(Material_resistant_factor_gamma_m*γSC_LB)):
             print("Wall Thickness Accepted")
         else:
             print("Redesign Wall Thickness, considering" ,t2, "mm thickness")
