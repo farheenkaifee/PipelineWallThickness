@@ -854,6 +854,9 @@ class Ui_MainWindow(object):
 
         self.calculateButton.clicked.connect(self.process_values)
         
+        
+        self.actionSave_As.activate.connect(self.saveAs)
+        
 
 
 #............................... ALL FUNCTION IS STATED  BELOW THIS LINE  --------------------------
@@ -1251,6 +1254,11 @@ class Ui_MainWindow(object):
                     self.alpha_spt_lineedit.clear()
                     self.limitState_gamma_SCPC_lineedit.clear()
                     self.limitState_gamma_SCLB_lineedit.clear()
+    
+    
+    
+    def saveAs(self):
+        print("Saving file....!!!")
                     
                 
 
