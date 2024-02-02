@@ -77,7 +77,7 @@ def collapse_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabricat
 
         # print("___________________PIPELINE INPUTS___________________")
 
-        Measured_Minimum_Thickness_for_Test_Pressure_t1 = (Nominal_Wall_Thickness_tnom - Fabrication_Thickness_Tolerance_tfab - Corrosion_Allowance_tcorr)
+        Measured_Minimum_Thickness_for_Test_Pressure_t1 = round((Nominal_Wall_Thickness_tnom - Fabrication_Thickness_Tolerance_tfab - Corrosion_Allowance_tcorr),3)
         print(f"Measured Minimum Thickness for Test Pressure : {Measured_Minimum_Thickness_for_Test_Pressure_t1}")
 
 
@@ -90,7 +90,7 @@ def collapse_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabricat
         # print("\n\t****...Environmental Data....****")
 
         
-        Depth = float(Water_Depth_WD + Max_Elevation_wrt_MSL_hmax)
+        Depth = round(float(Water_Depth_WD + Max_Elevation_wrt_MSL_hmax),3)
         print(Depth)
 
         
@@ -105,30 +105,30 @@ def collapse_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabricat
 
         # print("_________________STRESSES_______________________")
 
-        fy= float(SMYS_σsmys-Derating_value_temp_yieldStress_fy_temp)*Material_Strength_Factor_alpha_u
+        fy= round(float((SMYS_σsmys-Derating_value_temp_yieldStress_fy_temp)*Material_Strength_Factor_alpha_u),3)
         print("fy",fy)
-        fu=float(SMTS_σsmts-Derating_value_temp_tensileStress_fu_temp)*Material_Strength_Factor_alpha_u
+        fu=round(float((SMTS_σsmts-Derating_value_temp_tensileStress_fu_temp)*Material_Strength_Factor_alpha_u),3)
         print("fu",fu)
-        fcb=min(fy,(fu/1.15))
+        fcb=round(min(fy,(fu/1.15)),3)
         print("fcb",fcb)
 
 
         # print("__________________________________PRESSURE_____________________________")
 
         # Pd = float(input("Enter Design Pressure Pd: ")) 
-        Pinc = float(Incidental_to_Design_Pressure_Ratio_gamma_inc * Pd)
+        Pinc = round(float(Incidental_to_Design_Pressure_Ratio_gamma_inc * Pd),3)
         print(Pinc)
 
         # ρemp = float(input("Enter Design for empty state : ")) 
-        Pli = float(Pinc-(Product_Density_ρcont*Gravity_of_Acceleration_g*(Elevation_level_at_Pressure_Point_hl-Elevation_at_Pressure_Reference_Level_href)))
+        Pli = round(float(Pinc-(Product_Density_ρcont*Gravity_of_Acceleration_g*(Elevation_level_at_Pressure_Point_hl-Elevation_at_Pressure_Reference_Level_href))),3)
         print("Pli",Pli)
-        Pe = float(((Sea_Water_Density_ρsea*Gravity_of_Acceleration_g*Depth))/1000000)
+        Pe = round(float(((Sea_Water_Density_ρsea*Gravity_of_Acceleration_g*Depth))/1000000),3)
         print("Pe",Pe)
         # Pb_t1 = float((2*Measured_Minimum_Thickness_for_Test_Pressure_t1)/(Outside_Diameter_OD-Measured_Minimum_Thickness_for_Test_Pressure_t1) * fcb * 2/(math.sqrt(3)))
         # print("Pb_t1",Pb_t1)
-        Pt = float(1.155*Pd)
+        Pt = round(float(1.155*Pd),3)
         print("Pt",Pt)
-        Plt = float(Pt-((Hydrotest_Water_Density_ρt*Gravity_of_Acceleration_g*(Elevation_level_at_Pressure_Point_hl-Elevation_at_Pressure_Reference_Level_href))/10**6))
+        Plt = round(float(Pt-((Hydrotest_Water_Density_ρt*Gravity_of_Acceleration_g*(Elevation_level_at_Pressure_Point_hl-Elevation_at_Pressure_Reference_Level_href))/10**6)),3)
         print("Plt",Plt)
         # Pmpt = float(Constant_for_Mill_Pressure_test_k*((2*Measured_Minimum_Thickness_for_Test_Pressure_t1)/(Outside_Diameter_OD-Measured_Minimum_Thickness_for_Test_Pressure_t1))*min(SMYS_σsmys*0.96,SMTS_σsmts*0.84))
         # print(Pmpt)
@@ -137,10 +137,10 @@ def collapse_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabricat
 
         # #Section A : SHUT DOWN CHECKS
         # print("------------SHUT DOWN CHECK--------------")
-        t1 = float(Nominal_Wall_Thickness_tnom - Fabrication_Thickness_Tolerance_tfab - Corrosion_Allowance_tcorr)
+        t1 = round(float(Nominal_Wall_Thickness_tnom - Fabrication_Thickness_Tolerance_tfab - Corrosion_Allowance_tcorr),3)
         print("t1",t1)
 
-        t2 = float(Nominal_Wall_Thickness_tnom - Corrosion_Allowance_tcorr)
+        t2 = round(float(Nominal_Wall_Thickness_tnom - Corrosion_Allowance_tcorr),3)
         print("t2", t2)
 
 
@@ -152,22 +152,22 @@ def collapse_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabricat
 
         # (Pe <= Pb_t1/(Pressure_testFactor_gamma_m*γSC_LB))
 
-        Pel_t1 =  float(2*Youngs_Modulus_E*((Measured_Minimum_Thickness_for_Test_Pressure_t1/Outside_Diameter_OD)**3))/(1-Poission_s_Ratio_ν**2)
+        Pel_t1 =  round(float(2*Youngs_Modulus_E*((Measured_Minimum_Thickness_for_Test_Pressure_t1/Outside_Diameter_OD)**3))/(1-Poission_s_Ratio_ν**2),3)
         print("Pel_t1",Pel_t1)
 
-        Pp_t1 = float(fy*Maximum_Fabrication_Factor_alpha_fab*2*(Measured_Minimum_Thickness_for_Test_Pressure_t1/Outside_Diameter_OD))
+        Pp_t1 = round(float(fy*Maximum_Fabrication_Factor_alpha_fab*2*(Measured_Minimum_Thickness_for_Test_Pressure_t1/Outside_Diameter_OD)),3)
         print("Pp_t1",Pp_t1)
 
         # Ovality_Oo = 0.02
 
         # [System_Collapse_Check_Pc_ti-Pel_t][(System_Collapse_Check_Pc_ti)**2-Pp_t]
-        Collapse_Pressure_y1 = float(Pel_t1*Pp_t1*Ovality_of_Pipe_Oo*(Outside_Diameter_OD/t2))
+        Collapse_Pressure_y1 = round(float(Pel_t1*Pp_t1*Ovality_of_Pipe_Oo*(Outside_Diameter_OD/t2)),3)
         print("Collapse_Pressure_y1",Collapse_Pressure_y1)
 
-        Collapse_Pressure_Pp_t_sq = float((Pp_t1)**2)
+        Collapse_Pressure_Pp_t_sq = round(float((Pp_t1)**2),3)
         print("Collapse_Pressure_Pp_t_sq",Collapse_Pressure_Pp_t_sq)
 
-        Collapse_Pressure_y2 = float(Pel_t1*Collapse_Pressure_Pp_t_sq)
+        Collapse_Pressure_y2 = round(float(Pel_t1*Collapse_Pressure_Pp_t_sq),3)
         print("Collapse_Pressure_y2",Collapse_Pressure_y2)
 
         s = (Collapse_Pressure_y2,-(Collapse_Pressure_Pp_t_sq+Collapse_Pressure_y1), -Pel_t1,1)
@@ -191,13 +191,13 @@ def collapse_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabricat
         Pc_t1_3 = result[2]
         print(Pc_t1_1,Pc_t1_2,Pc_t1_3)
 
-        Collapse_Pressure_result_1 = float(Pc_t1_1/(Material_resistant_factor_gamma_m*γSC_LB))
+        Collapse_Pressure_result_1 = round(float(Pc_t1_1/(Material_resistant_factor_gamma_m*γSC_LB)),3)
         print(Collapse_Pressure_result_1)
 
-        Collapse_Pressure_result_2 = float(Pc_t1_2/(Material_resistant_factor_gamma_m*γSC_LB))
+        Collapse_Pressure_result_2 = round(float(Pc_t1_2/(Material_resistant_factor_gamma_m*γSC_LB)),3)
         print(Collapse_Pressure_result_2)
 
-        Collapse_Pressure_result_3 = float(Pc_t1_3/(Material_resistant_factor_gamma_m*γSC_LB))
+        Collapse_Pressure_result_3 = round(float(Pc_t1_3/(Material_resistant_factor_gamma_m*γSC_LB)),3)
         print(Collapse_Pressure_result_3)
 
         Collapse_Pressure_result_list = []
@@ -221,9 +221,9 @@ def collapse_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabricat
 
         if(Pe-Pmin <= min(smallNumber_2)/(Material_resistant_factor_gamma_m*γSC_LB)):
 
-            Pel_t =  float(2*Youngs_Modulus_E*((Measured_Minimum_Thickness_for_Test_Pressure_t1/Outside_Diameter_OD)**3))/(1-Poission_s_Ratio_ν**2)
+            Pel_t =  round(float(2*Youngs_Modulus_E*((Measured_Minimum_Thickness_for_Test_Pressure_t1/Outside_Diameter_OD)**3))/(1-Poission_s_Ratio_ν**2),3)
             print(Pel_t)
-            Pp_t = float(fy*Maximum_Fabrication_Factor_alpha_fab*2*(Measured_Minimum_Thickness_for_Test_Pressure_t1/Outside_Diameter_OD))
+            Pp_t = round(float(fy*Maximum_Fabrication_Factor_alpha_fab*2*(Measured_Minimum_Thickness_for_Test_Pressure_t1/Outside_Diameter_OD)),3)
             print(Pp_t)
 
         else :
@@ -237,7 +237,7 @@ def collapse_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabricat
 
         #  Utility Check in externakl pressure  Collapse check
 
-        UC_coll = float(Pe/Pc_t1_at_γm_γSC_LB)
+        UC_coll = round(float(Pe/Pc_t1_at_γm_γSC_LB),3)
         print("UC_coll" , UC_coll)
 
         # Collapse Check 
@@ -257,21 +257,21 @@ def collapse_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabricat
         # Propagating Buckling Criteria
 
         D = Outside_Diameter_OD
-        t2 = float(Nominal_Wall_Thickness_tnom-Corrosion_Allowance_tcorr)
+        t2 = round(float(Nominal_Wall_Thickness_tnom-Corrosion_Allowance_tcorr),3)
         print("t2",t2)
-        Effective_wall_Thickness_Ppr_t2 = 35*fy*Maximum_Fabrication_Factor_alpha_fab*((t2/Outside_Diameter_OD)**2.5)
+        Effective_wall_Thickness_Ppr_t2 = round((35*fy*Maximum_Fabrication_Factor_alpha_fab*((t2/Outside_Diameter_OD)**2.5)),3)
         print("Effective_wall_Thickness_Ppr_t2",Effective_wall_Thickness_Ppr_t2)
         # if(Pe - Pmin <= Effective_wall_Thickness_Ppr_t2/Pressure_testFactor_gamma_m*γSC_LB):
         #     print("Effective_wall_Thickness_Ppr_t2")
         # else:
         #     print("External Pressure Exceeds")
 
-        D_upon_t2 = float(D/t2)
+        D_upon_t2 = round(float(D/t2),3)
         print("D_upon_t2",D_upon_t2)
 
 
             # Utility Check
-        UC_buck = float(Pe/(Effective_wall_Thickness_Ppr_t2/(1.15*1.14)))
+        UC_buck = round(float(Pe/(Effective_wall_Thickness_Ppr_t2/(1.15*1.14))),3)
         print("UC_buck",UC_buck)
 
         # PBuckle
