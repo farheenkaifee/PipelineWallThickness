@@ -69,7 +69,7 @@ def pressure_sysTest(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabricati
     
     # print("___________________PIPELINE INPUTS___________________")
 
-        Measured_Minimum_Thickness_for_Test_Pressure_t1 = (Nominal_Wall_Thickness_tnom - Fabrication_Thickness_Tolerance_tfab)
+        Measured_Minimum_Thickness_for_Test_Pressure_t1 = round((Nominal_Wall_Thickness_tnom - Fabrication_Thickness_Tolerance_tfab),3)
         print(f"Measured Minimum Thickness for Test Pressure : {Measured_Minimum_Thickness_for_Test_Pressure_t1}")
 
 
@@ -77,7 +77,7 @@ def pressure_sysTest(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabricati
 
        
 
-        Depth = float(Water_Depth_WD + Min_Elevation_wrt_MSL_hmin)
+        Depth = round(float(Water_Depth_WD + Min_Elevation_wrt_MSL_hmin),3)
         print(Depth)
 
         
@@ -90,9 +90,9 @@ def pressure_sysTest(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabricati
 
         # print("_________________STRESSES_______________________")
 
-        fy= float(SMYS_σsmys-Derating_value_temp_yieldStress_fy_temp)*Material_Strength_Factor_alpha_u
+        fy= round((float(SMYS_σsmys-Derating_value_temp_yieldStress_fy_temp)*Material_Strength_Factor_alpha_u),3)
         print("fy",fy)
-        fu=float(SMTS_σsmts-Derating_value_temp_tensileStress_fu_temp)*Material_Strength_Factor_alpha_u
+        fu=round((float(SMTS_σsmts-Derating_value_temp_tensileStress_fu_temp)*Material_Strength_Factor_alpha_u),3)
         print("fu",fu)
         fcb=min(fy,(fu/1.15))
         print("fcb",fcb)
@@ -103,11 +103,11 @@ def pressure_sysTest(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabricati
         # print("__________________________________PRESSURE_____________________________")
 
         # Pd = float(input("Enter Design Pressure : ")) 
-        Pt = float(1.155*Pd)
+        Pt = round(float(1.155*Pd),3)
         print("Pt",Pt)
-        Plt = float(Incidental_to_Design_Pressure_Ratio_gamma_inc * Pd)
+        Plt = round(float(Incidental_to_Design_Pressure_Ratio_gamma_inc * Pd),3)
         print("Plt",Plt)
-        Pe = float(((Sea_Water_Density_ρsea*Gravity_of_Acceleration_g*Depth))/1000000)
+        Pe = round(float(((Sea_Water_Density_ρsea*Gravity_of_Acceleration_g*Depth))/1000000),3)
         print("Pe",Pe)
 
         if(Pe>0):
@@ -119,10 +119,10 @@ def pressure_sysTest(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabricati
 
         print("External Pressure : ",ExternalPressure)
 
-        Pb_t1 = float(((2*Measured_Minimum_Thickness_for_Test_Pressure_t1)/(Outside_Diameter_OD-Measured_Minimum_Thickness_for_Test_Pressure_t1)) * fcb * 2/(math.sqrt(3)))
+        Pb_t1 = round(float(((2*Measured_Minimum_Thickness_for_Test_Pressure_t1)/(Outside_Diameter_OD-Measured_Minimum_Thickness_for_Test_Pressure_t1)) * fcb * 2/(math.sqrt(3))),3)
         print("Pb_t1",Pb_t1)
 
-        Pmpt = float(Constant_for_Mill_Pressure_test_k * (2*Measured_Minimum_Thickness_for_Test_Pressure_t1/(Outside_Diameter_OD - Measured_Minimum_Thickness_for_Test_Pressure_t1)) * min(SMYS_σsmys * 0.96, SMTS_σsmts * 0.84))
+        Pmpt = round(float(Constant_for_Mill_Pressure_test_k * (2*Measured_Minimum_Thickness_for_Test_Pressure_t1/(Outside_Diameter_OD - Measured_Minimum_Thickness_for_Test_Pressure_t1)) * min(SMYS_σsmys * 0.96, SMTS_σsmts * 0.84)),3)
         print(Pmpt)
 
 
@@ -143,6 +143,6 @@ def pressure_sysTest(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabricati
 
         # Utility Check
 
-        UC_prss_cont = (Plt-Pe)/min((Pb_t1/Safety_Class_RF_gamma_SCPC),(Pmpt))
+        UC_prss_cont = round((Plt-Pe)/min((Pb_t1/Safety_Class_RF_gamma_SCPC),(Pmpt)),3)
 
         print("UC_prss_cont",UC_prss_cont)
