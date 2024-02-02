@@ -10,6 +10,9 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+from wallthicknessCalculation.PRESSURECONTAINMENT.systemTest import pressure_sysTest
+from wallthicknessCalculation.PRESSURECONTAINMENT.operation import pressure_operation
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -347,10 +350,10 @@ class Ui_MainWindow(object):
         self.verticalLayout_7.addLayout(self.horizontalLayout_27)
         self.horizontalLayout_28 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_28.setObjectName("horizontalLayout_28")
-        self.WD_min_label = QtWidgets.QLabel(self.loadsBox)
-        self.WD_min_label.setStyleSheet("selection-background-color: rgb(32, 47, 255);")
-        self.WD_min_label.setObjectName("WD_min_label")
-        self.horizontalLayout_28.addWidget(self.WD_min_label)
+        self.Water_Depth_label = QtWidgets.QLabel(self.loadsBox)
+        self.Water_Depth_label.setStyleSheet("selection-background-color: rgb(32, 47, 255);")
+        self.Water_Depth_label.setObjectName("Water_Depth_label")
+        self.horizontalLayout_28.addWidget(self.Water_Depth_label)
         spacerItem33 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_28.addItem(spacerItem33)
         self.WD_min_lineEdit = QtWidgets.QLineEdit(self.loadsBox)
@@ -403,6 +406,12 @@ class Ui_MainWindow(object):
         self.horizontalLayout_14.addLayout(self.verticalLayout_8)
         self.gridLayout_4.addLayout(self.horizontalLayout_14, 1, 0, 1, 2)
         self.gridLayout_2.addWidget(self.loadsBox, 3, 0, 1, 1)
+
+        self.hmin_lineEdit.setDisabled(True)
+
+        self.hmax_lineEdit.setDisabled(True)
+        
+
         self.materialBox = QtWidgets.QGroupBox(self.groupBox)
         self.materialBox.setTitle("")
         self.materialBox.setFlat(True)
@@ -833,7 +842,7 @@ class Ui_MainWindow(object):
         
         
 #................................ ALL LINKS  ARE HERE <------------------------------->
-        self.analysis_combobox.activated.connect(self.all)
+        self.analysis_combobox.activated.connect(self.select_analysis)
         self.gamma_m_comboBox.activated.connect(self.select_gamma_m)
         self.alpha_fab_comboBox.activated.connect(self.select_alpha_fab)
         self.alpha_u_comboBox.activated.connect(self.select_alpha_u)
@@ -846,71 +855,79 @@ class Ui_MainWindow(object):
 
 
 #............................... ALL FUNCTION IS STATED  BELOW THIS LINE  --------------------------
+   
 
-    def process_values(self,UC_buck):
-        OuterDiameter_OD = float(self.OD_lineEdit.text()) 
-        print(OuterDiameter_OD) 
-        t_nom = float(self.tnom_lineEdit.text()) 
-        print("t_nom  ", t_nom)
-        t_fab = float(self.tfab_lineEdit.text()) 
-        print("t_fab ", t_fab)
-        t_corr = float(self.tcorr_lineEdit.text()) 
-        print("t_corr",t_corr)
-        oo = float(self.Oo_lineEdit.text()) 
-        print("oo ",oo)
-        smys = float(self.SMYS_lineEdit.text()) 
-        print("smys ",smys)
-        smts = float(self.SMTS_lineEdit.text()) 
-        print("smts ",smts)
-        fy_temp = float(self.fytemp_lineEdit.text()) 
-        print("fy_temp ",fy_temp)
-        fu_temp = float(self.futemp_lineEdit.text()) 
-        print("fu_temp ",fu_temp)
-        E = float(self.E_lineEdit.text()) 
-        print("E ",E)
-        v = float(self.v_lineEdit.text()) 
-        print("v ",v)
-        alpha_fab = float(self.alpha_fab_lineEdit.text()) 
-        print("alpha_fab ",alpha_fab)
-        alpha_u = float(self.alpha_u_lineEdit.text()) 
-        print("alpha_u ",alpha_u)
-        Pd = float(self.Pd_lineEdit.text()) 
-        print("Pd ",Pd)
-        gamma_m = float(self.gamma_m_lineEdit.text()) 
-        print("gamma_m ",gamma_m)
-        Pmin = float(self.Pmin_lineEdit.text()) 
-        print("Pmin ",Pmin)
-        href = float(self.href_lineEdit.text()) 
-        print("href ",href)
-        hl = float(self.hl_lineEdit.text()) 
-        print("hl ",hl)
-        rho_cont = float(self.rho_cont_lineEdit.text()) 
-        print("rho_cont ",rho_cont)
-        rho_t = float(self.rho_t_lineEdit.text()) 
-        print("rho_t ",rho_t)
-        gamma_inc = float(self.gamma_inc_lineEdit.text()) 
-        print("gamma_inc ",gamma_inc)
-        WDmin = float(self.WD_min_lineEdit.text()) 
-        print("WDmin ",WDmin)
-        rho_sea = float(self.rho_sea_lineEdit.text()) 
-        print("rho_sea ",rho_sea)
-        hmax = float(self.hmax_lineEdit.text()) 
-        print("hmax ",hmax)
-        hmin = float(self.hmin_lineEdit.text()) 
-        print("hmin ",hmin)
+# _______________________________function for passing parameters from gui to backend___________________
+    def process_values(self):
+        Outside_Diameter_OD = (self.OD_lineEdit.text()) 
+        # print(Outside_Diameter_OD) 
+        Nominal_Wall_Thickness_tnom = (self.tnom_lineEdit.text()) 
+        # print("t_nom  ", Nominal_Wall_Thickness_tnom)
+        Fabrication_Thickness_Tolerance_tfab = (self.tfab_lineEdit.text()) 
+        # print("t_fab ", Fabrication_Thickness_Tolerance_tfab)
+        Corrosion_Allowance_tcorr = (self.tcorr_lineEdit.text()) 
+        # print("t_corr",Corrosion_Allowance_tcorr)
+        Ovality_of_Pipe_Oo = (self.Oo_lineEdit.text()) 
+        # print("oo ",Ovality_of_Pipe_Oo)
+        SMYS_σsmys = (self.SMYS_lineEdit.text()) 
+        # print("smys ",SMYS_σsmys)
+        SMTS_σsmts = (self.SMTS_lineEdit.text()) 
+        # print("smts ",SMTS_σsmts)
+        Derating_value_temp_yieldStress_fy_temp = (self.fytemp_lineEdit.text()) 
+        # print("fy_temp ",Derating_value_temp_yieldStress_fy_temp)
+        Derating_value_temp_tensileStress_fu_temp = (self.futemp_lineEdit.text()) 
+        # print("fu_temp ",Derating_value_temp_tensileStress_fu_temp)
+        Youngs_Modulus_E = (self.E_lineEdit.text()) 
+        # print("E ",Youngs_Modulus_E)
+        Poission_s_Ratio_ν = (self.v_lineEdit.text()) 
+        # print("v ",Poission_s_Ratio_ν)
+        Maximum_Fabrication_Factor_alpha_fab = (self.alpha_fab_lineEdit.text()) 
+        # print("alpha_fab ",Maximum_Fabrication_Factor_alpha_fab)
+        Material_Strength_Factor_alpha_u = (self.alpha_u_lineEdit.text()) 
+        # print("alpha_u ",Material_Strength_Factor_alpha_u)
+        Pd = (self.Pd_lineEdit.text()) 
+        # print("Pd ",Pd)
+        Material_resistant_factor_gamma_m = (self.gamma_m_lineEdit.text()) 
+        # print("gamma_m ",Material_resistant_factor_gamma_m)
+        Pmin = (self.Pmin_lineEdit.text()) 
+        # print("Pmin ",Pmin)
+        Elevation_at_Pressure_Reference_Level_href = (self.href_lineEdit.text()) 
+        # print("href ",Elevation_at_Pressure_Reference_Level_href)
+        Elevation_level_at_Pressure_Point_hl = (self.hl_lineEdit.text()) 
+        # print("hl ",Elevation_level_at_Pressure_Point_hl)
+        Product_Density_ρcont = (self.rho_cont_lineEdit.text()) 
+        # print("rho_cont ",Product_Density_ρcont)
+        Hydrotest_Water_Density_ρt = (self.rho_t_lineEdit.text()) 
+        # print("rho_t ",Hydrotest_Water_Density_ρt)
+        Incidental_to_Design_Pressure_Ratio_gamma_inc = (self.gamma_inc_lineEdit.text()) 
+        # print("gamma_inc ",Incidental_to_Design_Pressure_Ratio_gamma_inc)
+        min_Water_Depth_WDin = (self.WD_min_lineEdit.text()) 
+        # print("WDmin ",min_Water_Depth_WDin)
+        Sea_Water_Density_ρsea = (self.rho_sea_lineEdit.text()) 
+        # print("rho_sea ",Sea_Water_Density_ρsea)
+        Max_Elevation_wrt_MSL_hmax = (self.hmax_lineEdit.text()) 
+        # print("hmax ",Max_Elevation_wrt_MSL_hmax)
+        Min_Elevation_wrt_MSL_hmin = (self.hmin_lineEdit.text()) 
+        # print("hmin ",Min_Elevation_wrt_MSL_hmin)
 
-        # gamma_SCPC = float(self.limitState_gamma_SCPC_lineedit.text()) 
-        # print("gamma_SCPC ",gamma_SCPC)
-        # gamma_SCLB = float(self.limitState_gamma_SCLB_lineedit.text()) 
-        # print("gamma_SCLB ",gamma_SCLB)
-        # alpha_spt = float(self.alpha_spt_lineedit.text()) 
-        # print("alpha_spt ",alpha_spt)
-        # alpha_mpt = float(self.alpha_mpt_lineedit.text()) 
-        # print("alpha_mpt ",alpha_mpt)
-       
+        Safety_Class_RF_gamma_SCPC = (self.limitState_gamma_SCPC_lineedit.text()) 
+        # print("gamma_SCPC ",Safety_Class_RF_gamma_SCPC)
+        Safety_Class_RF_gamma_SCLB = (self.limitState_gamma_SCLB_lineedit.text()) 
+        # print("gamma_SCLB ",Safety_Class_RF_gamma_SCLB)
+        System_Pressure_Test_Factor_alpha_spt = (self.alpha_spt_lineedit.text()) 
+        # print("alpha_spt ",System_Pressure_Test_Factor_alpha_spt)
+        Mill_Pressure_Test_Factor_alpha_mpt = (self.alpha_mpt_lineedit.text()) 
+        # print("alpha_mpt ",Mill_Pressure_Test_Factor_alpha_mpt)
 
 
-    def all(self):
+        value_sysTest = pressure_sysTest(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,min_Water_Depth_WDin,Sea_Water_Density_ρsea,Min_Elevation_wrt_MSL_hmin,Safety_Class_RF_gamma_SCPC,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m)
+        print(value_sysTest)
+
+        value_pressure_operation= pressure_operation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,min_Water_Depth_WDin,Sea_Water_Density_ρsea,Min_Elevation_wrt_MSL_hmin,Safety_Class_RF_gamma_SCPC,Mill_Pressure_Test_Factor_alpha_mpt,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m,System_Pressure_Test_Factor_alpha_spt)
+        print(value_pressure_operation)
+
+
+    def select_analysis(self):    # meaningful function
         i = self.analysis_combobox.currentIndex()
         self.analysis_modecombobox.clear()
         match  i :
@@ -924,13 +941,18 @@ class Ui_MainWindow(object):
                 self.limitState_gamma_SCPC_lineedit.setEnabled(True)
                 self.alpha_mpt_lineedit.setEnabled(True)
                 self.limitState_gamma_SCLB_lineedit.setEnabled(False)
-                self.alpha_spt_lineedit.setEnabled(False)
+                self.alpha_spt_lineedit.setEnabled(True)
 
                 self.alpha_spt_lineedit.clear()
 
                 self.limitState_gamma_SCLB_lineedit.clear()
 
-                self.analysis_modecombobox.activated.connect(self.child)
+                self.Water_Depth_label.setText(("Min Water Depth WDmin [m]           "))
+
+                self.hmax_lineEdit.setDisabled(True)
+                self.hmin_lineEdit.setDisabled(False)
+
+                self.analysis_modecombobox.activated.connect(self.select_analysis_mode)
                 
             case 2 :
                 # print("Collapse")
@@ -942,7 +964,7 @@ class Ui_MainWindow(object):
                 self.limitState_gamma_SCLB_lineedit.setEnabled(True)
                 self.alpha_spt_lineedit.setEnabled(True)
                 self.limitState_gamma_SCPC_lineedit.setEnabled(False)
-                self.alpha_mpt_lineedit.setEnabled(False)
+                self.alpha_mpt_lineedit.setEnabled(True)
 
                 self.alpha_mpt_lineedit.clear()
 
@@ -952,7 +974,12 @@ class Ui_MainWindow(object):
 
                 self.limitState_gamma_SCLB_lineedit.clear()
 
-                self.analysis_modecombobox.activated.connect(self.child)
+                self.Water_Depth_label.setText(("Max Water Depth WDmax [m]        "))
+
+                self.hmax_lineEdit.setDisabled(False)
+                self.hmin_lineEdit.setDisabled(True)
+
+                self.analysis_modecombobox.activated.connect(self.select_analysis_mode)
             case 3 :
                 # print("Buckling")
                 self.analysis_modecombobox.setDisabled(False)
@@ -963,7 +990,7 @@ class Ui_MainWindow(object):
                 self.limitState_gamma_SCLB_lineedit.setEnabled(True)
                 self.alpha_spt_lineedit.setEnabled(True)
                 self.limitState_gamma_SCPC_lineedit.setEnabled(False)
-                self.alpha_mpt_lineedit.setEnabled(False)
+                self.alpha_mpt_lineedit.setEnabled(True)
 
                 self.alpha_mpt_lineedit.clear()
 
@@ -973,8 +1000,13 @@ class Ui_MainWindow(object):
 
                 self.limitState_gamma_SCLB_lineedit.clear()
 
+                self.Water_Depth_label.setText(("Max Water Depth WDmax [m]        "))
 
-                self.analysis_modecombobox.activated.connect(self.child)
+                self.hmax_lineEdit.setDisabled(False)
+                self.hmin_lineEdit.setDisabled(True)
+
+
+                self.analysis_modecombobox.activated.connect(self.select_analysis_mode)
             case 0 :
                 # print("No Selection")
                 self.analysis_modecombobox.setDisabled(True)
@@ -987,10 +1019,15 @@ class Ui_MainWindow(object):
                 self.alpha_u_comboBox.setEnabled(False)
                 self.gamma_m_comboBox.setEnabled(False)
                 self.safety_classcombobox.setEnabled(False)
+                self.Water_Depth_label.setText(("Water Depth WDmax [m]               "))
+
+                self.hmin_lineEdit.setDisabled(True)
+
+                self.hmax_lineEdit.setDisabled(True)
                 
                 
         
-    def child(self):
+    def select_analysis_mode(self):
         i = self.analysis_modecombobox.currentIndex()
         print(f"You have selected :  {i}")
         self.alpha_u_comboBox.clear()
@@ -1051,7 +1088,7 @@ class Ui_MainWindow(object):
 
         
         data_SMYS = self.gradeComboBox.itemData(index)
-        # UsTn_by_Hs_100 = float(data_100)
+        # UsTn_by_Hs_100 = (data_100)
         print("Function is working")
         self.SMYS_lineEdit.setText(data_SMYS[0])
         print("SMYS : ",data_SMYS[0])
@@ -1063,7 +1100,7 @@ class Ui_MainWindow(object):
     def select_gamma_m(self,index):
        
         data_gamma_m = self.gamma_m_comboBox.itemData(index)
-        # UsTn_by_Hs_100 = float(data_100)
+        # UsTn_by_Hs_100 = (data_100)
         # print("Function is working")
         self.gamma_m_lineEdit.setText(data_gamma_m[0])
         # print("gamma_m : ",data_gamma_m[0])
@@ -1111,7 +1148,8 @@ class Ui_MainWindow(object):
                     self.limitState_gamma_SCPC_lineedit.setText(data_safetyClass[0])
 
                     self.alpha_mpt_lineedit.setText(data_safetyClass[2])
-                    self.alpha_spt_lineedit.clear()
+
+                    self.alpha_spt_lineedit.setText(data_safetyClass[3])
 
                     self.limitState_gamma_SCLB_lineedit.clear()
 
@@ -1121,9 +1159,11 @@ class Ui_MainWindow(object):
                     # print("Collapse")
                     self.limitState_gamma_SCLB_lineedit.setText(data_safetyClass[1])
 
+                    self.alpha_mpt_lineedit.setText(data_safetyClass[2])
+
                     self.alpha_spt_lineedit.setText(data_safetyClass[3])
 
-                    self.alpha_mpt_lineedit.clear()
+                    # self.alpha_mpt_lineedit.clear()
 
                     self.limitState_gamma_SCPC_lineedit.clear()
 
@@ -1132,11 +1172,14 @@ class Ui_MainWindow(object):
                     # print("Buckling")
                     self.limitState_gamma_SCLB_lineedit.setText(data_safetyClass[1])
 
+                    self.alpha_mpt_lineedit.setText(data_safetyClass[2])
+
                     self.alpha_spt_lineedit.setText(data_safetyClass[3])
 
-                    self.alpha_mpt_lineedit.clear()
+                    # self.alpha_mpt_lineedit.clear()
 
                     self.limitState_gamma_SCPC_lineedit.clear()
+
 
                 case 0 :
                     # print("No Selection")
@@ -1196,7 +1239,7 @@ class Ui_MainWindow(object):
         self.rho_cont_label.setText(_translate("MainWindow", "Product Density ρcont [kg/m3]                 "))
         self.rho_t_label.setText(_translate("MainWindow", "Hydrotest Water Density  ρt [kg/m3]"))
         self.gamma_inc_label.setText(_translate("MainWindow", "Design Pressure Ratio γinc [- ]          "))
-        self.WD_min_label.setText(_translate("MainWindow", " Min Water Depth WDmin [m]            "))
+        self.Water_Depth_label.setText(_translate("MainWindow", "Water Depth WD [m]                        "))
         self.rho_sea_label.setText(_translate("MainWindow", "Sea Water Density ρsea [kg/m3]     "))
         self.hmax_label.setText(_translate("MainWindow", "Max elevation wrt MSL hmax [m]      "))
         self.hmin_label.setText(_translate("MainWindow", "Min elevation wrt MSL hmin [m]        "))

@@ -8,16 +8,68 @@ import numpy.polynomial.polynomial  as roots
 
 
 
-def pressure_sysTest(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,ptest_value,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Max_Water_Depth_WDmax,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Min_Elevation_wrt_MSL_hmin,Plt):
+def pressure_sysTest(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,min_Water_Depth_WDin,Sea_Water_Density_ρsea,Min_Elevation_wrt_MSL_hmin,Safety_Class_RF_gamma_SCPC,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m):
     
-        Material_Strength_Factor_alpha_u = 1.15
+        # Material_Strength_Factor_alpha_u = 1.15
         Gravity_of_Acceleration_g = 9.81
         Constant_for_Mill_Pressure_test_k = 1
-        Pressure_testFactor_gamma_m_SCPC = 1.046
+        # Safety_Class_RF_gamma_SCPC = 1.046
+
+        Outside_Diameter_OD = float(Outside_Diameter_OD) 
+        # print(Outside_Diameter_OD) 
+        Nominal_Wall_Thickness_tnom = float(Nominal_Wall_Thickness_tnom) 
+        # print("t_nom  ", Nominal_Wall_Thickness_tnom)
+        Fabrication_Thickness_Tolerance_tfab = float(Fabrication_Thickness_Tolerance_tfab) 
+        # print("t_fab ", Fabrication_Thickness_Tolerance_tfab)
+        Corrosion_Allowance_tcorr = float(Corrosion_Allowance_tcorr) 
+        # print("t_corr",Corrosion_Allowance_tcorr)
+        Ovality_of_Pipe_Oo = float(Ovality_of_Pipe_Oo) 
+        # print("oo ",Ovality_of_Pipe_Oo)
+        SMYS_σsmys = float(SMYS_σsmys) 
+        # print("smys ",SMYS_σsmys)
+        SMTS_σsmts = float(SMTS_σsmts) 
+        # print("smts ",SMTS_σsmts)
+        Derating_value_temp_yieldStress_fy_temp = float(Derating_value_temp_yieldStress_fy_temp) 
+        # print("fy_temp ",Derating_value_temp_yieldStress_fy_temp)
+        Derating_value_temp_tensileStress_fu_temp = float(Derating_value_temp_tensileStress_fu_temp) 
+        # print("fu_temp ",Derating_value_temp_tensileStress_fu_temp)
+        Youngs_Modulus_E = float(Youngs_Modulus_E) 
+        # print("E ",Youngs_Modulus_E)
+        Poission_s_Ratio_ν = float(Poission_s_Ratio_ν) 
+        # print("v ",Poission_s_Ratio_ν)
+        Maximum_Fabrication_Factor_alpha_fab = float(Maximum_Fabrication_Factor_alpha_fab) 
+        # print("alpha_fab ",Maximum_Fabrication_Factor_alpha_fab)
+        Material_Strength_Factor_alpha_u = float(Material_Strength_Factor_alpha_u) 
+        # print("alpha_u ",Material_Strength_Factor_alpha_u)
+        Pd = float(Pd) 
+        # print("Pd ",Pd)
+        Material_resistant_factor_gamma_m = float(Material_resistant_factor_gamma_m) 
+        # print("gamma_m ",Material_resistant_factor_gamma_m)
+        Pmin = float(Pmin) 
+        # print("Pmin ",Pmin)
+        Elevation_at_Pressure_Reference_Level_href = float(Elevation_at_Pressure_Reference_Level_href) 
+        # print("href ",Elevation_at_Pressure_Reference_Level_href)
+        Elevation_level_at_Pressure_Point_hl = float(Elevation_level_at_Pressure_Point_hl) 
+        # print("hl ",Elevation_level_at_Pressure_Point_hl)
+        Product_Density_ρcont = float(Product_Density_ρcont) 
+        # print("rho_cont ",Product_Density_ρcont)
+        Hydrotest_Water_Density_ρt = float(Hydrotest_Water_Density_ρt) 
+        # print("rho_t ",Hydrotest_Water_Density_ρt)
+        Incidental_to_Design_Pressure_Ratio_gamma_inc = float(Incidental_to_Design_Pressure_Ratio_gamma_inc) 
+        # print("gamma_inc ",Incidental_to_Design_Pressure_Ratio_gamma_inc)
+        min_Water_Depth_WDin = float(min_Water_Depth_WDin) 
+        # print("WDmin ",min_Water_Depth_WDin)
+        Sea_Water_Density_ρsea = float(Sea_Water_Density_ρsea) 
+        # print("rho_sea ",Sea_Water_Density_ρsea)
+        Min_Elevation_wrt_MSL_hmin = float(Min_Elevation_wrt_MSL_hmin)
+        # print("hmin ",Min_Elevation_wrt_MSL_hmin)
+
+        Safety_Class_RF_gamma_SCPC = float(Safety_Class_RF_gamma_SCPC) 
+        # print("gamma_SCPC ",Safety_Class_RF_gamma_SCPC)
     
     # print("___________________PIPELINE INPUTS___________________")
 
-        Measured_Minimum_Thickness_for_Test_Pressure_t1 = (Nominal_Wall_Thickness_tnom - Fabrication_Thickness_Tolerance_tfab - Corrosion_Allowance_tcorr)
+        Measured_Minimum_Thickness_for_Test_Pressure_t1 = (Nominal_Wall_Thickness_tnom - Fabrication_Thickness_Tolerance_tfab)
         print(f"Measured Minimum Thickness for Test Pressure : {Measured_Minimum_Thickness_for_Test_Pressure_t1}")
 
 
@@ -25,7 +77,7 @@ def pressure_sysTest(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabricati
 
        
 
-        Depth = float(Max_Water_Depth_WDmax + Min_Elevation_wrt_MSL_hmin)
+        Depth = float(min_Water_Depth_WDin + Min_Elevation_wrt_MSL_hmin)
         print(Depth)
 
         
@@ -82,7 +134,7 @@ def pressure_sysTest(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabricati
 
 
 
-        if((Plt - Pe ) <= min((Pb_t1/Pressure_testFactor_gamma_m_SCPC),(Pmpt))):
+        if((Plt - Pe ) <= min((Pb_t1/Safety_Class_RF_gamma_SCPC),(Pmpt))):
             P_check = print(" P_check : Wall thickness accepted")
             
         else:
@@ -91,6 +143,6 @@ def pressure_sysTest(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabricati
 
         # Utility Check
 
-        UC_prss_cont = (Plt-Pe)/min((Pb_t1/Pressure_testFactor_gamma_m_SCPC),(Pmpt))
+        UC_prss_cont = (Plt-Pe)/min((Pb_t1/Safety_Class_RF_gamma_SCPC),(Pmpt))
 
         print("UC_prss_cont",UC_prss_cont)
