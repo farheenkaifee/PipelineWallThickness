@@ -252,7 +252,7 @@ def buckling_installation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabr
 
 
         # Utility Check
-        UC_buck = float(Pe/(Effective_wall_Thickness_Ppr_t2/(1.15*1.14)))
+        UC_buck = float(Pe/(Effective_wall_Thickness_Ppr_t2/(1.15*1.04)))
         print("UC_buck",UC_buck)
 
         # PBuckle

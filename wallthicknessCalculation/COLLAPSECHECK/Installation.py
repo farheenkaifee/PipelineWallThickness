@@ -249,7 +249,7 @@ def collapse_installation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabr
 
 
         # Utility Check
-        UC_buck = round(float(Pe/(Effective_wall_Thickness_Ppr_t2/(1.15*1.14))),3)
+        UC_buck = round(float(Pe/(Effective_wall_Thickness_Ppr_t2/(1.15*1.04))),3)
         print("UC_buck",UC_buck)
 
         # PBuckle
