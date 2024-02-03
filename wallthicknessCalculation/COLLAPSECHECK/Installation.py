@@ -127,12 +127,10 @@ def collapse_installation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabr
 
 
         # print("_______EXTERNAL PRESSURE COLLAPSE CHECK___________")
-        # Pmin = float(input("Enter Minimum Internal pressure : "))
-        γSC_LB = Safety_Class_RF_gamma_SCLB
 
         System_Collapse_Check_Pc_ti  = 8.7
 
-        # (Pe <= Pb_t1/(Pressure_testFactor_gamma_m*γSC_LB))
+        # (Pe <= Pb_t1/(Pressure_testFactor_gamma_m*Safety_Class_RF_gamma_SCLB))
 
         Pel_t =  round(float(2*Youngs_Modulus_E*((Measured_Minimum_Thickness_for_Test_Pressure_t1/Outside_Diameter_OD)**3))/(1-Poission_s_Ratio_ν**2),3)
         print(Pel_t)
@@ -171,13 +169,13 @@ def collapse_installation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabr
         Pc_t1_3 = result[2]
         print(Pc_t1_1,Pc_t1_2,Pc_t1_3)
 
-        Collapse_Pressure_result_1 = round(float(Pc_t1_1/(Material_resistant_factor_gamma_m*γSC_LB)),3)
+        Collapse_Pressure_result_1 = round(float(Pc_t1_1/(Material_resistant_factor_gamma_m*Safety_Class_RF_gamma_SCLB)),3)
         print(Collapse_Pressure_result_1)
 
-        Collapse_Pressure_result_2 = round(float(Pc_t1_2/(Material_resistant_factor_gamma_m*γSC_LB)),3)
+        Collapse_Pressure_result_2 = round(float(Pc_t1_2/(Material_resistant_factor_gamma_m*Safety_Class_RF_gamma_SCLB)),3)
         print(Collapse_Pressure_result_2)
 
-        Collapse_Pressure_result_3 = round(float(Pc_t1_3/(Material_resistant_factor_gamma_m*γSC_LB)),3)
+        Collapse_Pressure_result_3 = round(float(Pc_t1_3/(Material_resistant_factor_gamma_m*Safety_Class_RF_gamma_SCLB)),3)
         print(Collapse_Pressure_result_3)
 
         Collapse_Pressure_result_list = []
@@ -195,11 +193,11 @@ def collapse_installation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabr
             else:
                 print("negative number")
         print(smallNumber_2)
-        Pc_t1_at_γm_γSC_LB = min(smallNumber_2)
+        Pc_t1_at_γm_Safety_Class_RF_gamma_SCLB = min(smallNumber_2)
         print(min(smallNumber_2))
 
 
-        if(Pe-Pmin <= min(smallNumber_2)/(Material_resistant_factor_gamma_m*γSC_LB)):
+        if(Pe-Pmin <= min(smallNumber_2)/(Material_resistant_factor_gamma_m*Safety_Class_RF_gamma_SCLB)):
 
             Pel_t =  round(float(2*Youngs_Modulus_E*((Measured_Minimum_Thickness_for_Test_Pressure_t1/Outside_Diameter_OD)**3))/(1-Poission_s_Ratio_ν**2),3)
             print(Pel_t)
@@ -217,12 +215,12 @@ def collapse_installation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabr
 
         # #  Utility Check in externakl pressure  Collapse check
 
-        UC_coll = round(float(Pe/Pc_t1_at_γm_γSC_LB),3)
+        UC_coll = round(float(Pe/Pc_t1_at_γm_Safety_Class_RF_gamma_SCLB),3)
         print("UC_coll" , UC_coll)
 
         # Collapse Check 
 
-        if(Pe <= Pc_t1_at_γm_γSC_LB ):
+        if(Pe <= Pc_t1_at_γm_Safety_Class_RF_gamma_SCLB ):
             print("Wall Thickness Accepted")
 
         else:
@@ -241,7 +239,7 @@ def collapse_installation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabr
         print("t2",t2)
         Effective_wall_Thickness_Ppr_t2 = round(35*fy*Maximum_Fabrication_Factor_alpha_fab*((t2/Outside_Diameter_OD)**2.5),3)
         print("Effective_wall_Thickness_Ppr_t2",Effective_wall_Thickness_Ppr_t2)
-        # if(Pe - Pmin <= Effective_wall_Thickness_Ppr_t2/Pressure_testFactor_gamma_m*γSC_LB):
+        # if(Pe - Pmin <= Effective_wall_Thickness_Ppr_t2/Pressure_testFactor_gamma_m*Safety_Class_RF_gamma_SCLB):
         #     print("Effective_wall_Thickness_Ppr_t2")
         # else:
         #     print("External Pressure Exceeds")
@@ -255,7 +253,7 @@ def collapse_installation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabr
         print("UC_buck",UC_buck)
 
         # PBuckle
-        if(Pe <= Effective_wall_Thickness_Ppr_t2/(Material_resistant_factor_gamma_m*γSC_LB)):
+        if(Pe <= Effective_wall_Thickness_Ppr_t2/(Material_resistant_factor_gamma_m*Safety_Class_RF_gamma_SCLB)):
             print("Wall Thickness Accepted")
         else:
             print("Redesign Wall Thickness, considering" ,t2, "mm thickness")
