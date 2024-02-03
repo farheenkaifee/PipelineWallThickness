@@ -271,7 +271,7 @@ def collapse_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabricat
 
 
             # Utility Check
-        UC_buck = round(float(Pe/(Effective_wall_Thickness_Ppr_t2/(1.15*1.14))),3)
+        UC_buck = round(float(Pe/(Effective_wall_Thickness_Ppr_t2/(Material_resistant_factor_gamma_m*γSC_LB))),3)
         print("UC_buck",UC_buck)
 
         # PBuckle
