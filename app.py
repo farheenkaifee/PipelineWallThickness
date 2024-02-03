@@ -15,6 +15,8 @@ from wallthicknessCalculation.PRESSURECONTAINMENT.operation import pressure_oper
 from wallthicknessCalculation.COLLAPSECHECK.Installation import collapse_installation
 from wallthicknessCalculation.COLLAPSECHECK.shutdown import collapse_shutdown
 
+from Features.Save import saveAs
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -842,6 +844,8 @@ class Ui_MainWindow(object):
         self.actionReset.triggered.connect(MainWindow.update) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         
+        self.actionSave_As.triggered.connect(self.saveAs_doc)
+        
         
 #................................ ALL LINKS  ARE HERE <------------------------------->
         self.analysis_combobox.activated.connect(self.select_analysis)
@@ -853,6 +857,9 @@ class Ui_MainWindow(object):
         self.safety_classcombobox.activated.connect(self.select_safety_class)
 
         self.calculateButton.clicked.connect(self.process_values)
+        
+        
+        # self.actionSave_As.activate.connect(self.saveAs)
         
 
 
@@ -1251,6 +1258,71 @@ class Ui_MainWindow(object):
                     self.alpha_spt_lineedit.clear()
                     self.limitState_gamma_SCPC_lineedit.clear()
                     self.limitState_gamma_SCLB_lineedit.clear()
+    
+    
+    
+    def saveAs_doc(self):
+        print("Saving file in main file....!!!")
+        Outside_Diameter_OD = (self.OD_lineEdit.text()) 
+        # print(Outside_Diameter_OD) 
+        Nominal_Wall_Thickness_tnom = (self.tnom_lineEdit.text()) 
+        # print("t_nom  ", Nominal_Wall_Thickness_tnom)
+        Fabrication_Thickness_Tolerance_tfab = (self.tfab_lineEdit.text()) 
+        # print("t_fab ", Fabrication_Thickness_Tolerance_tfab)
+        Corrosion_Allowance_tcorr = (self.tcorr_lineEdit.text()) 
+        # print("t_corr",Corrosion_Allowance_tcorr)
+        Ovality_of_Pipe_Oo = (self.Oo_lineEdit.text()) 
+        # print("oo ",Ovality_of_Pipe_Oo)
+        SMYS_σsmys = (self.SMYS_lineEdit.text()) 
+        # print("smys ",SMYS_σsmys)
+        SMTS_σsmts = (self.SMTS_lineEdit.text()) 
+        # print("smts ",SMTS_σsmts)
+        Derating_value_temp_yieldStress_fy_temp = (self.fytemp_lineEdit.text()) 
+        # print("fy_temp ",Derating_value_temp_yieldStress_fy_temp)
+        Derating_value_temp_tensileStress_fu_temp = (self.futemp_lineEdit.text()) 
+        # print("fu_temp ",Derating_value_temp_tensileStress_fu_temp)
+        Youngs_Modulus_E = (self.E_lineEdit.text()) 
+        # print("E ",Youngs_Modulus_E)
+        Poission_s_Ratio_ν = (self.v_lineEdit.text()) 
+        # print("v ",Poission_s_Ratio_ν)
+        Maximum_Fabrication_Factor_alpha_fab = (self.alpha_fab_lineEdit.text()) 
+        # print("alpha_fab ",Maximum_Fabrication_Factor_alpha_fab)
+        Material_Strength_Factor_alpha_u = (self.alpha_u_lineEdit.text()) 
+        # print("alpha_u ",Material_Strength_Factor_alpha_u)
+        Pd = (self.Pd_lineEdit.text()) 
+        # print("Pd ",Pd)
+        Material_resistant_factor_gamma_m = (self.gamma_m_lineEdit.text()) 
+        # print("gamma_m ",Material_resistant_factor_gamma_m)
+        Pmin = (self.Pmin_lineEdit.text()) 
+        # print("Pmin ",Pmin)
+        Elevation_at_Pressure_Reference_Level_href = (self.href_lineEdit.text()) 
+        # print("href ",Elevation_at_Pressure_Reference_Level_href)
+        Elevation_level_at_Pressure_Point_hl = (self.hl_lineEdit.text()) 
+        # print("hl ",Elevation_level_at_Pressure_Point_hl)
+        Product_Density_ρcont = (self.rho_cont_lineEdit.text()) 
+        # print("rho_cont ",Product_Density_ρcont)
+        Hydrotest_Water_Density_ρt = (self.rho_t_lineEdit.text()) 
+        # print("rho_t ",Hydrotest_Water_Density_ρt)
+        Incidental_to_Design_Pressure_Ratio_gamma_inc = (self.gamma_inc_lineEdit.text()) 
+        # print("gamma_inc ",Incidental_to_Design_Pressure_Ratio_gamma_inc)
+        Water_Depth_WD = (self.WD_min_lineEdit.text()) 
+        # print("WDmin ",min_Water_Depth_WDin)
+        Sea_Water_Density_ρsea = (self.rho_sea_lineEdit.text()) 
+        # print("rho_sea ",Sea_Water_Density_ρsea)
+        Max_Elevation_wrt_MSL_hmax = (self.hmax_lineEdit.text()) 
+        # print("hmax ",Max_Elevation_wrt_MSL_hmax)
+        Min_Elevation_wrt_MSL_hmin = (self.hmin_lineEdit.text()) 
+        # print("hmin ",Min_Elevation_wrt_MSL_hmin)
+
+        Safety_Class_RF_gamma_SCPC = (self.limitState_gamma_SCPC_lineedit.text()) 
+        # print("gamma_SCPC ",Safety_Class_RF_gamma_SCPC)
+        Safety_Class_RF_gamma_SCLB = (self.limitState_gamma_SCLB_lineedit.text()) 
+        # print("gamma_SCLB ",Safety_Class_RF_gamma_SCLB)
+        System_Pressure_Test_Factor_alpha_spt = (self.alpha_spt_lineedit.text()) 
+        # print("alpha_spt ",System_Pressure_Test_Factor_alpha_spt)
+        Mill_Pressure_Test_Factor_alpha_mpt = (self.alpha_mpt_lineedit.text()) 
+        # print("alpha_mpt ",Mill_Pressure_Test_Factor_alpha_mpt)
+        saveAs(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo, SMYS_σsmys, SMTS_σsmts, Derating_value_temp_yieldStress_fy_temp, Derating_value_temp_tensileStress_fu_temp, Youngs_Modulus_E, Poission_s_Ratio_ν, Maximum_Fabrication_Factor_alpha_fab, Material_Strength_Factor_alpha_u, Pd, Material_resistant_factor_gamma_m, Pmin, Elevation_at_Pressure_Reference_Level_href, Elevation_level_at_Pressure_Point_hl, Product_Density_ρcont, Hydrotest_Water_Density_ρt, Incidental_to_Design_Pressure_Ratio_gamma_inc, Water_Depth_WD, Sea_Water_Density_ρsea, Max_Elevation_wrt_MSL_hmax, Min_Elevation_wrt_MSL_hmin, Safety_Class_RF_gamma_SCPC, Safety_Class_RF_gamma_SCLB, System_Pressure_Test_Factor_alpha_spt, Mill_Pressure_Test_Factor_alpha_mpt)
                     
                 
 
