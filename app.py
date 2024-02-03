@@ -17,6 +17,10 @@ from wallthicknessCalculation.COLLAPSECHECK.shutdown import collapse_shutdown
 
 from Features.Save import saveAs
 
+from Features.Save import open
+
+from Features.Reset import reset_all
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -845,6 +849,10 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         
         self.actionSave_As.triggered.connect(self.saveAs_doc)
+
+        self.actionOpen.triggered.connect(self.open)
+
+        self.actionReset.triggered.connect(self.reset)
         
         
 #................................ ALL LINKS  ARE HERE <------------------------------->
@@ -857,6 +865,7 @@ class Ui_MainWindow(object):
         self.safety_classcombobox.activated.connect(self.select_safety_class)
 
         self.calculateButton.clicked.connect(self.process_values)
+        
         
         
         # self.actionSave_As.activate.connect(self.saveAs)
@@ -1074,7 +1083,7 @@ class Ui_MainWindow(object):
 
                 self.hmax_lineEdit.setDisabled(False)
                 self.hmin_lineEdit.setDisabled(True)
-
+                
 
                 self.analysis_modecombobox.activated.connect(self.select_analysis_mode)
             case 0 :
@@ -1094,6 +1103,12 @@ class Ui_MainWindow(object):
                 self.hmin_lineEdit.setDisabled(True)
 
                 self.hmax_lineEdit.setDisabled(True)
+
+                self.alpha_fab_comboBox.setCurrentIndex(0)
+                self.alpha_u_comboBox.setCurrentIndex(0)
+                self.gamma_m_comboBox.setCurrentIndex(0)
+                self.safety_classcombobox.setCurrentIndex(0)
+
                 
                 
         
@@ -1325,10 +1340,115 @@ class Ui_MainWindow(object):
         saveAs(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo, SMYS_σsmys, SMTS_σsmts, Derating_value_temp_yieldStress_fy_temp, Derating_value_temp_tensileStress_fu_temp, Youngs_Modulus_E, Poission_s_Ratio_ν, Maximum_Fabrication_Factor_alpha_fab, Material_Strength_Factor_alpha_u, Pd, Material_resistant_factor_gamma_m, Pmin, Elevation_at_Pressure_Reference_Level_href, Elevation_level_at_Pressure_Point_hl, Product_Density_ρcont, Hydrotest_Water_Density_ρt, Incidental_to_Design_Pressure_Ratio_gamma_inc, Water_Depth_WD, Sea_Water_Density_ρsea, Max_Elevation_wrt_MSL_hmax, Min_Elevation_wrt_MSL_hmin, Safety_Class_RF_gamma_SCPC, Safety_Class_RF_gamma_SCLB, System_Pressure_Test_Factor_alpha_spt, Mill_Pressure_Test_Factor_alpha_mpt)
                     
                 
+    def open(self):
+        print("This is working")
+        # Outside_Diameter_OD = (self.OD_lineEdit.setText()) 
+        # # print(Outside_Diameter_OD) 
+        # Nominal_Wall_Thickness_tnom = (self.tnom_lineEdit.setText()) 
+        # # print("t_nom  ", Nominal_Wall_Thickness_tnom)
+        # Fabrication_Thickness_Tolerance_tfab = (self.tfab_lineEdit.setText()) 
+        # # print("t_fab ", Fabrication_Thickness_Tolerance_tfab)
+        # Corrosion_Allowance_tcorr = (self.tcorr_lineEdit.setText()) 
+        # # print("t_corr",Corrosion_Allowance_tcorr)
+        # Ovality_of_Pipe_Oo = (self.Oo_lineEdit.setText()) 
+        # # print("oo ",Ovality_of_Pipe_Oo)
+        # SMYS_σsmys = (self.SMYS_lineEdit.setText()) 
+        # # print("smys ",SMYS_σsmys)
+        # SMTS_σsmts = (self.SMTS_lineEdit.setText()) 
+        # # print("smts ",SMTS_σsmts)
+        # Derating_value_temp_yieldStress_fy_temp = (self.fytemp_lineEdit.setText()) 
+        # # print("fy_temp ",Derating_value_temp_yieldStress_fy_temp)
+        # Derating_value_temp_tensileStress_fu_temp = (self.futemp_lineEdit.setText()) 
+        # # print("fu_temp ",Derating_value_temp_tensileStress_fu_temp)
+        # Youngs_Modulus_E = (self.E_lineEdit.setText()) 
+        # # print("E ",Youngs_Modulus_E)
+        # Poission_s_Ratio_ν = (self.v_lineEdit.setText()) 
+        # # print("v ",Poission_s_Ratio_ν)
+        # Maximum_Fabrication_Factor_alpha_fab = (self.alpha_fab_lineEdit.setText()) 
+        # # print("alpha_fab ",Maximum_Fabrication_Factor_alpha_fab)
+        # Material_Strength_Factor_alpha_u = (self.alpha_u_lineEdit.setText()) 
+        # # print("alpha_u ",Material_Strength_Factor_alpha_u)
+        # Pd = (self.Pd_lineEdit.setText()) 
+        # # print("Pd ",Pd)
+        # Material_resistant_factor_gamma_m = (self.gamma_m_lineEdit.setText()) 
+        # # print("gamma_m ",Material_resistant_factor_gamma_m)
+        # Pmin = (self.Pmin_lineEdit.setText()) 
+        # # print("Pmin ",Pmin)
+        # Elevation_at_Pressure_Reference_Level_href = (self.href_lineEdit.setText()) 
+        # # print("href ",Elevation_at_Pressure_Reference_Level_href)
+        # Elevation_level_at_Pressure_Point_hl = (self.hl_lineEdit.setText()) 
+        # # print("hl ",Elevation_level_at_Pressure_Point_hl)
+        # Product_Density_ρcont = (self.rho_cont_lineEdit.setText()) 
+        # # print("rho_cont ",Product_Density_ρcont)
+        # Hydrotest_Water_Density_ρt = (self.rho_t_lineEdit.setText()) 
+        # # print("rho_t ",Hydrotest_Water_Density_ρt)
+        # Incidental_to_Design_Pressure_Ratio_gamma_inc = (self.gamma_inc_lineEdit.setText()) 
+        # # print("gamma_inc ",Incidental_to_Design_Pressure_Ratio_gamma_inc)
+        # Water_Depth_WD = (self.WD_min_lineEdit.setText()) 
+        # # print("WDmin ",min_Water_Depth_WDin)
+        # Sea_Water_Density_ρsea = (self.rho_sea_lineEdit.setText()) 
+        # # print("rho_sea ",Sea_Water_Density_ρsea)
+        # Max_Elevation_wrt_MSL_hmax = (self.hmax_lineEdit.setText()) 
+        # # print("hmax ",Max_Elevation_wrt_MSL_hmax)
+        # Min_Elevation_wrt_MSL_hmin = (self.hmin_lineEdit.setText()) 
+        # # print("hmin ",Min_Elevation_wrt_MSL_hmin)
+
+        # Safety_Class_RF_gamma_SCPC = (self.limitState_gamma_SCPC_lineedit.setText()) 
+        # # print("gamma_SCPC ",Safety_Class_RF_gamma_SCPC)
+        # Safety_Class_RF_gamma_SCLB = (self.limitState_gamma_SCLB_lineedit.setText()) 
+        # # print("gamma_SCLB ",Safety_Class_RF_gamma_SCLB)
+        # System_Pressure_Test_Factor_alpha_spt = (self.alpha_spt_lineedit.setText()) 
+        # # print("alpha_spt ",System_Pressure_Test_Factor_alpha_spt)
+        # Mill_Pressure_Test_Factor_alpha_mpt = (self.alpha_mpt_lineedit.setText()) 
+        # # print("alpha_mpt ",Mill_Pressure_Test_Factor_alpha_mpt)
+        # open(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo, SMYS_σsmys, SMTS_σsmts, Derating_value_temp_yieldStress_fy_temp, Derating_value_temp_tensileStress_fu_temp, Youngs_Modulus_E, Poission_s_Ratio_ν, Maximum_Fabrication_Factor_alpha_fab, Material_Strength_Factor_alpha_u, Pd, Material_resistant_factor_gamma_m, Pmin, Elevation_at_Pressure_Reference_Level_href, Elevation_level_at_Pressure_Point_hl, Product_Density_ρcont, Hydrotest_Water_Density_ρt, Incidental_to_Design_Pressure_Ratio_gamma_inc, Water_Depth_WD, Sea_Water_Density_ρsea, Max_Elevation_wrt_MSL_hmax, Min_Elevation_wrt_MSL_hmin, Safety_Class_RF_gamma_SCPC, Safety_Class_RF_gamma_SCLB, System_Pressure_Test_Factor_alpha_spt, Mill_Pressure_Test_Factor_alpha_mpt)
 
 
 
-            
+    def reset(self):
+
+        self.OD_lineEdit.clear()
+        self.tnom_lineEdit.clear()
+      
+        self.tfab_lineEdit.clear()
+        self.tcorr_lineEdit.clear()
+       
+        self.Oo_lineEdit.clear()
+        self.SMYS_lineEdit.clear()
+        self.SMTS_lineEdit.clear()
+        self.fytemp_lineEdit.clear() 
+        self.futemp_lineEdit.clear()
+        self.E_lineEdit.clear()
+        self.v_lineEdit.clear()
+        self.alpha_fab_lineEdit.clear()
+        self.alpha_u_lineEdit.clear()
+        self.Pd_lineEdit.clear()
+        self.gamma_m_lineEdit.clear()
+        self.Pmin_lineEdit.clear()
+        self.href_lineEdit.clear()
+        self.hl_lineEdit.clear()
+        self.rho_cont_lineEdit.clear()
+        self.rho_t_lineEdit.clear()
+        self.gamma_inc_lineEdit.clear()
+        self.WD_min_lineEdit.clear()
+        self.rho_sea_lineEdit.clear()
+        self.hmax_lineEdit.clear()
+        self.hmin_lineEdit.clear()
+
+        self.limitState_gamma_SCPC_lineedit.clear()
+        self.limitState_gamma_SCLB_lineedit.clear()
+        self.alpha_spt_lineedit.clear()
+        self.alpha_mpt_lineedit.clear()
+
+        self.analysis_combobox.setCurrentIndex(0)
+        # self.analysis_modecombobox.setCurrentIndex(0)
+        self.select_analysis()
+        self.select_analysis_mode()
+
+
+        
+      
+
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
