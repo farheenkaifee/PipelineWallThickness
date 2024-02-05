@@ -1,13 +1,6 @@
 import pandas as pd
 from tkinter import filedialog
 
-
-
-
-
-
-
-
 def fileread(open_List):
     print(f"\n\t Opening your file please wait..!!")
     filepath = filedialog.askopenfilename(

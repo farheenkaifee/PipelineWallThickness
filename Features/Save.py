@@ -1,3 +1,4 @@
+import csv
 import pandas as pd
 from tkinter import filedialog
 
@@ -25,3 +26,27 @@ def saveAs(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickne
                                 df.to_csv(filepath)
         except:
             print("ERROR in saving your file...!!")
+
+
+
+def open(self):
+        try:
+            filepath = filedialog.askopenfilename(
+                initialdir="C:/Users/DELL/Desktop/trial_run",
+                title="Open File",
+                filetypes=(
+                    ("CSV file", "*.csv"),
+                    ("All files", "*.*")
+                )
+            )
+
+            if not filepath:
+                return
+
+            # You can add code here to process or display the opened file
+
+            print(f"File opened successfully: {filepath}")
+
+        except Exception as e:
+            print(f"ERROR in opening your file: {e}")
+
