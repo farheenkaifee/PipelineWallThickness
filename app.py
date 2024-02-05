@@ -16,6 +16,7 @@ from wallthicknessCalculation.COLLAPSECHECK.Installation import collapse_install
 from wallthicknessCalculation.COLLAPSECHECK.shutdown import collapse_shutdown
 
 from Features.Save import saveAs
+from Features.Open import fileread
 
 from Features.Save import open
 
@@ -849,10 +850,7 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         
         self.actionSave_As.triggered.connect(self.saveAs_doc)
-
-        self.actionOpen.triggered.connect(self.open)
-
-        self.actionReset.triggered.connect(self.reset)
+        self.actionOpen.triggered.connect(self.openFile)
         
         
 #................................ ALL LINKS  ARE HERE <------------------------------->
@@ -1176,7 +1174,7 @@ class Ui_MainWindow(object):
         # UsTn_by_Hs_100 = (data_100)
         print("Function is working")
         self.SMYS_lineEdit.setText(data_SMYS[0])
-        print("SMYS : ",data_SMYS[0])
+        # print("SMYS : ",data_SMYS[0])
         self.SMTS_lineEdit.setText(data_SMYS[1])
         # print("SMPS :",data_SMYS[1])
     
@@ -1337,8 +1335,7 @@ class Ui_MainWindow(object):
         # print("alpha_spt ",System_Pressure_Test_Factor_alpha_spt)
         Mill_Pressure_Test_Factor_alpha_mpt = (self.alpha_mpt_lineedit.text()) 
         # print("alpha_mpt ",Mill_Pressure_Test_Factor_alpha_mpt)
-        saveAs(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo, SMYS_σsmys, SMTS_σsmts, Derating_value_temp_yieldStress_fy_temp, Derating_value_temp_tensileStress_fu_temp, Youngs_Modulus_E, Poission_s_Ratio_ν, Maximum_Fabrication_Factor_alpha_fab, Material_Strength_Factor_alpha_u, Pd, Material_resistant_factor_gamma_m, Pmin, Elevation_at_Pressure_Reference_Level_href, Elevation_level_at_Pressure_Point_hl, Product_Density_ρcont, Hydrotest_Water_Density_ρt, Incidental_to_Design_Pressure_Ratio_gamma_inc, Water_Depth_WD, Sea_Water_Density_ρsea, Max_Elevation_wrt_MSL_hmax, Min_Elevation_wrt_MSL_hmin, Safety_Class_RF_gamma_SCPC, Safety_Class_RF_gamma_SCLB, System_Pressure_Test_Factor_alpha_spt, Mill_Pressure_Test_Factor_alpha_mpt)
-                    
+        saveAs(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo, SMYS_σsmys, SMTS_σsmts, Derating_value_temp_yieldStress_fy_temp, Derating_value_temp_tensileStress_fu_temp, Youngs_Modulus_E, Poission_s_Ratio_ν, Maximum_Fabrication_Factor_alpha_fab, Material_Strength_Factor_alpha_u, Pd, Material_resistant_factor_gamma_m, Pmin, Elevation_at_Pressure_Reference_Level_href, Elevation_level_at_Pressure_Point_hl, Product_Density_ρcont, Hydrotest_Water_Density_ρt, Incidental_to_Design_Pressure_Ratio_gamma_inc, Water_Depth_WD, Sea_Water_Density_ρsea, Max_Elevation_wrt_MSL_hmax, Min_Elevation_wrt_MSL_hmin, Safety_Class_RF_gamma_SCPC, Safety_Class_RF_gamma_SCLB, System_Pressure_Test_Factor_alpha_spt, Mill_Pressure_Test_Factor_alpha_mpt)         
                 
     def open(self):
         print("This is working")
@@ -1403,6 +1400,43 @@ class Ui_MainWindow(object):
         # # print("alpha_mpt ",Mill_Pressure_Test_Factor_alpha_mpt)
         # open(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo, SMYS_σsmys, SMTS_σsmts, Derating_value_temp_yieldStress_fy_temp, Derating_value_temp_tensileStress_fu_temp, Youngs_Modulus_E, Poission_s_Ratio_ν, Maximum_Fabrication_Factor_alpha_fab, Material_Strength_Factor_alpha_u, Pd, Material_resistant_factor_gamma_m, Pmin, Elevation_at_Pressure_Reference_Level_href, Elevation_level_at_Pressure_Point_hl, Product_Density_ρcont, Hydrotest_Water_Density_ρt, Incidental_to_Design_Pressure_Ratio_gamma_inc, Water_Depth_WD, Sea_Water_Density_ρsea, Max_Elevation_wrt_MSL_hmax, Min_Elevation_wrt_MSL_hmin, Safety_Class_RF_gamma_SCPC, Safety_Class_RF_gamma_SCLB, System_Pressure_Test_Factor_alpha_spt, Mill_Pressure_Test_Factor_alpha_mpt)
 
+    def openFile(self):
+        print("Opening File....!!!")
+        open_List = []
+        print(open_List)
+        fileread(open_List)
+
+        print("\n\t>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>............All done........................................................!!")
+        
+        self.OD_lineEdit.setText(str(open_List[0]))
+        self.tnom_lineEdit.setText(str(open_List[1]))
+        self.tfab_lineEdit.setText(str(open_List[2])) 
+        self.tcorr_lineEdit.setText(str(open_List[3]))
+        self.Oo_lineEdit.setText(str(open_List[4]))
+        # self.SMYS_lineEdit.setText(str(open_List[5]))
+        # self.SMTS_lineEdit.setText(str(open_List[6]))
+        self.fytemp_lineEdit.setText(str(open_List[7])) 
+        self.futemp_lineEdit.setText(str(open_List[8]))
+        self.E_lineEdit.setText(str(open_List[9]))
+        self.v_lineEdit.setText(str(open_List[10]))
+        # self.alpha_fab_lineEdit.setText(str(open_List[11]))
+        # self.alpha_u_lineEdit.setText(str(open_List[12]))
+        self.Pd_lineEdit.setText(str(open_List[13]))
+        # self.gamma_m_lineEdit.setText(str(open_List[14])) 
+        self.Pmin_lineEdit.setText(str(open_List[15])) 
+        self.href_lineEdit.setText(str(open_List[16]))
+        self.hl_lineEdit.setText(str(open_List[17]))
+        self.rho_cont_lineEdit.setText(str(open_List[18]))
+        self.rho_t_lineEdit.setText(str(open_List[19]))
+        self.gamma_inc_lineEdit.setText(str(open_List[20]))
+        self.WD_min_lineEdit.setText(str(open_List[21]))
+        self.rho_sea_lineEdit.setText(str(open_List[22]))
+        self.hmax_lineEdit.setText(str(open_List[23]))
+        self.hmin_lineEdit.setText(str(open_List[24]))
+        # self.limitState_gamma_SCPC_lineedit.setText(str(open_List[25]))
+        # self.limitState_gamma_SCLB_lineedit.setText(str(open_List[26]))
+        # self.alpha_spt_lineedit.setText(str(open_List[27])) 
+        # self.alpha_mpt_lineedit.setText(str(open_List[28]))
 
 
     def reset(self):
@@ -1566,4 +1600,7 @@ if __name__ == "__main__":
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
-    sys.exit(app.exec_())
+    try:
+        sys.exit(app.exec_())
+    except SystemExit:
+        print("\n\t Application is closing.....!!!!")
