@@ -848,7 +848,11 @@ class Ui_MainWindow(object):
         
         self.actionSave_As.triggered.connect(self.saveAs_doc)
 
+        self.actionReset.triggered.connect(self.open)
+
         self.actionReset.triggered.connect(self.reset)
+
+
         
         
 #................................ ALL LINKS  ARE HERE <------------------------------->
