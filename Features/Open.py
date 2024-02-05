@@ -14,7 +14,6 @@ def fileread(open_List):
                 ("All file","*.*")
             )
         )
-    print(filepath)
     try:
             if filepath is None:
                 return

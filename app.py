@@ -17,7 +17,6 @@ from wallthicknessCalculation.COLLAPSECHECK.shutdown import collapse_shutdown
 
 from Features.Save import saveAs
 
-from Features.Save import open
 from Features.Open import fileread
 
 
@@ -849,6 +848,7 @@ class Ui_MainWindow(object):
         
         self.actionSave_As.triggered.connect(self.saveAs_doc)
 
+
         self.actionReset.triggered.connect(self.reset)
         self.actionOpen.triggered.connect(self.open_Doc)
         
@@ -1344,7 +1344,36 @@ class Ui_MainWindow(object):
         print("Please wait opening the file...!!!")
         open_List = []
         fileread(open_List)
-        print(f"\n\tyour list is here:  {open_List}")
+
+        self.OD_lineEdit.setText(str(open_List[0]))
+        self.tnom_lineEdit.setText(str(open_List[1]))
+        self.tfab_lineEdit.setText(str(open_List[2]))
+        self.tcorr_lineEdit.setText(str(open_List[3]))
+        self.Oo_lineEdit.setText(str(open_List[4]))
+        # self.SMYS_lineEdit.setText(str(open_List[5]))
+        # self.SMTS_lineEdit.setText(str(open_List[6]))
+        self.fytemp_lineEdit.setText(str(open_List[7]))
+        self.futemp_lineEdit.setText(str(open_List[8]))
+        self.E_lineEdit.setText(str(open_List[9]))
+        self.v_lineEdit.setText(str(open_List[10]))
+        # self.alpha_fab_lineEdit.setText(str(open_List[11]))
+        # self.alpha_u_lineEdit.setText(str(open_List[12]))
+        self.Pd_lineEdit.setText(str(open_List[13]))
+        # self.gamma_m_lineEdit.setText(str(open_List[14]))
+        self.Pmin_lineEdit.setText(str(open_List[15]))
+        self.href_lineEdit.setText(str(open_List[16]))
+        self.hl_lineEdit.setText(str(open_List[17]))
+        self.rho_cont_lineEdit.setText(str(open_List[18]))
+        self.rho_t_lineEdit.setText(str(open_List[19]))
+        self.gamma_inc_lineEdit.setText(str(open_List[20]))
+        self.WD_min_lineEdit.setText(str(open_List[21]))
+        self.rho_sea_lineEdit.setText(str(open_List[22]))
+        self.hmax_lineEdit.setText(str(open_List[23]))
+        self.hmin_lineEdit.setText(str(open_List[24]))
+        # self.limitState_gamma_SCPC_lineedit.setText(str(open_List[25]))
+        # self.alpha_mpt_lineedit.setText(str(open_List[26]))
+        # self.limitState_gamma_SCLB_lineedit.setText(str(open_List[27]))
+        # self.alpha_spt_lineedit.setText(str(open_List[28]))
                     
                 
 
@@ -1507,4 +1536,7 @@ if __name__ == "__main__":
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
-    sys.exit(app.exec_())
+    try:
+        sys.exit(app.exec_())
+    except SystemExit:
+        print("\n\t Application is closing.....!!!!")
