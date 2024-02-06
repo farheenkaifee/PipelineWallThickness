@@ -243,10 +243,10 @@ def collapse_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabricat
         # Collapse Check 
 
         if(Pe <= Pc_t1_at_γm_γSC_LB ):
-            print("Wall Thickness Accepted")
+            Pe_check_coll = "Wall Thickness Accepted"
 
         else:
-            print("Redesign Wall Thickness")
+            Pe_check_coll = "Redesign Wall Thickness, considering" ,t2, "mm thickness"
 
         # ____________Propagation Buckling Check___________________
 
@@ -276,8 +276,11 @@ def collapse_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabricat
 
         # PBuckle
         if(Pe <= Effective_wall_Thickness_Ppr_t2/(Material_resistant_factor_gamma_m*γSC_LB)):
-            print("Wall Thickness Accepted")
+            Pe_check_buck = ("Wall Thickness Accepted")
         else:
-            print("Redesign Wall Thickness, considering" ,t2, "mm thickness")
+            Pe_check_buck = ("Redesign Wall Thickness, considering" ,t2, "mm thickness")
+
+
+        return UC_coll,Pe_check_coll,UC_buck,Pe_check_buck
 
 
