@@ -165,12 +165,14 @@ def pressure_operation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrica
         print("minimum_Pcheck",minimum_Pcheck)
 
         if((Pli - Pe ) <= minimum_Pcheck):
-            P_check = print(" P_check : Wall thickness accepted")
+            P_check = " P_check : Wall thickness accepted"
         else:
-            P_check =print("  P_check : Redesign wall  thickness")
+            P_check ="P_check : Redesign wall  thickness"
             
         # Utility Check
 
         UC_prss_cont = round((Plt-Pe)/min((Pb_t1/Safety_Class_RF_gamma_SCPC),((Plt/System_Pressure_Test_Factor_alpha_spt)-Pe),((Pmpt*Material_Strength_Factor_alpha_u)/Mill_Pressure_Test_Factor_alpha_mpt)),3)
 
         print("UC_prss_cont",UC_prss_cont)
+
+        return UC_prss_cont,P_check

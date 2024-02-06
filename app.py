@@ -17,7 +17,6 @@ from wallthicknessCalculation.COLLAPSECHECK.shutdown import collapse_shutdown
 
 from Features.Save import saveAs
 
-from Features.Save import open
 from Features.Open import fileread
 
 
@@ -849,6 +848,7 @@ class Ui_MainWindow(object):
         
         self.actionSave_As.triggered.connect(self.saveAs_doc)
 
+
         self.actionReset.triggered.connect(self.reset)
         self.actionOpen.triggered.connect(self.open_Doc)
         
@@ -874,7 +874,7 @@ class Ui_MainWindow(object):
    
 
 # _______________________________function for passing parameters from gui to backend___________________
-    def process_values(self):
+    def process_values(self,UC_prss_cont,):
         Outside_Diameter_OD = (self.OD_lineEdit.text()) 
         # print(Outside_Diameter_OD) 
         Nominal_Wall_Thickness_tnom = (self.tnom_lineEdit.text()) 
@@ -935,6 +935,8 @@ class Ui_MainWindow(object):
         Mill_Pressure_Test_Factor_alpha_mpt = (self.alpha_mpt_lineedit.text()) 
         # print("alpha_mpt ",Mill_Pressure_Test_Factor_alpha_mpt)
 
+        print("UC_press_cont",UC_prss_cont)
+
 
 #  _________________ selecting each check functions according to their indices______________________
 
@@ -950,11 +952,21 @@ class Ui_MainWindow(object):
                 if( j == 1):
 
 
-                    value_sysTest = pressure_sysTest(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Min_Elevation_wrt_MSL_hmin,Safety_Class_RF_gamma_SCPC,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m)
-                    print(value_sysTest)
+                    UC_prss_cont,P_check = pressure_sysTest(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Min_Elevation_wrt_MSL_hmin,Safety_Class_RF_gamma_SCPC,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m)
+                  
+                    self.utility_lineedit.setText(str(UC_prss_cont))
+
+                    self.result_label.setText(str(P_check))
+
+
                 elif( j==2):
-                    value_pressure_operation= pressure_operation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Min_Elevation_wrt_MSL_hmin,Safety_Class_RF_gamma_SCPC,Mill_Pressure_Test_Factor_alpha_mpt,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m,System_Pressure_Test_Factor_alpha_spt)
-                    print(value_pressure_operation)
+                    UC_prss_cont,P_check= pressure_operation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Min_Elevation_wrt_MSL_hmin,Safety_Class_RF_gamma_SCPC,Mill_Pressure_Test_Factor_alpha_mpt,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m,System_Pressure_Test_Factor_alpha_spt)
+                    # print(value_pressure_operation)
+
+                    self.utility_lineedit.setText(str(UC_prss_cont))
+
+                    self.result_label.setText(str(P_check))
+
 
                 else:
                     print("error in pressure containment")
@@ -1344,7 +1356,36 @@ class Ui_MainWindow(object):
         print("Please wait opening the file...!!!")
         open_List = []
         fileread(open_List)
-        print(f"\n\tyour list is here:  {open_List}")
+
+        self.OD_lineEdit.setText(str(open_List[0]))
+        self.tnom_lineEdit.setText(str(open_List[1]))
+        self.tfab_lineEdit.setText(str(open_List[2]))
+        self.tcorr_lineEdit.setText(str(open_List[3]))
+        self.Oo_lineEdit.setText(str(open_List[4]))
+        # self.SMYS_lineEdit.setText(str(open_List[5]))
+        # self.SMTS_lineEdit.setText(str(open_List[6]))
+        self.fytemp_lineEdit.setText(str(open_List[7]))
+        self.futemp_lineEdit.setText(str(open_List[8]))
+        self.E_lineEdit.setText(str(open_List[9]))
+        self.v_lineEdit.setText(str(open_List[10]))
+        # self.alpha_fab_lineEdit.setText(str(open_List[11]))
+        # self.alpha_u_lineEdit.setText(str(open_List[12]))
+        self.Pd_lineEdit.setText(str(open_List[13]))
+        # self.gamma_m_lineEdit.setText(str(open_List[14]))
+        self.Pmin_lineEdit.setText(str(open_List[15]))
+        self.href_lineEdit.setText(str(open_List[16]))
+        self.hl_lineEdit.setText(str(open_List[17]))
+        self.rho_cont_lineEdit.setText(str(open_List[18]))
+        self.rho_t_lineEdit.setText(str(open_List[19]))
+        self.gamma_inc_lineEdit.setText(str(open_List[20]))
+        self.WD_min_lineEdit.setText(str(open_List[21]))
+        self.rho_sea_lineEdit.setText(str(open_List[22]))
+        self.hmax_lineEdit.setText(str(open_List[23]))
+        self.hmin_lineEdit.setText(str(open_List[24]))
+        # self.limitState_gamma_SCPC_lineedit.setText(str(open_List[25]))
+        # self.alpha_mpt_lineedit.setText(str(open_List[26]))
+        # self.limitState_gamma_SCLB_lineedit.setText(str(open_List[27]))
+        # self.alpha_spt_lineedit.setText(str(open_List[28]))
                     
                 
 
@@ -1507,4 +1548,7 @@ if __name__ == "__main__":
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
-    sys.exit(app.exec_())
+    try:
+        sys.exit(app.exec_())
+    except SystemExit:
+        print("\n\t Application is closing.....!!!!")
