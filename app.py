@@ -1010,7 +1010,11 @@ class Ui_MainWindow(object):
 
                     self.result_label.setText(str(P_check))
 
+<<<<<<< HEAD
                     self.treq_lineedit.setText(str(Nominal_Wall_Thickness_tnom))
+=======
+                    self.treq_lineedit.setText(Nominal_Wall_Thickness_tnom)
+>>>>>>> calculation_renew
 
 
                 elif( j==2):
@@ -1021,7 +1025,12 @@ class Ui_MainWindow(object):
 
                     self.result_label.setText(str(P_check))
 
+<<<<<<< HEAD
                     self.treq_lineedit.setText(str(Nominal_Wall_Thickness_tnom))
+=======
+                    self.treq_lineedit.setText(Nominal_Wall_Thickness_tnom)
+
+>>>>>>> calculation_renew
 
 
                 else:
@@ -1040,6 +1049,9 @@ class Ui_MainWindow(object):
 
                     self.result_label.setText(str(Pe_check_coll))
 
+                    self.treq_lineedit.setText(Nominal_Wall_Thickness_tnom)
+
+
 
                 elif(j==2):
 
@@ -1051,6 +1063,9 @@ class Ui_MainWindow(object):
                     self.utility_lineedit.setText(str(UC_coll))
 
                     self.result_label.setText(str(Pe_check_coll))
+
+                    self.treq_lineedit.setText(Nominal_Wall_Thickness_tnom)
+
 
 
                 else:
@@ -1074,6 +1089,9 @@ class Ui_MainWindow(object):
 
                     self.result_label.setText(str(Pe_check_buck))
 
+                    self.treq_lineedit.setText(Nominal_Wall_Thickness_tnom)
+
+
 
                 elif(j==2):
 
@@ -1087,6 +1105,9 @@ class Ui_MainWindow(object):
                     print("UC_Buck",UC_buck)
 
                     self.result_label.setText(str(Pe_check_buck))
+
+                    self.treq_lineedit.setText(Nominal_Wall_Thickness_tnom)
+
 
 
                 else:
