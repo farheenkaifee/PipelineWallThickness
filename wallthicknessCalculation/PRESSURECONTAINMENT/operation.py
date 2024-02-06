@@ -167,7 +167,7 @@ def pressure_operation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrica
         print("minimum_Pcheck",minimum_Pcheck)
 
         if((Pli - Pe ) <= minimum_Pcheck):
-            P_check = "Wall thickness accepted"
+            P_check = "Wall Thickness Accepted"
         else:
             P_check ="Redesign Wall Thickness"
             
