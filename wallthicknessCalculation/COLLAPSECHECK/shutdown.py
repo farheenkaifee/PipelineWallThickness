@@ -281,6 +281,6 @@ def collapse_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabricat
             Pe_check_buck = ("Redesign Wall Thickness, considering" ,t2, "mm thickness")
 
 
-        return UC_coll,Pe_check_coll,UC_buck,Pe_check_buck
+        return UC_coll, Pe_check_coll, UC_buck, Pe_check_buck
 
 
