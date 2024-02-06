@@ -227,7 +227,7 @@ def buckling_installation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabr
             print("Wall Thickness Accepted")
 
         else:
-            print("Redesign Wall Thickness")
+            print("Redesign Wall Thickness, considering" ,t2, "mm thickness")
 
         # ____________Propagation Buckling Check___________________
 
@@ -257,7 +257,10 @@ def buckling_installation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabr
 
         # PBuckle
         if(Pe <= Effective_wall_Thickness_Ppr_t2/(Material_resistant_factor_gamma_m*γSC_LB)):
-            print("Wall Thickness Accepted")
+            Pe_check = "Wall Thickness Accepted"
         else:
-            print("Redesign Wall Thickness, considering" ,t2, "mm thickness")
+            Pe_check = "Redesign Wall Thickness, considering" ,t2, "mm thickness"
+
+
+        # return UC_buck,Pe_check
 
