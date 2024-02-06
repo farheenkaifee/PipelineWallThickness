@@ -1534,7 +1534,7 @@ class Ui_MainWindow(object):
         self.utility_label.setText(_translate("MainWindow", "                              Utility Check"))
         self.DNV_Title.setText(_translate("MainWindow", "Design Factor as per DNV-GL"))
         self.calculateButton.setText(_translate("MainWindow", "START"))
-        self.result_label.setText(_translate("MainWindow", "Wall Thicknes  acccepted , redesign wall thicknes as per treq"))
+        self.result_label.setText(_translate("MainWindow", "RESULT"))
         self.menuFile.setTitle(_translate("MainWindow", "File"))
         self.menuEdit.setTitle(_translate("MainWindow", "Edit"))
         self.menuRun.setTitle(_translate("MainWindow", "Run"))
