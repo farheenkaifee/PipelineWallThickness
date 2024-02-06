@@ -1010,11 +1010,7 @@ class Ui_MainWindow(object):
 
                     self.result_label.setText(str(P_check))
 
-<<<<<<< HEAD
-                    self.treq_lineedit.setText(str(Nominal_Wall_Thickness_tnom))
-=======
                     self.treq_lineedit.setText(Nominal_Wall_Thickness_tnom)
->>>>>>> calculation_renew
 
 
                 elif( j==2):
@@ -1025,12 +1021,8 @@ class Ui_MainWindow(object):
 
                     self.result_label.setText(str(P_check))
 
-<<<<<<< HEAD
-                    self.treq_lineedit.setText(str(Nominal_Wall_Thickness_tnom))
-=======
                     self.treq_lineedit.setText(Nominal_Wall_Thickness_tnom)
 
->>>>>>> calculation_renew
 
 
                 else:
