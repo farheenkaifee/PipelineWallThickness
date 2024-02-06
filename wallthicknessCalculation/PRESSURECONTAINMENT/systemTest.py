@@ -135,10 +135,10 @@ def pressure_sysTest(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabricati
 
 
         if((Plt - Pe ) <= min((Pb_t1/Safety_Class_RF_gamma_SCPC),(Pmpt))):
-            P_check = "Wall Thickness Accepted"
+            P_check = "Wall Thickness Accepted ✅"
             
         else:
-            P_check = "Redesign Wall Thickness"
+            P_check = "Redesign Wall Thickness ❌"
 
 
         # Utility Check
