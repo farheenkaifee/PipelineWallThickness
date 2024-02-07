@@ -923,9 +923,7 @@ class Ui_MainWindow(object):
 
         self.calculateButton.clicked.connect(self.process_values)
         
-        
-        
-        # self.actionSave_As.activate.connect(self.saveAs)
+
         
 
 
@@ -1129,8 +1127,6 @@ class Ui_MainWindow(object):
                     print("error in overall analysis")
         except:
             print(f"error code:{random.random()}>>>>>>Error in process_value Match functions...!!!")
-
-
 
 
         
@@ -1573,6 +1569,12 @@ class Ui_MainWindow(object):
             self.analysis_combobox.setCurrentIndex(0)
             # self.analysis_modecombobox.setCurrentIndex(0)
             self.select_analysis()
+            self.treq_lineedit.clear()
+            self.utility_lineedit.clear() 
+            self.treq_lineedit.setEnabled(False)
+            self.utility_lineedit.setEnabled(False)
+            self.Water_Depth_label.setText("Water Depth WD [m]                        ")
+            self.result_label.setText("Result Window")
         except:
             print(f"error code:{random.random()}>>>>>>Error in Reset function....!!!")
 
