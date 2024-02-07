@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import random
 
 from wallthicknessCalculation.PRESSURECONTAINMENT.systemTest import pressure_sysTest
 from wallthicknessCalculation.PRESSURECONTAINMENT.operation import pressure_operation
@@ -933,189 +934,199 @@ class Ui_MainWindow(object):
 
 # _______________________________function for passing parameters from gui to backend___________________
     def process_values(self):
-        Outside_Diameter_OD = (self.OD_lineEdit.text()) 
-        # print(Outside_Diameter_OD) 
-        Nominal_Wall_Thickness_tnom = (self.tnom_lineEdit.text()) 
-        # print("t_nom  ", Nominal_Wall_Thickness_tnom)
-        Fabrication_Thickness_Tolerance_tfab = (self.tfab_lineEdit.text()) 
-        # print("t_fab ", Fabrication_Thickness_Tolerance_tfab)
-        Corrosion_Allowance_tcorr = (self.tcorr_lineEdit.text()) 
-        # print("t_corr",Corrosion_Allowance_tcorr)
-        Ovality_of_Pipe_Oo = (self.Oo_lineEdit.text()) 
-        # print("oo ",Ovality_of_Pipe_Oo)
-        SMYS_σsmys = (self.SMYS_lineEdit.text()) 
-        # print("smys ",SMYS_σsmys)
-        SMTS_σsmts = (self.SMTS_lineEdit.text()) 
-        # print("smts ",SMTS_σsmts)
-        Derating_value_temp_yieldStress_fy_temp = (self.fytemp_lineEdit.text()) 
-        # print("fy_temp ",Derating_value_temp_yieldStress_fy_temp)
-        Derating_value_temp_tensileStress_fu_temp = (self.futemp_lineEdit.text()) 
-        # print("fu_temp ",Derating_value_temp_tensileStress_fu_temp)
-        Youngs_Modulus_E = (self.E_lineEdit.text()) 
-        # print("E ",Youngs_Modulus_E)
-        Poission_s_Ratio_ν = (self.v_lineEdit.text()) 
-        # print("v ",Poission_s_Ratio_ν)
-        Maximum_Fabrication_Factor_alpha_fab = (self.alpha_fab_lineEdit.text()) 
-        # print("alpha_fab ",Maximum_Fabrication_Factor_alpha_fab)
-        Material_Strength_Factor_alpha_u = (self.alpha_u_lineEdit.text()) 
-        # print("alpha_u ",Material_Strength_Factor_alpha_u)
-        Pd = (self.Pd_lineEdit.text()) 
-        # print("Pd ",Pd)
-        Material_resistant_factor_gamma_m = (self.gamma_m_lineEdit.text()) 
-        # print("gamma_m ",Material_resistant_factor_gamma_m)
-        Pmin = (self.Pmin_lineEdit.text()) 
-        # print("Pmin ",Pmin)
-        Elevation_at_Pressure_Reference_Level_href = (self.href_lineEdit.text()) 
-        # print("href ",Elevation_at_Pressure_Reference_Level_href)
-        Elevation_level_at_Pressure_Point_hl = (self.hl_lineEdit.text()) 
-        # print("hl ",Elevation_level_at_Pressure_Point_hl)
-        Product_Density_ρcont = (self.rho_cont_lineEdit.text()) 
-        # print("rho_cont ",Product_Density_ρcont)
-        Hydrotest_Water_Density_ρt = (self.rho_t_lineEdit.text()) 
-        # print("rho_t ",Hydrotest_Water_Density_ρt)
-        Incidental_to_Design_Pressure_Ratio_gamma_inc = (self.gamma_inc_lineEdit.text()) 
-        # print("gamma_inc ",Incidental_to_Design_Pressure_Ratio_gamma_inc)
-        Water_Depth_WD = (self.WD_min_lineEdit.text()) 
-        # print("WDmin ",min_Water_Depth_WDin)
-        Sea_Water_Density_ρsea = (self.rho_sea_lineEdit.text()) 
-        # print("rho_sea ",Sea_Water_Density_ρsea)
-        Max_Elevation_wrt_MSL_hmax = (self.hmax_lineEdit.text()) 
-        # print("hmax ",Max_Elevation_wrt_MSL_hmax)
-        Min_Elevation_wrt_MSL_hmin = (self.hmin_lineEdit.text()) 
-        # print("hmin ",Min_Elevation_wrt_MSL_hmin)
+        
+        try:
+            
+            Outside_Diameter_OD = (self.OD_lineEdit.text()) 
+            # print(Outside_Diameter_OD) 
+            Nominal_Wall_Thickness_tnom = (self.tnom_lineEdit.text()) 
+            # print("t_nom  ", Nominal_Wall_Thickness_tnom)
+            Fabrication_Thickness_Tolerance_tfab = (self.tfab_lineEdit.text()) 
+            # print("t_fab ", Fabrication_Thickness_Tolerance_tfab)
+            Corrosion_Allowance_tcorr = (self.tcorr_lineEdit.text()) 
+            # print("t_corr",Corrosion_Allowance_tcorr)
+            Ovality_of_Pipe_Oo = (self.Oo_lineEdit.text()) 
+            # print("oo ",Ovality_of_Pipe_Oo)
+            SMYS_σsmys = (self.SMYS_lineEdit.text()) 
+            # print("smys ",SMYS_σsmys)
+            SMTS_σsmts = (self.SMTS_lineEdit.text()) 
+            # print("smts ",SMTS_σsmts)
+            Derating_value_temp_yieldStress_fy_temp = (self.fytemp_lineEdit.text()) 
+            # print("fy_temp ",Derating_value_temp_yieldStress_fy_temp)
+            Derating_value_temp_tensileStress_fu_temp = (self.futemp_lineEdit.text()) 
+            # print("fu_temp ",Derating_value_temp_tensileStress_fu_temp)
+            Youngs_Modulus_E = (self.E_lineEdit.text()) 
+            # print("E ",Youngs_Modulus_E)
+            Poission_s_Ratio_ν = (self.v_lineEdit.text()) 
+            # print("v ",Poission_s_Ratio_ν)
+            Maximum_Fabrication_Factor_alpha_fab = (self.alpha_fab_lineEdit.text()) 
+            # print("alpha_fab ",Maximum_Fabrication_Factor_alpha_fab)
+            Material_Strength_Factor_alpha_u = (self.alpha_u_lineEdit.text()) 
+            # print("alpha_u ",Material_Strength_Factor_alpha_u)
+            Pd = (self.Pd_lineEdit.text()) 
+            # print("Pd ",Pd)
+            Material_resistant_factor_gamma_m = (self.gamma_m_lineEdit.text()) 
+            # print("gamma_m ",Material_resistant_factor_gamma_m)
+            Pmin = (self.Pmin_lineEdit.text()) 
+            # print("Pmin ",Pmin)
+            Elevation_at_Pressure_Reference_Level_href = (self.href_lineEdit.text()) 
+            # print("href ",Elevation_at_Pressure_Reference_Level_href)
+            Elevation_level_at_Pressure_Point_hl = (self.hl_lineEdit.text()) 
+            # print("hl ",Elevation_level_at_Pressure_Point_hl)
+            Product_Density_ρcont = (self.rho_cont_lineEdit.text()) 
+            # print("rho_cont ",Product_Density_ρcont)
+            Hydrotest_Water_Density_ρt = (self.rho_t_lineEdit.text()) 
+            # print("rho_t ",Hydrotest_Water_Density_ρt)
+            Incidental_to_Design_Pressure_Ratio_gamma_inc = (self.gamma_inc_lineEdit.text()) 
+            # print("gamma_inc ",Incidental_to_Design_Pressure_Ratio_gamma_inc)
+            Water_Depth_WD = (self.WD_min_lineEdit.text()) 
+            # print("WDmin ",min_Water_Depth_WDin)
+            Sea_Water_Density_ρsea = (self.rho_sea_lineEdit.text()) 
+            # print("rho_sea ",Sea_Water_Density_ρsea)
+            Max_Elevation_wrt_MSL_hmax = (self.hmax_lineEdit.text()) 
+            # print("hmax ",Max_Elevation_wrt_MSL_hmax)
+            Min_Elevation_wrt_MSL_hmin = (self.hmin_lineEdit.text()) 
+            # print("hmin ",Min_Elevation_wrt_MSL_hmin)
 
-        Safety_Class_RF_gamma_SCPC = (self.limitState_gamma_SCPC_lineedit.text()) 
-        # print("gamma_SCPC ",Safety_Class_RF_gamma_SCPC)
-        Safety_Class_RF_gamma_SCLB = (self.limitState_gamma_SCLB_lineedit.text()) 
-        # print("gamma_SCLB ",Safety_Class_RF_gamma_SCLB)
-        System_Pressure_Test_Factor_alpha_spt = (self.alpha_spt_lineedit.text()) 
-        # print("alpha_spt ",System_Pressure_Test_Factor_alpha_spt)
-        Mill_Pressure_Test_Factor_alpha_mpt = (self.alpha_mpt_lineedit.text()) 
-        # print("alpha_mpt ",Mill_Pressure_Test_Factor_alpha_mpt)
-
-
-        self.treq_lineedit.setEnabled(True)
-        self.utility_lineedit.setEnabled(True)
-
-
-#  _________________ selecting each check functions according to their indices______________________
-
-        i = self.analysis_combobox.currentIndex()
-        print("index of analysis combo box",i)
-
-        j = self.analysis_modecombobox.currentIndex()
-        print("j",j)
-
-        match i:
-            case 1:
-
-                if( j == 1):
+            Safety_Class_RF_gamma_SCPC = (self.limitState_gamma_SCPC_lineedit.text()) 
+            # print("gamma_SCPC ",Safety_Class_RF_gamma_SCPC)
+            Safety_Class_RF_gamma_SCLB = (self.limitState_gamma_SCLB_lineedit.text()) 
+            # print("gamma_SCLB ",Safety_Class_RF_gamma_SCLB)
+            System_Pressure_Test_Factor_alpha_spt = (self.alpha_spt_lineedit.text()) 
+            # print("alpha_spt ",System_Pressure_Test_Factor_alpha_spt)
+            Mill_Pressure_Test_Factor_alpha_mpt = (self.alpha_mpt_lineedit.text()) 
+            # print("alpha_mpt ",Mill_Pressure_Test_Factor_alpha_mpt)
 
 
-                    UC_prss_cont,P_check = pressure_sysTest(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Min_Elevation_wrt_MSL_hmin,Safety_Class_RF_gamma_SCPC,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m)
-                  
-                    self.utility_lineedit.setText(str(UC_prss_cont))
-
-                    self.result_label.setText(str(P_check))
-
-                    self.treq_lineedit.setText(Nominal_Wall_Thickness_tnom)
+            self.treq_lineedit.setEnabled(True)
+            self.utility_lineedit.setEnabled(True)
 
 
-                elif( j==2):
-                    UC_prss_cont,P_check= pressure_operation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Min_Elevation_wrt_MSL_hmin,Safety_Class_RF_gamma_SCPC,Mill_Pressure_Test_Factor_alpha_mpt,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m,System_Pressure_Test_Factor_alpha_spt)
-                    # print(value_pressure_operation)
+    #  _________________ selecting each check functions according to their indices______________________
 
-                    self.utility_lineedit.setText(str(UC_prss_cont))
+            i = self.analysis_combobox.currentIndex()
+            print("index of analysis combo box",i)
 
-                    self.result_label.setText(str(P_check))
+            j = self.analysis_modecombobox.currentIndex()
+            print("j",j)
+        except:
+            print(f"error code:{random.random()}>>>>>>Error in assigning the values...@@$$ in process_value function..!!!")
+        
+        
+        try:
 
-                    self.treq_lineedit.setText(Nominal_Wall_Thickness_tnom)
+            match i:
+                case 1:
+
+                    if( j == 1):
+
+
+                        UC_prss_cont,P_check = pressure_sysTest(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Min_Elevation_wrt_MSL_hmin,Safety_Class_RF_gamma_SCPC,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m)
+                    
+                        self.utility_lineedit.setText(str(UC_prss_cont))
+
+                        self.result_label.setText(str(P_check))
+
+                        self.treq_lineedit.setText(Nominal_Wall_Thickness_tnom)
+
+
+                    elif( j==2):
+                        UC_prss_cont,P_check= pressure_operation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Min_Elevation_wrt_MSL_hmin,Safety_Class_RF_gamma_SCPC,Mill_Pressure_Test_Factor_alpha_mpt,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m,System_Pressure_Test_Factor_alpha_spt)
+                        # print(value_pressure_operation)
+
+                        self.utility_lineedit.setText(str(UC_prss_cont))
+
+                        self.result_label.setText(str(P_check))
+
+                        self.treq_lineedit.setText(Nominal_Wall_Thickness_tnom)
 
 
 
-                else:
-                    print("error in pressure containment")
+                    else:
+                        print("error in pressure containment")
 
-            case 2:
+                case 2:
 
-                if( j == 1):
+                    if( j == 1):
+
+                        
+                        UC_coll, Pe_check_coll, UC_buck, Pe_check_buck = collapse_installation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Safety_Class_RF_gamma_SCLB,Mill_Pressure_Test_Factor_alpha_mpt,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m,System_Pressure_Test_Factor_alpha_spt)
+                        # print(value_collapse_installation)
+
+                        
+                        self.utility_lineedit.setText(str(UC_coll))
+
+                        self.result_label.setText(str(Pe_check_coll))
+
+                        self.treq_lineedit.setText(Nominal_Wall_Thickness_tnom)
+
+
+
+                    elif(j==2):
+
+                        
+                        UC_coll, Pe_check_coll, UC_buck, Pe_check_buck  = collapse_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Safety_Class_RF_gamma_SCLB,Mill_Pressure_Test_Factor_alpha_mpt,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m,System_Pressure_Test_Factor_alpha_spt)
+                        # print(value_collapse_shutdown)
+
+                        
+                        self.utility_lineedit.setText(str(UC_coll))
+
+                        self.result_label.setText(str(Pe_check_coll))
+
+                        self.treq_lineedit.setText(Nominal_Wall_Thickness_tnom)
+
+
+
+                    else:
+                        print("error in collpase check")
+
+
+                case 3:
 
                     
-                    UC_coll, Pe_check_coll, UC_buck, Pe_check_buck = collapse_installation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Safety_Class_RF_gamma_SCLB,Mill_Pressure_Test_Factor_alpha_mpt,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m,System_Pressure_Test_Factor_alpha_spt)
-                    # print(value_collapse_installation)
+                    print("index of analysis combo box",i)
 
-                    
-                    self.utility_lineedit.setText(str(UC_coll))
+                    if( j == 1):
 
-                    self.result_label.setText(str(Pe_check_coll))
+                        
+                        UC_coll, Pe_check_coll, UC_buck, Pe_check_buck = collapse_installation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Safety_Class_RF_gamma_SCLB,Mill_Pressure_Test_Factor_alpha_mpt,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m,System_Pressure_Test_Factor_alpha_spt)
+                        # print(value_collapse_installation)
 
-                    self.treq_lineedit.setText(Nominal_Wall_Thickness_tnom)
+                        
+                        self.utility_lineedit.setText(str(UC_buck))
+                        print("UC_Buck",UC_buck)
 
+                        self.result_label.setText(str(Pe_check_buck))
 
-
-                elif(j==2):
-
-                    
-                    UC_coll, Pe_check_coll, UC_buck, Pe_check_buck  = collapse_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Safety_Class_RF_gamma_SCLB,Mill_Pressure_Test_Factor_alpha_mpt,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m,System_Pressure_Test_Factor_alpha_spt)
-                    # print(value_collapse_shutdown)
-
-                    
-                    self.utility_lineedit.setText(str(UC_coll))
-
-                    self.result_label.setText(str(Pe_check_coll))
-
-                    self.treq_lineedit.setText(Nominal_Wall_Thickness_tnom)
+                        self.treq_lineedit.setText(Nominal_Wall_Thickness_tnom)
 
 
 
-                else:
-                    print("error in collpase check")
+                    elif(j==2):
 
+                        
+                        UC_coll, Pe_check_coll, UC_buck, Pe_check_buck = collapse_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Safety_Class_RF_gamma_SCLB,Mill_Pressure_Test_Factor_alpha_mpt,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m,System_Pressure_Test_Factor_alpha_spt)
+                        # print(value_collapse_shutdown)
 
-            case 3:
+                        
+                        self.utility_lineedit.setText(str(UC_buck))
 
-                
-                print("index of analysis combo box",i)
+                        print("UC_Buck",UC_buck)
 
-                if( j == 1):
+                        self.result_label.setText(str(Pe_check_buck))
 
-                    
-                    UC_coll, Pe_check_coll, UC_buck, Pe_check_buck = collapse_installation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Safety_Class_RF_gamma_SCLB,Mill_Pressure_Test_Factor_alpha_mpt,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m,System_Pressure_Test_Factor_alpha_spt)
-                    # print(value_collapse_installation)
-
-                    
-                    self.utility_lineedit.setText(str(UC_buck))
-                    print("UC_Buck",UC_buck)
-
-                    self.result_label.setText(str(Pe_check_buck))
-
-                    self.treq_lineedit.setText(Nominal_Wall_Thickness_tnom)
+                        self.treq_lineedit.setText(Nominal_Wall_Thickness_tnom)
 
 
 
-                elif(j==2):
-
-                    
-                    UC_coll, Pe_check_coll, UC_buck, Pe_check_buck = collapse_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Safety_Class_RF_gamma_SCLB,Mill_Pressure_Test_Factor_alpha_mpt,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m,System_Pressure_Test_Factor_alpha_spt)
-                    # print(value_collapse_shutdown)
-
-                    
-                    self.utility_lineedit.setText(str(UC_buck))
-
-                    print("UC_Buck",UC_buck)
-
-                    self.result_label.setText(str(Pe_check_buck))
-
-                    self.treq_lineedit.setText(Nominal_Wall_Thickness_tnom)
+                    else:
+                        print("error in buckling")
 
 
-
-                else:
-                    print("error in buckling")
-
-
-            case 0:
-                print("error in overall analysis")
+                case 0:
+                    print("error in overall analysis")
+        except:
+            print(f"error code:{random.random()}>>>>>>Error in process_value Match functions...!!!")
 
 
 
@@ -1128,165 +1139,173 @@ class Ui_MainWindow(object):
 
 
     def select_analysis(self):    # meaningful function
-        i = self.analysis_combobox.currentIndex()
-        print(i)
-        self.analysis_modecombobox.clear()
-        match  i :
-            case 1 :
-                # print("Pressure")
-                self.analysis_modecombobox.setDisabled(False)
-                self.analysis_modecombobox.addItem("Select")
-                self.analysis_modecombobox.addItem("System Check")
-                self.analysis_modecombobox.addItem("Operation")
+        try:
+            
+            i = self.analysis_combobox.currentIndex()
+            print(i)
+            self.analysis_modecombobox.clear()
+            match  i :
+                case 1 :
+                    # print("Pressure")
+                    self.analysis_modecombobox.setDisabled(False)
+                    self.analysis_modecombobox.addItem("Select")
+                    self.analysis_modecombobox.addItem("System Check")
+                    self.analysis_modecombobox.addItem("Operation")
 
-                self.limitState_gamma_SCPC_lineedit.setEnabled(True)
-                self.alpha_mpt_lineedit.setEnabled(True)
-                self.limitState_gamma_SCLB_lineedit.setEnabled(False)
-                self.alpha_spt_lineedit.setEnabled(True)
+                    self.limitState_gamma_SCPC_lineedit.setEnabled(True)
+                    self.alpha_mpt_lineedit.setEnabled(True)
+                    self.limitState_gamma_SCLB_lineedit.setEnabled(False)
+                    self.alpha_spt_lineedit.setEnabled(True)
 
-                self.alpha_spt_lineedit.clear()
+                    self.alpha_spt_lineedit.clear()
 
-                self.limitState_gamma_SCLB_lineedit.clear()
+                    self.limitState_gamma_SCLB_lineedit.clear()
 
-                self.Water_Depth_label.setText(("Min Water Depth WDmin [m]           "))
+                    self.Water_Depth_label.setText(("Min Water Depth WDmin [m]           "))
 
-                self.hmax_lineEdit.setDisabled(True)
-                self.hmin_lineEdit.setDisabled(False)
+                    self.hmax_lineEdit.setDisabled(True)
+                    self.hmin_lineEdit.setDisabled(False)
 
-                self.analysis_modecombobox.activated.connect(self.select_analysis_mode)
-                
-            case 2 :
-                # print("Collapse")
-                self.analysis_modecombobox.setDisabled(False)
-                self.analysis_modecombobox.addItem("Select")
-                self.analysis_modecombobox.addItem("Installation Check")
-                self.analysis_modecombobox.addItem("Shut Down")
+                    self.analysis_modecombobox.activated.connect(self.select_analysis_mode)
+                    
+                case 2 :
+                    # print("Collapse")
+                    self.analysis_modecombobox.setDisabled(False)
+                    self.analysis_modecombobox.addItem("Select")
+                    self.analysis_modecombobox.addItem("Installation Check")
+                    self.analysis_modecombobox.addItem("Shut Down")
 
-                self.limitState_gamma_SCLB_lineedit.setEnabled(True)
-                self.alpha_spt_lineedit.setEnabled(True)
-                self.limitState_gamma_SCPC_lineedit.setEnabled(False)
-                self.alpha_mpt_lineedit.setEnabled(True)
+                    self.limitState_gamma_SCLB_lineedit.setEnabled(True)
+                    self.alpha_spt_lineedit.setEnabled(True)
+                    self.limitState_gamma_SCPC_lineedit.setEnabled(False)
+                    self.alpha_mpt_lineedit.setEnabled(True)
 
-                self.alpha_mpt_lineedit.clear()
+                    self.alpha_mpt_lineedit.clear()
 
-                self.limitState_gamma_SCPC_lineedit.clear()
+                    self.limitState_gamma_SCPC_lineedit.clear()
 
-                self.alpha_spt_lineedit.clear()
+                    self.alpha_spt_lineedit.clear()
 
-                self.limitState_gamma_SCLB_lineedit.clear()
+                    self.limitState_gamma_SCLB_lineedit.clear()
 
-                self.Water_Depth_label.setText(("Max Water Depth WDmax [m]        "))
+                    self.Water_Depth_label.setText(("Max Water Depth WDmax [m]        "))
 
-                self.hmax_lineEdit.setDisabled(False)
-                self.hmin_lineEdit.setDisabled(True)
+                    self.hmax_lineEdit.setDisabled(False)
+                    self.hmin_lineEdit.setDisabled(True)
 
-                self.analysis_modecombobox.activated.connect(self.select_analysis_mode)
-            case 3 :
-                # print("Buckling")
-                self.analysis_modecombobox.setDisabled(False)
-                self.analysis_modecombobox.addItem("Select")
-                self.analysis_modecombobox.addItem("Installation Check")
-                self.analysis_modecombobox.addItem("Shut Down")
+                    self.analysis_modecombobox.activated.connect(self.select_analysis_mode)
+                case 3 :
+                    # print("Buckling")
+                    self.analysis_modecombobox.setDisabled(False)
+                    self.analysis_modecombobox.addItem("Select")
+                    self.analysis_modecombobox.addItem("Installation Check")
+                    self.analysis_modecombobox.addItem("Shut Down")
 
-                self.limitState_gamma_SCLB_lineedit.setEnabled(True)
-                self.alpha_spt_lineedit.setEnabled(True)
-                self.limitState_gamma_SCPC_lineedit.setEnabled(False)
-                self.alpha_mpt_lineedit.setEnabled(True)
+                    self.limitState_gamma_SCLB_lineedit.setEnabled(True)
+                    self.alpha_spt_lineedit.setEnabled(True)
+                    self.limitState_gamma_SCPC_lineedit.setEnabled(False)
+                    self.alpha_mpt_lineedit.setEnabled(True)
 
-                self.alpha_mpt_lineedit.clear()
+                    self.alpha_mpt_lineedit.clear()
 
-                self.limitState_gamma_SCPC_lineedit.clear()
+                    self.limitState_gamma_SCPC_lineedit.clear()
 
-                self.alpha_spt_lineedit.clear()
+                    self.alpha_spt_lineedit.clear()
 
-                self.limitState_gamma_SCLB_lineedit.clear()
+                    self.limitState_gamma_SCLB_lineedit.clear()
 
-                self.Water_Depth_label.setText(("Max Water Depth WDmax [m]        "))
+                    self.Water_Depth_label.setText(("Max Water Depth WDmax [m]        "))
 
-                self.hmax_lineEdit.setDisabled(False)
-                self.hmin_lineEdit.setDisabled(True)
-                
+                    self.hmax_lineEdit.setDisabled(False)
+                    self.hmin_lineEdit.setDisabled(True)
+                    
 
-                self.analysis_modecombobox.activated.connect(self.select_analysis_mode)
-            case 0 :
-                # print("No Selection")
-                self.analysis_modecombobox.setDisabled(True)
-                self.limitState_gamma_SCLB_lineedit.setEnabled(False)
-                self.alpha_spt_lineedit.setEnabled(False)
-                self.limitState_gamma_SCPC_lineedit.setEnabled(False)
-                self.alpha_mpt_lineedit.setEnabled(False)
+                    self.analysis_modecombobox.activated.connect(self.select_analysis_mode)
+                case 0 :
+                    # print("No Selection")
+                    self.analysis_modecombobox.setDisabled(True)
+                    self.limitState_gamma_SCLB_lineedit.setEnabled(False)
+                    self.alpha_spt_lineedit.setEnabled(False)
+                    self.limitState_gamma_SCPC_lineedit.setEnabled(False)
+                    self.alpha_mpt_lineedit.setEnabled(False)
 
-                self.alpha_fab_comboBox.setEnabled(False)
-                self.alpha_u_comboBox.setEnabled(False)
-                self.gamma_m_comboBox.setEnabled(False)
-                self.safety_classcombobox.setEnabled(False)
-                self.Water_Depth_label.setText(("Water Depth WDmax [m]               "))
+                    self.alpha_fab_comboBox.setEnabled(False)
+                    self.alpha_u_comboBox.setEnabled(False)
+                    self.gamma_m_comboBox.setEnabled(False)
+                    self.safety_classcombobox.setEnabled(False)
+                    self.Water_Depth_label.setText(("Water Depth WDmax [m]               "))
 
-                self.hmin_lineEdit.setDisabled(True)
+                    self.hmin_lineEdit.setDisabled(True)
 
-                self.hmax_lineEdit.setDisabled(True)
+                    self.hmax_lineEdit.setDisabled(True)
 
-                self.alpha_fab_comboBox.setCurrentIndex(0)
-                self.alpha_u_comboBox.setCurrentIndex(0)
-                self.gamma_m_comboBox.setCurrentIndex(0)
-                self.safety_classcombobox.setCurrentIndex(0)
-                self.gradeComboBox.setCurrentIndex(0)
+                    self.alpha_fab_comboBox.setCurrentIndex(0)
+                    self.alpha_u_comboBox.setCurrentIndex(0)
+                    self.gamma_m_comboBox.setCurrentIndex(0)
+                    self.safety_classcombobox.setCurrentIndex(0)
+                    self.gradeComboBox.setCurrentIndex(0)
+        except:
+            print(f"error code:{random.random()}>>>>>>>Error in select analysis....@@$$")
 
                 
                 
         
     def select_analysis_mode(self):
-        i = self.analysis_modecombobox.currentIndex()
-        print(f"You have selected :  {i}")
-        self.alpha_u_comboBox.clear()
-        
- # Coding for combox box enabled & disabled according to the selected Analysis
-        
-        match  i :
-            case 1 :
-                # print("case 1")
-                self.alpha_fab_comboBox.setEnabled(True)
-                self.alpha_u_comboBox.setEnabled(True)
-                self.gamma_m_comboBox.setEnabled(True)
-                self.safety_classcombobox.setEnabled(True)
-                self.alpha_u_comboBox.addItem("Select",[" "])
-                
-                if (self.analysis_modecombobox.currentText() == "System Check"):
-                    # print("Systyem check")
-                
-                    self.alpha_u_comboBox.addItem("Normal",["1.00"])
-                    self.alpha_u_comboBox.addItem("Supplementary requirement P",["1.00"])
+        try:
+            
+            i = self.analysis_modecombobox.currentIndex()
+            print(f"You have selected :  {i}")
+            self.alpha_u_comboBox.clear()
+            
+    # Coding for combox box enabled & disabled according to the selected Analysis
+            
+            match  i :
+                case 1 :
+                    # print("case 1")
+                    self.alpha_fab_comboBox.setEnabled(True)
+                    self.alpha_u_comboBox.setEnabled(True)
+                    self.gamma_m_comboBox.setEnabled(True)
+                    self.safety_classcombobox.setEnabled(True)
+                    self.alpha_u_comboBox.addItem("Select",[" "])
+                    
+                    if (self.analysis_modecombobox.currentText() == "System Check"):
+                        # print("Systyem check")
+                    
+                        self.alpha_u_comboBox.addItem("Normal",["1.00"])
+                        self.alpha_u_comboBox.addItem("Supplementary requirement P",["1.00"])
 
-                else:
+                    else:
+                        self.alpha_u_comboBox.addItem("Normal",["0.96"])
+                        self.alpha_u_comboBox.addItem("Supplementary requirement P",["1.00"])
+
+                
+                case 2 :
+                    # print("case 2")
+                    self.alpha_fab_comboBox.setEnabled(True)
+                    self.alpha_u_comboBox.setEnabled(True)
+                    self.gamma_m_comboBox.setEnabled(True)
+                    self.safety_classcombobox.setEnabled(True)
+
+                    self.alpha_u_comboBox.addItem("Select",[" "])
                     self.alpha_u_comboBox.addItem("Normal",["0.96"])
                     self.alpha_u_comboBox.addItem("Supplementary requirement P",["1.00"])
 
-            
-            case 2 :
-                # print("case 2")
-                self.alpha_fab_comboBox.setEnabled(True)
-                self.alpha_u_comboBox.setEnabled(True)
-                self.gamma_m_comboBox.setEnabled(True)
-                self.safety_classcombobox.setEnabled(True)
-
-                self.alpha_u_comboBox.addItem("Select",[" "])
-                self.alpha_u_comboBox.addItem("Normal",["0.96"])
-                self.alpha_u_comboBox.addItem("Supplementary requirement P",["1.00"])
-
+                    
                 
-            
-            case 0 :
-                # print("case 0")
-                self.alpha_fab_comboBox.setEnabled(False)
-                self.alpha_u_comboBox.setEnabled(False)
-                self.gamma_m_comboBox.setEnabled(False)
-                self.safety_classcombobox.setEnabled(False)
+                case 0 :
+                    # print("case 0")
+                    self.alpha_fab_comboBox.setEnabled(False)
+                    self.alpha_u_comboBox.setEnabled(False)
+                    self.gamma_m_comboBox.setEnabled(False)
+                    self.safety_classcombobox.setEnabled(False)
 
-             # For clearing lineedit connected with combo boxes when selection is null
-                   
-                self.alpha_u_lineEdit.clear()
-                self.alpha_fab_lineEdit.clear()
-                self.gamma_m_lineEdit.clear()
+                # For clearing lineedit connected with combo boxes when selection is null
+                    
+                    self.alpha_u_lineEdit.clear()
+                    self.alpha_fab_lineEdit.clear()
+                    self.gamma_m_lineEdit.clear()
+        except:
+            print(f"error code:{random.random()}>>>>>>Error in select analysis mode function.....@@##$")
                 
         
         
@@ -1339,206 +1358,218 @@ class Ui_MainWindow(object):
 
 
     def select_safety_class(self,index):
+        try:
 
-        data_safetyClass = self.safety_classcombobox.itemData(index)
-        i = self.analysis_combobox.currentIndex()
-        j = self.analysis_modecombobox.currentIndex()
-               
-
-        if(j == 0):
-            print("First Select Analysis mode")
-
-        else:
-
-            match  i :
-                case 1 :
-                    # print("Pressure")
-                    self.limitState_gamma_SCPC_lineedit.setText(data_safetyClass[0])
-
-                    self.alpha_mpt_lineedit.setText(data_safetyClass[2])
-
-                    self.alpha_spt_lineedit.setText(data_safetyClass[3])
-
-                    self.limitState_gamma_SCLB_lineedit.clear()
-
+            data_safetyClass = self.safety_classcombobox.itemData(index)
+            i = self.analysis_combobox.currentIndex()
+            j = self.analysis_modecombobox.currentIndex()
                 
+
+            if(j == 0):
+                print("First Select Analysis mode")
+
+            else:
+
+                match  i :
+                    case 1 :
+                        # print("Pressure")
+                        self.limitState_gamma_SCPC_lineedit.setText(data_safetyClass[0])
+
+                        self.alpha_mpt_lineedit.setText(data_safetyClass[2])
+
+                        self.alpha_spt_lineedit.setText(data_safetyClass[3])
+
+                        self.limitState_gamma_SCLB_lineedit.clear()
+
                     
-                case 2 :
-                    # print("Collapse")
-                    self.limitState_gamma_SCLB_lineedit.setText(data_safetyClass[1])
+                        
+                    case 2 :
+                        # print("Collapse")
+                        self.limitState_gamma_SCLB_lineedit.setText(data_safetyClass[1])
 
-                    self.alpha_mpt_lineedit.setText(data_safetyClass[2])
+                        self.alpha_mpt_lineedit.setText(data_safetyClass[2])
 
-                    self.alpha_spt_lineedit.setText(data_safetyClass[3])
+                        self.alpha_spt_lineedit.setText(data_safetyClass[3])
 
-                    # self.alpha_mpt_lineedit.clear()
+                        # self.alpha_mpt_lineedit.clear()
 
-                    self.limitState_gamma_SCPC_lineedit.clear()
+                        self.limitState_gamma_SCPC_lineedit.clear()
 
-                
-                case 3 :
-                    # print("Buckling")
-                    self.limitState_gamma_SCLB_lineedit.setText(data_safetyClass[1])
+                    
+                    case 3 :
+                        # print("Buckling")
+                        self.limitState_gamma_SCLB_lineedit.setText(data_safetyClass[1])
 
-                    self.alpha_mpt_lineedit.setText(data_safetyClass[2])
+                        self.alpha_mpt_lineedit.setText(data_safetyClass[2])
 
-                    self.alpha_spt_lineedit.setText(data_safetyClass[3])
+                        self.alpha_spt_lineedit.setText(data_safetyClass[3])
 
-                    # self.alpha_mpt_lineedit.clear()
+                        # self.alpha_mpt_lineedit.clear()
 
-                    self.limitState_gamma_SCPC_lineedit.clear()
+                        self.limitState_gamma_SCPC_lineedit.clear()
 
 
-                case 0 :
-                    # print("No Selection")
+                    case 0 :
+                        # print("No Selection")
 
-                    self.alpha_mpt_lineedit.clear()
-                    self.alpha_spt_lineedit.clear()
-                    self.limitState_gamma_SCPC_lineedit.clear()
-                    self.limitState_gamma_SCLB_lineedit.clear()
+                        self.alpha_mpt_lineedit.clear()
+                        self.alpha_spt_lineedit.clear()
+                        self.limitState_gamma_SCPC_lineedit.clear()
+                        self.limitState_gamma_SCLB_lineedit.clear()
+        except:
+            print(f"error code:{random.random()}>>>>>>Error in select safety class combo...!!@@@$$$")
     
     
     
     def saveAs_doc(self):
-        print("Saving file in main file....!!!")
-        Outside_Diameter_OD = (self.OD_lineEdit.text()) 
-        # print(Outside_Diameter_OD) 
-        Nominal_Wall_Thickness_tnom = (self.tnom_lineEdit.text()) 
-        # print("t_nom  ", Nominal_Wall_Thickness_tnom)
-        Fabrication_Thickness_Tolerance_tfab = (self.tfab_lineEdit.text()) 
-        # print("t_fab ", Fabrication_Thickness_Tolerance_tfab)
-        Corrosion_Allowance_tcorr = (self.tcorr_lineEdit.text()) 
-        # print("t_corr",Corrosion_Allowance_tcorr)
-        Ovality_of_Pipe_Oo = (self.Oo_lineEdit.text()) 
-        # print("oo ",Ovality_of_Pipe_Oo)
-        SMYS_σsmys = (self.SMYS_lineEdit.text()) 
-        # print("smys ",SMYS_σsmys)
-        SMTS_σsmts = (self.SMTS_lineEdit.text()) 
-        # print("smts ",SMTS_σsmts)
-        Derating_value_temp_yieldStress_fy_temp = (self.fytemp_lineEdit.text()) 
-        # print("fy_temp ",Derating_value_temp_yieldStress_fy_temp)
-        Derating_value_temp_tensileStress_fu_temp = (self.futemp_lineEdit.text()) 
-        # print("fu_temp ",Derating_value_temp_tensileStress_fu_temp)
-        Youngs_Modulus_E = (self.E_lineEdit.text()) 
-        # print("E ",Youngs_Modulus_E)
-        Poission_s_Ratio_ν = (self.v_lineEdit.text()) 
-        # print("v ",Poission_s_Ratio_ν)
-        Maximum_Fabrication_Factor_alpha_fab = (self.alpha_fab_lineEdit.text()) 
-        # print("alpha_fab ",Maximum_Fabrication_Factor_alpha_fab)
-        Material_Strength_Factor_alpha_u = (self.alpha_u_lineEdit.text()) 
-        # print("alpha_u ",Material_Strength_Factor_alpha_u)
-        Pd = (self.Pd_lineEdit.text()) 
-        # print("Pd ",Pd)
-        Material_resistant_factor_gamma_m = (self.gamma_m_lineEdit.text()) 
-        # print("gamma_m ",Material_resistant_factor_gamma_m)
-        Pmin = (self.Pmin_lineEdit.text()) 
-        # print("Pmin ",Pmin)
-        Elevation_at_Pressure_Reference_Level_href = (self.href_lineEdit.text()) 
-        # print("href ",Elevation_at_Pressure_Reference_Level_href)
-        Elevation_level_at_Pressure_Point_hl = (self.hl_lineEdit.text()) 
-        # print("hl ",Elevation_level_at_Pressure_Point_hl)
-        Product_Density_ρcont = (self.rho_cont_lineEdit.text()) 
-        # print("rho_cont ",Product_Density_ρcont)
-        Hydrotest_Water_Density_ρt = (self.rho_t_lineEdit.text()) 
-        # print("rho_t ",Hydrotest_Water_Density_ρt)
-        Incidental_to_Design_Pressure_Ratio_gamma_inc = (self.gamma_inc_lineEdit.text()) 
-        # print("gamma_inc ",Incidental_to_Design_Pressure_Ratio_gamma_inc)
-        Water_Depth_WD = (self.WD_min_lineEdit.text()) 
-        # print("WDmin ",min_Water_Depth_WDin)
-        Sea_Water_Density_ρsea = (self.rho_sea_lineEdit.text()) 
-        # print("rho_sea ",Sea_Water_Density_ρsea)
-        Max_Elevation_wrt_MSL_hmax = (self.hmax_lineEdit.text()) 
-        # print("hmax ",Max_Elevation_wrt_MSL_hmax)
-        Min_Elevation_wrt_MSL_hmin = (self.hmin_lineEdit.text()) 
-        # print("hmin ",Min_Elevation_wrt_MSL_hmin)
+        try:
+            print("Saving file in main file....!!!")
+            Outside_Diameter_OD = (self.OD_lineEdit.text()) 
+            # print(Outside_Diameter_OD) 
+            Nominal_Wall_Thickness_tnom = (self.tnom_lineEdit.text()) 
+            # print("t_nom  ", Nominal_Wall_Thickness_tnom)
+            Fabrication_Thickness_Tolerance_tfab = (self.tfab_lineEdit.text()) 
+            # print("t_fab ", Fabrication_Thickness_Tolerance_tfab)
+            Corrosion_Allowance_tcorr = (self.tcorr_lineEdit.text()) 
+            # print("t_corr",Corrosion_Allowance_tcorr)
+            Ovality_of_Pipe_Oo = (self.Oo_lineEdit.text()) 
+            # print("oo ",Ovality_of_Pipe_Oo)
+            SMYS_σsmys = (self.SMYS_lineEdit.text()) 
+            # print("smys ",SMYS_σsmys)
+            SMTS_σsmts = (self.SMTS_lineEdit.text()) 
+            # print("smts ",SMTS_σsmts)
+            Derating_value_temp_yieldStress_fy_temp = (self.fytemp_lineEdit.text()) 
+            # print("fy_temp ",Derating_value_temp_yieldStress_fy_temp)
+            Derating_value_temp_tensileStress_fu_temp = (self.futemp_lineEdit.text()) 
+            # print("fu_temp ",Derating_value_temp_tensileStress_fu_temp)
+            Youngs_Modulus_E = (self.E_lineEdit.text()) 
+            # print("E ",Youngs_Modulus_E)
+            Poission_s_Ratio_ν = (self.v_lineEdit.text()) 
+            # print("v ",Poission_s_Ratio_ν)
+            Maximum_Fabrication_Factor_alpha_fab = (self.alpha_fab_lineEdit.text()) 
+            # print("alpha_fab ",Maximum_Fabrication_Factor_alpha_fab)
+            Material_Strength_Factor_alpha_u = (self.alpha_u_lineEdit.text()) 
+            # print("alpha_u ",Material_Strength_Factor_alpha_u)
+            Pd = (self.Pd_lineEdit.text()) 
+            # print("Pd ",Pd)
+            Material_resistant_factor_gamma_m = (self.gamma_m_lineEdit.text()) 
+            # print("gamma_m ",Material_resistant_factor_gamma_m)
+            Pmin = (self.Pmin_lineEdit.text()) 
+            # print("Pmin ",Pmin)
+            Elevation_at_Pressure_Reference_Level_href = (self.href_lineEdit.text()) 
+            # print("href ",Elevation_at_Pressure_Reference_Level_href)
+            Elevation_level_at_Pressure_Point_hl = (self.hl_lineEdit.text()) 
+            # print("hl ",Elevation_level_at_Pressure_Point_hl)
+            Product_Density_ρcont = (self.rho_cont_lineEdit.text()) 
+            # print("rho_cont ",Product_Density_ρcont)
+            Hydrotest_Water_Density_ρt = (self.rho_t_lineEdit.text()) 
+            # print("rho_t ",Hydrotest_Water_Density_ρt)
+            Incidental_to_Design_Pressure_Ratio_gamma_inc = (self.gamma_inc_lineEdit.text()) 
+            # print("gamma_inc ",Incidental_to_Design_Pressure_Ratio_gamma_inc)
+            Water_Depth_WD = (self.WD_min_lineEdit.text()) 
+            # print("WDmin ",min_Water_Depth_WDin)
+            Sea_Water_Density_ρsea = (self.rho_sea_lineEdit.text()) 
+            # print("rho_sea ",Sea_Water_Density_ρsea)
+            Max_Elevation_wrt_MSL_hmax = (self.hmax_lineEdit.text()) 
+            # print("hmax ",Max_Elevation_wrt_MSL_hmax)
+            Min_Elevation_wrt_MSL_hmin = (self.hmin_lineEdit.text()) 
+            # print("hmin ",Min_Elevation_wrt_MSL_hmin)
 
-        Safety_Class_RF_gamma_SCPC = (self.limitState_gamma_SCPC_lineedit.text()) 
-        # print("gamma_SCPC ",Safety_Class_RF_gamma_SCPC)
-        Safety_Class_RF_gamma_SCLB = (self.limitState_gamma_SCLB_lineedit.text()) 
-        # print("gamma_SCLB ",Safety_Class_RF_gamma_SCLB)
-        System_Pressure_Test_Factor_alpha_spt = (self.alpha_spt_lineedit.text()) 
-        # print("alpha_spt ",System_Pressure_Test_Factor_alpha_spt)
-        Mill_Pressure_Test_Factor_alpha_mpt = (self.alpha_mpt_lineedit.text()) 
-        # print("alpha_mpt ",Mill_Pressure_Test_Factor_alpha_mpt)
-        saveAs(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo, SMYS_σsmys, SMTS_σsmts, Derating_value_temp_yieldStress_fy_temp, Derating_value_temp_tensileStress_fu_temp, Youngs_Modulus_E, Poission_s_Ratio_ν, Maximum_Fabrication_Factor_alpha_fab, Material_Strength_Factor_alpha_u, Pd, Material_resistant_factor_gamma_m, Pmin, Elevation_at_Pressure_Reference_Level_href, Elevation_level_at_Pressure_Point_hl, Product_Density_ρcont, Hydrotest_Water_Density_ρt, Incidental_to_Design_Pressure_Ratio_gamma_inc, Water_Depth_WD, Sea_Water_Density_ρsea, Max_Elevation_wrt_MSL_hmax, Min_Elevation_wrt_MSL_hmin, Safety_Class_RF_gamma_SCPC, Safety_Class_RF_gamma_SCLB, System_Pressure_Test_Factor_alpha_spt, Mill_Pressure_Test_Factor_alpha_mpt)
-        
-    
+            Safety_Class_RF_gamma_SCPC = (self.limitState_gamma_SCPC_lineedit.text()) 
+            # print("gamma_SCPC ",Safety_Class_RF_gamma_SCPC)
+            Safety_Class_RF_gamma_SCLB = (self.limitState_gamma_SCLB_lineedit.text()) 
+            # print("gamma_SCLB ",Safety_Class_RF_gamma_SCLB)
+            System_Pressure_Test_Factor_alpha_spt = (self.alpha_spt_lineedit.text()) 
+            # print("alpha_spt ",System_Pressure_Test_Factor_alpha_spt)
+            Mill_Pressure_Test_Factor_alpha_mpt = (self.alpha_mpt_lineedit.text()) 
+            # print("alpha_mpt ",Mill_Pressure_Test_Factor_alpha_mpt)
+            saveAs(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo, SMYS_σsmys, SMTS_σsmts, Derating_value_temp_yieldStress_fy_temp, Derating_value_temp_tensileStress_fu_temp, Youngs_Modulus_E, Poission_s_Ratio_ν, Maximum_Fabrication_Factor_alpha_fab, Material_Strength_Factor_alpha_u, Pd, Material_resistant_factor_gamma_m, Pmin, Elevation_at_Pressure_Reference_Level_href, Elevation_level_at_Pressure_Point_hl, Product_Density_ρcont, Hydrotest_Water_Density_ρt, Incidental_to_Design_Pressure_Ratio_gamma_inc, Water_Depth_WD, Sea_Water_Density_ρsea, Max_Elevation_wrt_MSL_hmax, Min_Elevation_wrt_MSL_hmin, Safety_Class_RF_gamma_SCPC, Safety_Class_RF_gamma_SCLB, System_Pressure_Test_Factor_alpha_spt, Mill_Pressure_Test_Factor_alpha_mpt)
+        except:
+            # QMessageBox.warning(None, "Warning", 'Please check the input!')
+            print(f"error code:{random.random()}>>>>>>Error in Save AS function....@@##%%$$$")    
     
     def open_Doc(self):
-        print("Please wait opening the file...!!!")
-        open_List = []
-        fileread(open_List)
+        try:
+            
+            print("Please wait opening the file...!!!")
+            open_List = []
+            fileread(open_List)
 
-        self.OD_lineEdit.setText(str(open_List[0]))
-        self.tnom_lineEdit.setText(str(open_List[1]))
-        self.tfab_lineEdit.setText(str(open_List[2]))
-        self.tcorr_lineEdit.setText(str(open_List[3]))
-        self.Oo_lineEdit.setText(str(open_List[4]))
-        # self.SMYS_lineEdit.setText(str(open_List[5]))
-        # self.SMTS_lineEdit.setText(str(open_List[6]))
-        self.fytemp_lineEdit.setText(str(open_List[7]))
-        self.futemp_lineEdit.setText(str(open_List[8]))
-        self.E_lineEdit.setText(str(open_List[9]))
-        self.v_lineEdit.setText(str(open_List[10]))
-        # self.alpha_fab_lineEdit.setText(str(open_List[11]))
-        # self.alpha_u_lineEdit.setText(str(open_List[12]))
-        self.Pd_lineEdit.setText(str(open_List[13]))
-        # self.gamma_m_lineEdit.setText(str(open_List[14]))
-        self.Pmin_lineEdit.setText(str(open_List[15]))
-        self.href_lineEdit.setText(str(open_List[16]))
-        self.hl_lineEdit.setText(str(open_List[17]))
-        self.rho_cont_lineEdit.setText(str(open_List[18]))
-        self.rho_t_lineEdit.setText(str(open_List[19]))
-        self.gamma_inc_lineEdit.setText(str(open_List[20]))
-        self.WD_min_lineEdit.setText(str(open_List[21]))
-        self.rho_sea_lineEdit.setText(str(open_List[22]))
-        self.hmax_lineEdit.setText(str(open_List[23]))
-        self.hmin_lineEdit.setText(str(open_List[24]))
-        # self.limitState_gamma_SCPC_lineedit.setText(str(open_List[25]))
-        # self.alpha_mpt_lineedit.setText(str(open_List[26]))
-        # self.limitState_gamma_SCLB_lineedit.setText(str(open_List[27]))
-        # self.alpha_spt_lineedit.setText(str(open_List[28]))
+            self.OD_lineEdit.setText(str(open_List[0]))
+            self.tnom_lineEdit.setText(str(open_List[1]))
+            self.tfab_lineEdit.setText(str(open_List[2]))
+            self.tcorr_lineEdit.setText(str(open_List[3]))
+            self.Oo_lineEdit.setText(str(open_List[4]))
+            # self.SMYS_lineEdit.setText(str(open_List[5]))
+            # self.SMTS_lineEdit.setText(str(open_List[6]))
+            self.fytemp_lineEdit.setText(str(open_List[7]))
+            self.futemp_lineEdit.setText(str(open_List[8]))
+            self.E_lineEdit.setText(str(open_List[9]))
+            self.v_lineEdit.setText(str(open_List[10]))
+            # self.alpha_fab_lineEdit.setText(str(open_List[11]))
+            # self.alpha_u_lineEdit.setText(str(open_List[12]))
+            self.Pd_lineEdit.setText(str(open_List[13]))
+            # self.gamma_m_lineEdit.setText(str(open_List[14]))
+            self.Pmin_lineEdit.setText(str(open_List[15]))
+            self.href_lineEdit.setText(str(open_List[16]))
+            self.hl_lineEdit.setText(str(open_List[17]))
+            self.rho_cont_lineEdit.setText(str(open_List[18]))
+            self.rho_t_lineEdit.setText(str(open_List[19]))
+            self.gamma_inc_lineEdit.setText(str(open_List[20]))
+            self.WD_min_lineEdit.setText(str(open_List[21]))
+            self.rho_sea_lineEdit.setText(str(open_List[22]))
+            self.hmax_lineEdit.setText(str(open_List[23]))
+            self.hmin_lineEdit.setText(str(open_List[24]))
+            # self.limitState_gamma_SCPC_lineedit.setText(str(open_List[25]))
+            # self.alpha_mpt_lineedit.setText(str(open_List[26]))
+            # self.limitState_gamma_SCLB_lineedit.setText(str(open_List[27]))
+            # self.alpha_spt_lineedit.setText(str(open_List[28]))
+        except:
+            print(f"error code:{random.random()}>>>>>>Error in open Doc function...!!!")
                     
                 
 
     def reset(self):
+        try:
 
-        self.OD_lineEdit.clear()
-        self.tnom_lineEdit.clear()
-      
-        self.tfab_lineEdit.clear()
-        self.tcorr_lineEdit.clear()
-       
-        self.Oo_lineEdit.clear()
-        self.SMYS_lineEdit.clear()
-        self.SMTS_lineEdit.clear()
-        self.fytemp_lineEdit.clear() 
-        self.futemp_lineEdit.clear()
-        self.E_lineEdit.clear()
-        self.v_lineEdit.clear()
-        self.alpha_fab_lineEdit.clear()
-        self.alpha_u_lineEdit.clear()
-        self.Pd_lineEdit.clear()
-        self.gamma_m_lineEdit.clear()
-        self.Pmin_lineEdit.clear()
-        self.href_lineEdit.clear()
-        self.hl_lineEdit.clear()
-        self.rho_cont_lineEdit.clear()
-        self.rho_t_lineEdit.clear()
-        self.gamma_inc_lineEdit.clear()
-        self.WD_min_lineEdit.clear()
-        self.rho_sea_lineEdit.clear()
-        self.hmax_lineEdit.clear()
-        self.hmin_lineEdit.clear()
+            self.OD_lineEdit.clear()
+            self.tnom_lineEdit.clear()
+        
+            self.tfab_lineEdit.clear()
+            self.tcorr_lineEdit.clear()
+        
+            self.Oo_lineEdit.clear()
+            self.SMYS_lineEdit.clear()
+            self.SMTS_lineEdit.clear()
+            self.fytemp_lineEdit.clear() 
+            self.futemp_lineEdit.clear()
+            self.E_lineEdit.clear()
+            self.v_lineEdit.clear()
+            self.alpha_fab_lineEdit.clear()
+            self.alpha_u_lineEdit.clear()
+            self.Pd_lineEdit.clear()
+            self.gamma_m_lineEdit.clear()
+            self.Pmin_lineEdit.clear()
+            self.href_lineEdit.clear()
+            self.hl_lineEdit.clear()
+            self.rho_cont_lineEdit.clear()
+            self.rho_t_lineEdit.clear()
+            self.gamma_inc_lineEdit.clear()
+            self.WD_min_lineEdit.clear()
+            self.rho_sea_lineEdit.clear()
+            self.hmax_lineEdit.clear()
+            self.hmin_lineEdit.clear()
 
-        self.limitState_gamma_SCPC_lineedit.clear()
-        self.limitState_gamma_SCLB_lineedit.clear()
-        self.alpha_spt_lineedit.clear()
-        self.alpha_mpt_lineedit.clear()
+            self.limitState_gamma_SCPC_lineedit.clear()
+            self.limitState_gamma_SCLB_lineedit.clear()
+            self.alpha_spt_lineedit.clear()
+            self.alpha_mpt_lineedit.clear()
 
-        self.analysis_combobox.setCurrentIndex(0)
-        # self.analysis_modecombobox.setCurrentIndex(0)
-        self.select_analysis()
+            self.analysis_combobox.setCurrentIndex(0)
+            # self.analysis_modecombobox.setCurrentIndex(0)
+            self.select_analysis()
+        except:
+            print(f"error code:{random.random()}>>>>>>Error in Reset function....!!!")
 
         
       
