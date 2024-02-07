@@ -1,19 +1,24 @@
 import pandas as pd
 from tkinter import filedialog
+import random
 
 def fileread(open_List):
     print(f"\n\t Opening your file please wait..!!")
-    filepath = filedialog.askopenfilename(
-            initialdir="C:/Users/DELL/Desktop",
-            title= "Open csv file...!!",
-            defaultextension= "*.csv",
-            filetypes=(
-                ("csv file","*.csv"),
-                ("HTML file","*.html"),
-                ("text file","*.txt"),
-                ("All file","*.*")
+    try:
+        
+        filepath = filedialog.askopenfilename(
+                initialdir="C:/Users/DELL/Desktop",
+                title= "Open csv file...!!",
+                defaultextension= "*.csv",
+                filetypes=(
+                    ("csv file","*.csv"),
+                    ("HTML file","*.html"),
+                    ("text file","*.txt"),
+                    ("All file","*.*")
+                )
             )
-        )
+    except:
+        print(f"error code:{random.random()}>>>>>>>Error in opening the file...@@@$$%%%")
     try:
             if filepath is None:
                 return
@@ -24,4 +29,4 @@ def fileread(open_List):
                     open_List.clear()
                     open_List.extend(column_To_Read)
     except:
-            print("ERROR in opening your file...!!")
+            print(f"error code:{random.random()}>>>>>>ERROR in opening your file...!!")
