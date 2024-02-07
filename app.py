@@ -806,8 +806,8 @@ class Ui_MainWindow(object):
 
         self.menuEdit = QtWidgets.QMenu(self.menubar)
         self.menuEdit.setObjectName("menuEdit")
-        self.menuRun = QtWidgets.QMenu(self.menubar)
-        self.menuRun.setObjectName("menuRun")
+        self.menuViewReport = QtWidgets.QMenu(self.menubar)
+        self.menuViewReport.setObjectName("menuRun")
         self.menuHelp = QtWidgets.QMenu(self.menubar)
         self.menuHelp.setObjectName("menuHelp")
         MainWindow.setMenuBar(self.menubar)
@@ -854,11 +854,11 @@ class Ui_MainWindow(object):
         icon7.addPixmap(QtGui.QPixmap("C:/Users/FARHEENKAIFEE/.designer/backup/assets/paste.gif"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.actionPaste.setIcon(icon7)
         self.actionPaste.setObjectName("actionPaste")
-        self.actionStart = QtWidgets.QAction(MainWindow)
+        self.actionReport = QtWidgets.QAction(MainWindow)
         icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap("assets/bug_reporting.gif"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.actionStart.setIcon(icon8)
-        self.actionStart.setObjectName("actionStart")
+        icon8.addPixmap(QtGui.QPixmap("assets/document.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.actionReport.setIcon(icon8)
+        self.actionReport.setObjectName("actionReport")
         self.actionWhat_s_New = QtWidgets.QAction(MainWindow)
         icon9 = QtGui.QIcon()
         icon9.addPixmap(QtGui.QPixmap("assets/help.gif"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -890,13 +890,13 @@ class Ui_MainWindow(object):
         self.menuFile.addAction(self.actionSave_As)
         self.menuFile.addAction(self.actionExit)
         self.menuEdit.addAction(self.actionReset)
-        self.menuRun.addAction(self.actionStart)
+        self.menuViewReport.addAction(self.actionReport)
         self.menuHelp.addAction(self.actionWhat_s_New)
         self.menuHelp.addAction(self.actionKeyboard_Shortcut)
         self.menuHelp.addAction(self.actionDocumentation)
         self.menubar.addAction(self.menuFile.menuAction())
         self.menubar.addAction(self.menuEdit.menuAction())
-        self.menubar.addAction(self.menuRun.menuAction())
+        self.menubar.addAction(self.menuViewReport.menuAction())
         self.menubar.addAction(self.menuHelp.menuAction())
 
         self.retranslateUi(MainWindow)
@@ -1044,8 +1044,8 @@ class Ui_MainWindow(object):
 
 
                     else:
-                        print("error in pressure containment")
-
+                        print(f"error code:{random.random()}>>>>>>error in process value case 1....@@@$$$%%%%")
+    
                 case 2:
 
                     if( j == 1):
@@ -1079,7 +1079,7 @@ class Ui_MainWindow(object):
 
 
                     else:
-                        print("error in collpase check")
+                        print(f"error code:{random.random()}>>>>>>error in process value case 2....@@@$$$%%%%")
 
 
                 case 3:
@@ -1121,7 +1121,7 @@ class Ui_MainWindow(object):
 
 
                     else:
-                        print("error in buckling")
+                        print(f"error code:{random.random()}>>>>>>error in process value case 3....@@@$$$%%%%")
 
 
                 case 0:
@@ -1142,7 +1142,6 @@ class Ui_MainWindow(object):
         try:
             
             i = self.analysis_combobox.currentIndex()
-            print(i)
             self.analysis_modecombobox.clear()
             match  i :
                 case 1 :
@@ -1254,7 +1253,6 @@ class Ui_MainWindow(object):
         try:
             
             i = self.analysis_modecombobox.currentIndex()
-            print(f"You have selected :  {i}")
             self.alpha_u_comboBox.clear()
             
     # Coding for combox box enabled & disabled according to the selected Analysis
@@ -1666,7 +1664,7 @@ class Ui_MainWindow(object):
         self.result_label.setText(_translate("MainWindow", "Result Window"))
         self.menuFile.setTitle(_translate("MainWindow", "File"))
         self.menuEdit.setTitle(_translate("MainWindow", "Edit"))
-        self.menuRun.setTitle(_translate("MainWindow", "Run"))
+        self.menuViewReport.setTitle(_translate("MainWindow", "View Report"))
         self.menuHelp.setTitle(_translate("MainWindow", "Help"))
         self.actionNew.setText(_translate("MainWindow", "New"))
         self.actionNew.setShortcut(_translate("MainWindow", "Ctrl+N"))
@@ -1683,7 +1681,7 @@ class Ui_MainWindow(object):
         self.actionCut.setShortcut(_translate("MainWindow", "Ctrl+X"))
         self.actionPaste.setText(_translate("MainWindow", "Paste"))
         self.actionPaste.setShortcut(_translate("MainWindow", "Ctrl+P"))
-        self.actionStart.setText(_translate("MainWindow", "Start"))
+        self.actionReport.setText(_translate("MainWindow", "Report"))
         self.actionWhat_s_New.setText(_translate("MainWindow", "What\'s New"))
         self.actionKeyboard_Shortcut.setText(_translate("MainWindow", "Keyboard Shortcut"))
         self.actionDocumentation.setText(_translate("MainWindow", "Documentation"))
