@@ -1009,6 +1009,7 @@ class Ui_MainWindow(object):
             # print("j",j)
         except:
             print(f"error code:{random.random()}>>>>>>Error in assigning the values...@@$$ in process_value function..!!!")
+            self.result_label.setText(f"error code:{random.random()}>>>>>>Error in assigning the values...@@$$ in process_value function..!!!")
         
         
         try:
@@ -1044,6 +1045,7 @@ class Ui_MainWindow(object):
 
                     else:
                         print(f"error code:{random.random()}>>>>>>error in process value case 1....@@@$$$%%%%")
+                        self.result_label.setText(f"error code:{random.random()}>>>>>>error in process value case 1....@@@$$$%%%%")
     
                 case 2:
 
@@ -1079,6 +1081,8 @@ class Ui_MainWindow(object):
 
                     else:
                         print(f"error code:{random.random()}>>>>>>error in process value case 2....@@@$$$%%%%")
+                        self.result_label.setText(f"error code:{random.random()}>>>>>>error in process value case 2....@@@$$$%%%%")
+
 
 
                 case 3:
@@ -1121,11 +1125,14 @@ class Ui_MainWindow(object):
 
                     else:
                         print(f"error code:{random.random()}>>>>>>error in process value case 3....@@@$$$%%%%")
+                        self.result_label.setText(f"error code:{random.random()}>>>>>>error in process value case 3....@@@$$$%%%%")
 
 
                 case 0:
                     print(f"error code:{random.random()}>>>>>>error in process value case 0 ....@@@$$$%%%%")
+                    self.result_label.setText(f"error code:{random.random()}>>>>>>error in process value case 0 ....@@@$$$%%%%")
         except:
+            self.result_label.setText(f"error code:{random.random()}>>>>>>Error in process_value Match functions...!!!")
             print(f"error code:{random.random()}>>>>>>Error in process_value Match functions...!!!")
 
 
@@ -1243,6 +1250,7 @@ class Ui_MainWindow(object):
                     self.gradeComboBox.setCurrentIndex(0)
         except:
             print(f"error code:{random.random()}>>>>>>>Error in select analysis....@@$$")
+            self.result_label.setText(f"error code:{random.random()}>>>>>>>Error in select analysis....@@$$")
 
                 
                 
@@ -1302,6 +1310,7 @@ class Ui_MainWindow(object):
                     self.gamma_m_lineEdit.clear()
         except:
             print(f"error code:{random.random()}>>>>>>Error in select analysis mode function.....@@##$")
+            self.result_label.setText(f"error code:{random.random()}>>>>>>Error in select analysis mode function.....@@##$")
                 
         
         
@@ -1414,6 +1423,7 @@ class Ui_MainWindow(object):
                         self.limitState_gamma_SCLB_lineedit.clear()
         except:
             print(f"error code:{random.random()}>>>>>>Error in select safety class combo...!!@@@$$$")
+            self.result_label.setText(f"error code:{random.random()}>>>>>>Error in select safety class combo...!!@@@$$$")
     
     
     
@@ -1482,7 +1492,9 @@ class Ui_MainWindow(object):
             saveAs(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo, SMYS_σsmys, SMTS_σsmts, Derating_value_temp_yieldStress_fy_temp, Derating_value_temp_tensileStress_fu_temp, Youngs_Modulus_E, Poission_s_Ratio_ν, Maximum_Fabrication_Factor_alpha_fab, Material_Strength_Factor_alpha_u, Pd, Material_resistant_factor_gamma_m, Pmin, Elevation_at_Pressure_Reference_Level_href, Elevation_level_at_Pressure_Point_hl, Product_Density_ρcont, Hydrotest_Water_Density_ρt, Incidental_to_Design_Pressure_Ratio_gamma_inc, Water_Depth_WD, Sea_Water_Density_ρsea, Max_Elevation_wrt_MSL_hmax, Min_Elevation_wrt_MSL_hmin, Safety_Class_RF_gamma_SCPC, Safety_Class_RF_gamma_SCLB, System_Pressure_Test_Factor_alpha_spt, Mill_Pressure_Test_Factor_alpha_mpt)
         except:
             # QMessageBox.warning(None, "Warning", 'Please check the input!')
-            print(f"error code:{random.random()}>>>>>>Error in Save AS function....@@##%%$$$")  
+            print(f"error code:{random.random()}>>>>>>Error in Save AS function....@@##%%$$$") 
+            self.result_label.setText(f"error code:{random.random()}>>>>>>Error in Save AS function....@@##%%$$$")
+
         
     
       
@@ -1525,6 +1537,7 @@ class Ui_MainWindow(object):
             # self.alpha_spt_lineedit.setText(str(open_List[28]))
         except:
             print(f"error code:{random.random()}>>>>>>Error in open Doc function...!!!")
+            self.result_label.setText(f"error code:{random.random()}>>>>>>Error in open Doc function...!!!")
                     
                 
 
@@ -1575,6 +1588,7 @@ class Ui_MainWindow(object):
             self.result_label.setText("Result Window")
         except:
             print(f"error code:{random.random()}>>>>>>Error in Reset function....!!!")
+            self.result_label.setText(f"error code:{random.random()}>>>>>>Error in Reset function....!!!")
 
         
       
