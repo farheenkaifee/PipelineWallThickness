@@ -1003,10 +1003,10 @@ class Ui_MainWindow(object):
     #  _________________ selecting each check functions according to their indices______________________
 
             i = self.analysis_combobox.currentIndex()
-            print("index of analysis combo box",i)
+            # print("index of analysis combo box",i)
 
             j = self.analysis_modecombobox.currentIndex()
-            print("j",j)
+            # print("j",j)
         except:
             print(f"error code:{random.random()}>>>>>>Error in assigning the values...@@$$ in process_value function..!!!")
         
@@ -1124,7 +1124,7 @@ class Ui_MainWindow(object):
 
 
                 case 0:
-                    print("error in overall analysis")
+                    print(f"error code:{random.random()}>>>>>>error in process value case 0 ....@@@$$$%%%%")
         except:
             print(f"error code:{random.random()}>>>>>>Error in process_value Match functions...!!!")
 
