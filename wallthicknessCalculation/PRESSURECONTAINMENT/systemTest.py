@@ -1,6 +1,7 @@
 from ast import Str
 from cmath import sqrt
 import math
+import random
 from cgitb import small
 from unittest import result
 import numpy as np  
@@ -163,4 +164,4 @@ def pressure_sysTest(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabricati
 
 
     except:
-        print("Error in Pressure Containment System check...")
+        print(f"error code:{random.random()}>>>>>>Error in Pressure Containment System check...")

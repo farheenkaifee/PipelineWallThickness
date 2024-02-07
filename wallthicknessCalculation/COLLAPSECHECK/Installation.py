@@ -1,6 +1,7 @@
 from ast import Str
 from cmath import sqrt
 import math
+import random
 from cgitb import small
 from unittest import result
 import numpy as np  
@@ -270,4 +271,4 @@ def collapse_installation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabr
 
 
     except:
-        print("Error in Collapse installation check...")
+        print(f"error code:{random.random()}>>>>>>Error in Collapse installation check...")
