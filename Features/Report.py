@@ -14,7 +14,7 @@ def report(variable):
         filepath = filedialog.asksaveasfilename(
         # os.getenv('home'),
                 initialdir= "C:/Users/DELL/Desktop",
-                title= "Save As",
+                title= "Report",
                 defaultextension= "*.csv",
                 filetypes=(
                         ("csv file","*.csv"),
