@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 import random
 
 from wallthicknessCalculation.PRESSURECONTAINMENT.systemTest import pressure_sysTest
@@ -805,8 +806,8 @@ class Ui_MainWindow(object):
 
         self.menuEdit = QtWidgets.QMenu(self.menubar)
         self.menuEdit.setObjectName("menuEdit")
-        self.menuRun = QtWidgets.QMenu(self.menubar)
-        self.menuRun.setObjectName("menuRun")
+        self.menuViewReport = QtWidgets.QMenu(self.menubar)
+        self.menuViewReport.setObjectName("menuRun")
         self.menuHelp = QtWidgets.QMenu(self.menubar)
         self.menuHelp.setObjectName("menuHelp")
         MainWindow.setMenuBar(self.menubar)
@@ -853,11 +854,11 @@ class Ui_MainWindow(object):
         icon7.addPixmap(QtGui.QPixmap("C:/Users/FARHEENKAIFEE/.designer/backup/assets/paste.gif"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.actionPaste.setIcon(icon7)
         self.actionPaste.setObjectName("actionPaste")
-        self.actionStart = QtWidgets.QAction(MainWindow)
+        self.actionReport = QtWidgets.QAction(MainWindow)
         icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap("assets/bug_reporting.gif"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.actionStart.setIcon(icon8)
-        self.actionStart.setObjectName("actionStart")
+        icon8.addPixmap(QtGui.QPixmap("assets/document.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.actionReport.setIcon(icon8)
+        self.actionReport.setObjectName("actionReport")
         self.actionWhat_s_New = QtWidgets.QAction(MainWindow)
         icon9 = QtGui.QIcon()
         icon9.addPixmap(QtGui.QPixmap("assets/help.gif"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -889,13 +890,13 @@ class Ui_MainWindow(object):
         self.menuFile.addAction(self.actionSave_As)
         self.menuFile.addAction(self.actionExit)
         self.menuEdit.addAction(self.actionReset)
-        self.menuRun.addAction(self.actionStart)
+        self.menuViewReport.addAction(self.actionReport)
         self.menuHelp.addAction(self.actionWhat_s_New)
         self.menuHelp.addAction(self.actionKeyboard_Shortcut)
         self.menuHelp.addAction(self.actionDocumentation)
         self.menubar.addAction(self.menuFile.menuAction())
         self.menubar.addAction(self.menuEdit.menuAction())
-        self.menubar.addAction(self.menuRun.menuAction())
+        self.menubar.addAction(self.menuViewReport.menuAction())
         self.menubar.addAction(self.menuHelp.menuAction())
 
         self.retranslateUi(MainWindow)
@@ -1009,6 +1010,7 @@ class Ui_MainWindow(object):
             # print("j",j)
         except:
             print(f"error code:{random.random()}>>>>>>Error in assigning the values...@@$$ in process_value function..!!!")
+            self.result_label.setText(f"error code:{random.random()}>>>>>>Error in assigning the values...@@$$ in process_value function..!!!")
         
         
         try:
@@ -1043,8 +1045,9 @@ class Ui_MainWindow(object):
 
 
                     else:
-                        print("error in pressure containment")
-
+                        print(f"error code:{random.random()}>>>>>>error in process value case 1....@@@$$$%%%%")
+                        self.result_label.setText(f"error code:{random.random()}>>>>>>error in process value case 1....@@@$$$%%%%")
+    
                 case 2:
 
                     if( j == 1):
@@ -1078,7 +1081,9 @@ class Ui_MainWindow(object):
 
 
                     else:
-                        print("error in collpase check")
+                        print(f"error code:{random.random()}>>>>>>error in process value case 2....@@@$$$%%%%")
+                        self.result_label.setText(f"error code:{random.random()}>>>>>>error in process value case 2....@@@$$$%%%%")
+
 
 
                 case 3:
@@ -1120,12 +1125,16 @@ class Ui_MainWindow(object):
 
 
                     else:
-                        print("error in buckling")
+                        print(f"error code:{random.random()}>>>>>>error in process value case 3....@@@$$$%%%%")
+                        self.result_label.setText(f"error code:{random.random()}>>>>>>error in process value case 3....@@@$$$%%%%")
 
 
                 case 0:
                     print(f"error code:{random.random()}>>>>>>error in process value case 0 ....@@@$$$%%%%")
+                    self.result_label.setText(f"error code:{random.random()}>>>>>>error in process value case 0 ....@@@$$$%%%%")
+                    QMessageBox.warning(None, "Warning", 'Please check the input!')
         except:
+            self.result_label.setText(f"error code:{random.random()}>>>>>>Error in process_value Match functions...!!!")
             print(f"error code:{random.random()}>>>>>>Error in process_value Match functions...!!!")
 
 
@@ -1140,7 +1149,6 @@ class Ui_MainWindow(object):
         try:
             
             i = self.analysis_combobox.currentIndex()
-            print(i)
             self.analysis_modecombobox.clear()
             match  i :
                 case 1 :
@@ -1244,6 +1252,7 @@ class Ui_MainWindow(object):
                     self.gradeComboBox.setCurrentIndex(0)
         except:
             print(f"error code:{random.random()}>>>>>>>Error in select analysis....@@$$")
+            self.result_label.setText(f"error code:{random.random()}>>>>>>>Error in select analysis....@@$$")
 
                 
                 
@@ -1252,7 +1261,6 @@ class Ui_MainWindow(object):
         try:
             
             i = self.analysis_modecombobox.currentIndex()
-            print(f"You have selected :  {i}")
             self.alpha_u_comboBox.clear()
             
     # Coding for combox box enabled & disabled according to the selected Analysis
@@ -1304,6 +1312,7 @@ class Ui_MainWindow(object):
                     self.gamma_m_lineEdit.clear()
         except:
             print(f"error code:{random.random()}>>>>>>Error in select analysis mode function.....@@##$")
+            self.result_label.setText(f"error code:{random.random()}>>>>>>Error in select analysis mode function.....@@##$")
                 
         
         
@@ -1416,6 +1425,7 @@ class Ui_MainWindow(object):
                         self.limitState_gamma_SCLB_lineedit.clear()
         except:
             print(f"error code:{random.random()}>>>>>>Error in select safety class combo...!!@@@$$$")
+            self.result_label.setText(f"error code:{random.random()}>>>>>>Error in select safety class combo...!!@@@$$$")
     
     
     
@@ -1484,7 +1494,11 @@ class Ui_MainWindow(object):
             saveAs(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo, SMYS_σsmys, SMTS_σsmts, Derating_value_temp_yieldStress_fy_temp, Derating_value_temp_tensileStress_fu_temp, Youngs_Modulus_E, Poission_s_Ratio_ν, Maximum_Fabrication_Factor_alpha_fab, Material_Strength_Factor_alpha_u, Pd, Material_resistant_factor_gamma_m, Pmin, Elevation_at_Pressure_Reference_Level_href, Elevation_level_at_Pressure_Point_hl, Product_Density_ρcont, Hydrotest_Water_Density_ρt, Incidental_to_Design_Pressure_Ratio_gamma_inc, Water_Depth_WD, Sea_Water_Density_ρsea, Max_Elevation_wrt_MSL_hmax, Min_Elevation_wrt_MSL_hmin, Safety_Class_RF_gamma_SCPC, Safety_Class_RF_gamma_SCLB, System_Pressure_Test_Factor_alpha_spt, Mill_Pressure_Test_Factor_alpha_mpt)
         except:
             # QMessageBox.warning(None, "Warning", 'Please check the input!')
-            print(f"error code:{random.random()}>>>>>>Error in Save AS function....@@##%%$$$")  
+            print(f"error code:{random.random()}>>>>>>Error in Save AS function....@@##%%$$$") 
+            self.result_label.setText(f"error code:{random.random()}>>>>>>Error in Save AS function....@@##%%$$$")
+
+            print(f"error code:{random.random()}>>>>>>Error in Save AS function....@@##%%$$$")
+            QMessageBox.warning(None, "Warning", 'Cancelling the opening file..!!!!')
         
     
       
@@ -1527,6 +1541,8 @@ class Ui_MainWindow(object):
             # self.alpha_spt_lineedit.setText(str(open_List[28]))
         except:
             print(f"error code:{random.random()}>>>>>>Error in open Doc function...!!!")
+            self.result_label.setText(f"error code:{random.random()}>>>>>>Error in open Doc function...!!!")
+            QMessageBox.warning(None, "Warning", 'Cancelling the opening file..!!!!')
                     
                 
 
@@ -1577,6 +1593,7 @@ class Ui_MainWindow(object):
             self.result_label.setText("Result Window")
         except:
             print(f"error code:{random.random()}>>>>>>Error in Reset function....!!!")
+            self.result_label.setText(f"error code:{random.random()}>>>>>>Error in Reset function....!!!")
 
         
       
@@ -1662,7 +1679,7 @@ class Ui_MainWindow(object):
         self.result_label.setText(_translate("MainWindow", "Result Window"))
         self.menuFile.setTitle(_translate("MainWindow", "File"))
         self.menuEdit.setTitle(_translate("MainWindow", "Edit"))
-        self.menuRun.setTitle(_translate("MainWindow", "Run"))
+        self.menuViewReport.setTitle(_translate("MainWindow", "View Report"))
         self.menuHelp.setTitle(_translate("MainWindow", "Help"))
         self.actionNew.setText(_translate("MainWindow", "New"))
         self.actionNew.setShortcut(_translate("MainWindow", "Ctrl+N"))
@@ -1679,7 +1696,7 @@ class Ui_MainWindow(object):
         self.actionCut.setShortcut(_translate("MainWindow", "Ctrl+X"))
         self.actionPaste.setText(_translate("MainWindow", "Paste"))
         self.actionPaste.setShortcut(_translate("MainWindow", "Ctrl+P"))
-        self.actionStart.setText(_translate("MainWindow", "Start"))
+        self.actionReport.setText(_translate("MainWindow", "Report"))
         self.actionWhat_s_New.setText(_translate("MainWindow", "What\'s New"))
         self.actionKeyboard_Shortcut.setText(_translate("MainWindow", "Keyboard Shortcut"))
         self.actionDocumentation.setText(_translate("MainWindow", "Documentation"))
