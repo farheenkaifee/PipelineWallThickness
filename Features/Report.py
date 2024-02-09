@@ -8,7 +8,7 @@ from PyQt5.QtWidgets import QMessageBox
 
 
 def report(variable_name,variable):
-    print(f"Hello there your report is being prepared..!!!\n\t\t{variable}")
+    print(f"Hello there your report is being prepared..!!!")
     try:
                 
         filepath = filedialog.asksaveasfilename(
@@ -23,7 +23,6 @@ def report(variable_name,variable):
                         ("All file","*.*")
                 )
         )
-        print(filepath)
     except:
         print(f"error code:{random.random()}>>>>>>Error in saving file while opening to write..$$%%^^&&&")
     try:

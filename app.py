@@ -952,6 +952,8 @@ class Ui_MainWindow(object):
 
     def process_values(self):
         
+        print("Calculation button is clicked...!!!")
+        
         try:
             
             Outside_Diameter_OD = (self.OD_lineEdit.text()) 
@@ -1042,7 +1044,7 @@ class Ui_MainWindow(object):
                         UC_prss_cont, P_check, self.list_variable_names, self.list_Variable = pressure_sysTest(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Min_Elevation_wrt_MSL_hmin,Safety_Class_RF_gamma_SCPC,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m)
                     
                         self.utility_lineedit.setText(str(UC_prss_cont))
-                        print(self.list_Variable)
+                        # print(self.list_Variable)
 
                         self.result_label.setText(str(P_check))
 
@@ -1056,7 +1058,7 @@ class Ui_MainWindow(object):
                     elif( j==2):
                         UC_prss_cont,P_check, self.list_variable_names, self.list_Variable  = pressure_operation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Min_Elevation_wrt_MSL_hmin,Safety_Class_RF_gamma_SCPC,Mill_Pressure_Test_Factor_alpha_mpt,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m,System_Pressure_Test_Factor_alpha_spt)
                         # print(value_pressure_operation)
-                        print(self.list_Variable)
+                        # print(self.list_Variable)
 
                         self.utility_lineedit.setText(str(UC_prss_cont))
 
@@ -1093,7 +1095,7 @@ class Ui_MainWindow(object):
                         UC_coll, Pe_check_coll, UC_buck, Pe_check_buck, self.list_variable_names, self.list_Variable  = collapse_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Safety_Class_RF_gamma_SCLB,Mill_Pressure_Test_Factor_alpha_mpt,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m,System_Pressure_Test_Factor_alpha_spt)
                         # print(value_collapse_shutdown)
                         
-                        print(self.list_Variable)
+                        # print(self.list_Variable)
 
                         
                         self.utility_lineedit.setText(str(UC_coll))
@@ -1123,8 +1125,8 @@ class Ui_MainWindow(object):
 
                         
                         self.utility_lineedit.setText(str(UC_buck))
-                        print(self.list_Variable)
-                        print("UC_Buck",UC_buck)
+                        # print(self.list_Variable)
+                        # print("UC_Buck",UC_buck)
 
                         self.result_label.setText(str(Pe_check_buck))
 
@@ -1141,9 +1143,9 @@ class Ui_MainWindow(object):
                         
                         self.utility_lineedit.setText(str(UC_buck))
                         
-                        print(self.list_Variable)
+                        # print(self.list_Variable)
 
-                        print("UC_Buck",UC_buck)
+                        # print("UC_Buck",UC_buck)
 
                         self.result_label.setText(str(Pe_check_buck))
 
@@ -1370,9 +1372,9 @@ class Ui_MainWindow(object):
         
         data_SMYS = self.gradeComboBox.itemData(index)
         # UsTn_by_Hs_100 = (data_100)
-        print("Function is working")
+        # print("Function is working")
         self.SMYS_lineEdit.setText(data_SMYS[0])
-        print("SMYS : ",data_SMYS[0])
+        # print("SMYS : ",data_SMYS[0])
         self.SMTS_lineEdit.setText(data_SMYS[1])
         # print("SMPS :",data_SMYS[1])
     
