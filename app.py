@@ -939,7 +939,9 @@ class Ui_MainWindow(object):
 #............................... ALL FUNCTION IS STATED  BELOW THIS LINE  --------------------------
    
 
-# _______________________________function for passing parameters from gui to backend___________________
+# _______________________________Calculation  Button triggers this function___________________
+
+
     def process_values(self):
         
         try:
@@ -1159,9 +1161,9 @@ class Ui_MainWindow(object):
       
 
       
+#.....................................This function switches between the checks......................................
 
-
-    def select_analysis(self):    # meaningful function
+    def select_analysis(self):    
         try:
             
             i = self.analysis_combobox.currentIndex()
