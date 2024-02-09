@@ -7,14 +7,14 @@ from PyQt5.QtWidgets import QMessageBox
 
 
 
-def report(variable):
+def report(variable_name,variable):
     print(f"Hello there your report is being prepared..!!!\n\t\t{variable}")
     try:
                 
         filepath = filedialog.asksaveasfilename(
         # os.getenv('home'),
                 initialdir= "C:/Users/DELL/Desktop",
-                title= "Report",
+                title="Report",
                 defaultextension= "*.csv",
                 filetypes=(
                         ("csv file","*.csv"),
@@ -31,7 +31,7 @@ def report(variable):
                 return
         else:
             with open(filepath, 'w'):
-                    df = pd.DataFrame({"Values": variable})
+                    df = pd.DataFrame({"Relevant Inputs Parameters":variable_name,"Values": variable})
                     df.to_csv(filepath)
     except:
         print(f"error code:{random.random()}>>>>>>ERROR in saving your file...!!")
