@@ -952,8 +952,12 @@ class Ui_MainWindow(object):
 #............................... ALL FUNCTION IS STATED  BELOW THIS LINE  --------------------------
    
 
-# _______________________________function for passing parameters from gui to backend___________________
+# _______________________________Calculation  Button triggers this function___________________
+
+
     def process_values(self):
+        
+        print("Calculation button is clicked...!!!")
         
         try:
             
@@ -1045,7 +1049,7 @@ class Ui_MainWindow(object):
                         UC_prss_cont, P_check, self.list_variable_names, self.list_Variable = pressure_sysTest(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Min_Elevation_wrt_MSL_hmin,Safety_Class_RF_gamma_SCPC,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m)
                     
                         self.utility_lineedit.setText(str(UC_prss_cont))
-                        print(self.list_Variable)
+                        # print(self.list_Variable)
 
                         self.result_label.setText(str(P_check))
 
@@ -1059,7 +1063,7 @@ class Ui_MainWindow(object):
                     elif( j==2):
                         UC_prss_cont,P_check, self.list_variable_names, self.list_Variable  = pressure_operation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Min_Elevation_wrt_MSL_hmin,Safety_Class_RF_gamma_SCPC,Mill_Pressure_Test_Factor_alpha_mpt,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m,System_Pressure_Test_Factor_alpha_spt)
                         # print(value_pressure_operation)
-                        print(self.list_Variable)
+                        # print(self.list_Variable)
 
                         self.utility_lineedit.setText(str(UC_prss_cont))
 
@@ -1096,7 +1100,7 @@ class Ui_MainWindow(object):
                         UC_coll, Pe_check_coll, UC_buck, Pe_check_buck, self.list_variable_names, self.list_Variable  = collapse_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Safety_Class_RF_gamma_SCLB,Mill_Pressure_Test_Factor_alpha_mpt,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m,System_Pressure_Test_Factor_alpha_spt)
                         # print(value_collapse_shutdown)
                         
-                        print(self.list_Variable)
+                        # print(self.list_Variable)
 
                         
                         self.utility_lineedit.setText(str(UC_coll))
@@ -1126,8 +1130,8 @@ class Ui_MainWindow(object):
 
                         
                         self.utility_lineedit.setText(str(UC_buck))
-                        print(self.list_Variable)
-                        print("UC_Buck",UC_buck)
+                        # print(self.list_Variable)
+                        # print("UC_Buck",UC_buck)
 
                         self.result_label.setText(str(Pe_check_buck))
 
@@ -1144,9 +1148,9 @@ class Ui_MainWindow(object):
                         
                         self.utility_lineedit.setText(str(UC_buck))
                         
-                        print(self.list_Variable)
+                        # print(self.list_Variable)
 
-                        print("UC_Buck",UC_buck)
+                        # print("UC_Buck",UC_buck)
 
                         self.result_label.setText(str(Pe_check_buck))
 
@@ -1173,13 +1177,14 @@ class Ui_MainWindow(object):
       
 
       
+#.....................................This function switches between the checks......................................
 
-
-    def select_analysis(self):    # meaningful function
+    def select_analysis(self):    
         try:
             
             i = self.analysis_combobox.currentIndex()
             self.analysis_modecombobox.clear()
+            self.reset_with_combobox()
             match  i :
                 case 1 :
                     # print("Pressure")
@@ -1372,9 +1377,9 @@ class Ui_MainWindow(object):
         
         data_SMYS = self.gradeComboBox.itemData(index)
         # UsTn_by_Hs_100 = (data_100)
-        print("Function is working")
+        # print("Function is working")
         self.SMYS_lineEdit.setText(data_SMYS[0])
-        print("SMYS : ",data_SMYS[0])
+        # print("SMYS : ",data_SMYS[0])
         self.SMTS_lineEdit.setText(data_SMYS[1])
         # print("SMPS :",data_SMYS[1])
     
@@ -1404,12 +1409,12 @@ class Ui_MainWindow(object):
         # print("alpha_u : ",data_alpha_u[0])
         
         
-    def select_alpha_u(self,index):
+    # def select_alpha_u(self,index):
        
-        data_alpha_u = self.alpha_u_comboBox.itemData(index)
+    #     data_alpha_u = self.alpha_u_comboBox.itemData(index)
         
-        self.alpha_u_lineEdit.setText(data_alpha_u[0])
-        # print("alpha_u : ",data_alpha_u[0])
+    #     self.alpha_u_lineEdit.setText(data_alpha_u[0])
+    #     # print("alpha_u : ",data_alpha_u[0])
 
 
 
@@ -1650,7 +1655,65 @@ class Ui_MainWindow(object):
         report(self.list_variable_names,self.list_Variable)
 
 
+    def document(self):
+        print("To enable text boxes please")
+    
+    
+    
+    
+    def reset_with_combobox(self):
+        try:
+
+            self.OD_lineEdit.clear()
+            self.tnom_lineEdit.clear()
         
+            self.tfab_lineEdit.clear()
+            self.tcorr_lineEdit.clear()
+        
+            self.Oo_lineEdit.clear()
+            self.SMYS_lineEdit.clear()
+            self.SMTS_lineEdit.clear()
+            self.fytemp_lineEdit.clear() 
+            self.futemp_lineEdit.clear()
+            self.E_lineEdit.clear()
+            self.v_lineEdit.clear()
+            self.alpha_fab_lineEdit.clear()
+            self.alpha_u_lineEdit.clear()
+            self.Pd_lineEdit.clear()
+            self.gamma_m_lineEdit.clear()
+            self.Pmin_lineEdit.clear()
+            self.href_lineEdit.clear()
+            self.hl_lineEdit.clear()
+            self.rho_cont_lineEdit.clear()
+            self.rho_t_lineEdit.clear()
+            self.gamma_inc_lineEdit.clear()
+            self.WD_min_lineEdit.clear()
+            self.rho_sea_lineEdit.clear()
+            self.hmax_lineEdit.clear()
+            self.hmin_lineEdit.clear()
+
+            self.limitState_gamma_SCPC_lineedit.clear()
+            self.limitState_gamma_SCLB_lineedit.clear()
+            self.alpha_spt_lineedit.clear()
+            self.alpha_mpt_lineedit.clear()
+
+            # self.analysis_combobox.setCurrentIndex(0)
+            # self.analysis_modecombobox.setCurrentIndex(0)
+            # self.select_analysis()
+            self.safety_classcombobox.setCurrentIndex(0)
+            self.gamma_m_comboBox.setCurrentIndex(0)
+            self.alpha_fab_comboBox.setCurrentIndex(0)
+            self.alpha_u_comboBox.setCurrentIndex(0)
+            self.treq_lineedit.clear()
+            self.utility_lineedit.clear() 
+            self.treq_lineedit.setEnabled(False)
+            self.utility_lineedit.setEnabled(False)
+            self.Water_Depth_label.setText("Water Depth WD [m]                        ")
+            self.result_label.setText("Result Window")
+        except Exception as e:
+            print(f"error code:{random.random()}>>>>>>Error in Reset through combobox function....!!!")
+            self.result_label.setText(f"error code:{random.random()}>>>>>>Error in Reset through combobox function....!!!")
+            # print(f"error in reset with combo box : =>> {e}")
 
 
 
