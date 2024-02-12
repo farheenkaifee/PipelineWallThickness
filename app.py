@@ -12,6 +12,10 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 import random
 
+import os
+
+from PyQt5.QtWebEngineWidgets import QWebEngineView
+
 from Features.Report import  report
 
 from wallthicknessCalculation.PRESSURECONTAINMENT.systemTest import pressure_sysTest
@@ -26,6 +30,7 @@ from wallthicknessCalculation.BUCKLING.shutdown import buckling_shutdown
 from Features.Save import saveAs
 
 from Features.Open import fileread
+
 
 
 class Ui_MainWindow(object):
@@ -920,7 +925,7 @@ class Ui_MainWindow(object):
         self.actionReset.triggered.connect(self.reset)
         self.actionOpen.triggered.connect(self.open_Doc)
 
-        self.actionDocumentation.triggered.connect(self.document)
+        # self.actionDocumentation.triggered.connect(self.document)
         self.menuViewReport.triggered.connect(self.create_report)
         
         
@@ -1224,7 +1229,6 @@ class Ui_MainWindow(object):
                     self.alpha_spt_lineedit.clear()
 
                     self.limitState_gamma_SCLB_lineedit.clear()
-
                     self.Water_Depth_label.setText(("Max Water Depth WDmax [m]        "))
 
                     self.hmax_lineEdit.setDisabled(False)
@@ -1646,8 +1650,7 @@ class Ui_MainWindow(object):
         report(self.list_variable_names,self.list_Variable)
 
 
-    def document(self):
-        print("To enable text boxes please")
+        
 
 
 
