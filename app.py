@@ -27,6 +27,8 @@ from Features.Save import saveAs
 
 from Features.Open import fileread
 
+from Features.Help import Help
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -919,6 +921,7 @@ class Ui_MainWindow(object):
         self.actionSave_As.triggered.connect(self.saveAs_doc)
         self.actionReset.triggered.connect(self.reset)
         self.actionOpen.triggered.connect(self.open_Doc)
+        self.actionDocumentation.triggered.connect(self.helpBox)
 
         self.actionDocumentation.triggered.connect(self.document)
         self.menuViewReport.triggered.connect(self.create_report)
@@ -1654,7 +1657,11 @@ class Ui_MainWindow(object):
         print("To enable text boxes please")
 
 
+    def helpBox(self):
+        Help()
+        print("Displaying important information...")
 
+        
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
