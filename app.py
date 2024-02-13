@@ -877,11 +877,6 @@ class Ui_MainWindow(object):
         icon9.addPixmap(QtGui.QPixmap("assets/help.gif"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.actionWhat_s_New.setIcon(icon9)
         self.actionWhat_s_New.setObjectName("actionWhat_s_New")
-        self.actionKeyboard_Shortcut = QtWidgets.QAction(MainWindow)
-        icon10 = QtGui.QIcon()
-        icon10.addPixmap(QtGui.QPixmap("assets/page_setup.gif"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.actionKeyboard_Shortcut.setIcon(icon10)
-        self.actionKeyboard_Shortcut.setObjectName("actionKeyboard_Shortcut")
         self.actionDocumentation = QtWidgets.QAction(MainWindow)
         icon11 = QtGui.QIcon()
         icon11.addPixmap(QtGui.QPixmap("assets/about.gif"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -905,7 +900,6 @@ class Ui_MainWindow(object):
         self.menuEdit.addAction(self.actionReset)
         self.menuViewReport.addAction(self.actionReport)
         self.menuHelp.addAction(self.actionWhat_s_New)
-        self.menuHelp.addAction(self.actionKeyboard_Shortcut)
         self.menuHelp.addAction(self.actionDocumentation)
         self.menubar.addAction(self.menuFile.menuAction())
         self.menubar.addAction(self.menuEdit.menuAction())
@@ -1098,7 +1092,7 @@ class Ui_MainWindow(object):
                     elif(j==2):
 
                         
-                        UC_coll, Pe_check_coll, UC_buck, Pe_check_buck, self.list_variable_names, self.list_Variable  = collapse_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Safety_Class_RF_gamma_SCLB,Mill_Pressure_Test_Factor_alpha_mpt,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m,System_Pressure_Test_Factor_alpha_spt)
+                        UC_coll, Pe_check_coll, self.list_variable_names, self.list_Variable  = collapse_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Safety_Class_RF_gamma_SCLB,Mill_Pressure_Test_Factor_alpha_mpt,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m,System_Pressure_Test_Factor_alpha_spt)
                         # print(value_collapse_shutdown)
                         
                         # print(self.list_Variable)
@@ -1819,7 +1813,6 @@ class Ui_MainWindow(object):
         self.actionPaste.setShortcut(_translate("MainWindow", "Ctrl+P"))
         self.actionReport.setText(_translate("MainWindow", "Generate Report"))
         self.actionWhat_s_New.setText(_translate("MainWindow", "What\'s New"))
-        self.actionKeyboard_Shortcut.setText(_translate("MainWindow", "Keyboard Shortcut"))
         self.actionDocumentation.setText(_translate("MainWindow", "Documentation"))
         self.actionMaximize.setText(_translate("MainWindow", "Maximize"))
         self.actionMaximize.setShortcut(_translate("MainWindow", "Shift+M"))
