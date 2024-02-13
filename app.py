@@ -1750,7 +1750,7 @@ class Ui_MainWindow(object):
         self.tfab_label.setText(_translate("MainWindow", "Fabrication Thickness Tolerance tfab [mm]        "))
         self.tcorr_label.setText(_translate("MainWindow", " Corrosion Allowance tcorr [mm]            "))
         self.Oo_label.setText(_translate("MainWindow", "Ovality of Pipe Oo [%]     "))
-        self.note_position.setText(_translate("MainWindow", "** To calculate \" Fabrication Thickness Tolerance \" in mm \"tfab\" = 12.5% of \"tnom\""))
+        self.note_position.setText(_translate("MainWindow", "** To calculate \" Fabrication Thickness Tolerance \" in mm \"tfab\" = 12.5% of \"tnom\" & \"tnom\" must be Greater than \"tcorr\" **"))
         self.dimension_label.setText(_translate("MainWindow", "DIMENSIONS"))
         self.LOAD_title.setText(_translate("MainWindow", "LOADS"))
         self.Pd_label.setText(_translate("MainWindow", "Design Pressure Pd [barg]                                                                           "))
