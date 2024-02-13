@@ -12,6 +12,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 import random
 
+from PyQt5.QtWebEngineWidgets import QWebEngineView
+
 from Features.Report import  report
 
 from wallthicknessCalculation.PRESSURECONTAINMENT.systemTest import pressure_sysTest
@@ -26,6 +28,9 @@ from wallthicknessCalculation.BUCKLING.shutdown import buckling_shutdown
 from Features.Save import saveAs
 
 from Features.Open import fileread
+
+from Features.document import run_pdf_viewer
+
 
 
 class Ui_MainWindow(object):
@@ -919,6 +924,7 @@ class Ui_MainWindow(object):
         self.actionSave_As.triggered.connect(self.saveAs_doc)
         self.actionReset.triggered.connect(self.reset)
         self.actionOpen.triggered.connect(self.open_Doc)
+        # self.actionDocumentation.triggered.connect(self.document)
 
         self.actionDocumentation.triggered.connect(self.document)
         self.menuViewReport.triggered.connect(self.create_report)
@@ -1075,8 +1081,8 @@ class Ui_MainWindow(object):
 
                     if( j == 1):
 
-                        
-                        UC_coll, Pe_check_coll, UC_buck, Pe_check_buck, self.list_variable_names, self.list_Variable = collapse_installation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Safety_Class_RF_gamma_SCLB,Mill_Pressure_Test_Factor_alpha_mpt,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m,System_Pressure_Test_Factor_alpha_spt)
+                        print("value_collapse_installation")
+                        UC_coll, Pe_check_coll, self.list_variable_names, self.list_Variable = collapse_installation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Safety_Class_RF_gamma_SCLB,Mill_Pressure_Test_Factor_alpha_mpt,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m,System_Pressure_Test_Factor_alpha_spt)
                         # print(value_collapse_installation)
                    
 
@@ -1091,8 +1097,8 @@ class Ui_MainWindow(object):
 
                     elif(j==2):
 
-                        
-                        UC_coll, Pe_check_coll, UC_buck, Pe_check_buck, self.list_variable_names, self.list_Variable  = collapse_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Safety_Class_RF_gamma_SCLB,Mill_Pressure_Test_Factor_alpha_mpt,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m,System_Pressure_Test_Factor_alpha_spt)
+                        print("value_collapse_shutdown")
+                        UC_coll, Pe_check_coll, self.list_variable_names, self.list_Variable  = collapse_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Safety_Class_RF_gamma_SCLB,Mill_Pressure_Test_Factor_alpha_mpt,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m,System_Pressure_Test_Factor_alpha_spt)
                         # print(value_collapse_shutdown)
                         
                         # print(self.list_Variable)
@@ -1119,8 +1125,8 @@ class Ui_MainWindow(object):
 
                     if( j == 1):
 
-                        
-                        UC_coll, Pe_check_coll, UC_buck, Pe_check_buck, self.list_variable_names, self.list_Variable = buckling_installation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Safety_Class_RF_gamma_SCLB,Mill_Pressure_Test_Factor_alpha_mpt,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m,System_Pressure_Test_Factor_alpha_spt)
+                        print("value_buckling_installation")
+                        UC_buck, Pe_check_buck, self.list_variable_names, self.list_Variable = buckling_installation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Safety_Class_RF_gamma_SCLB,Mill_Pressure_Test_Factor_alpha_mpt,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m,System_Pressure_Test_Factor_alpha_spt)
                         # print(value_collapse_installation)
 
                         
@@ -1136,8 +1142,8 @@ class Ui_MainWindow(object):
 
                     elif(j==2):
 
-                        
-                        UC_coll, Pe_check_coll, UC_buck, Pe_check_buck, self.list_variable_names, self.list_Variable = buckling_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Safety_Class_RF_gamma_SCLB,Mill_Pressure_Test_Factor_alpha_mpt,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m,System_Pressure_Test_Factor_alpha_spt)
+                        print("value_buckling_shutdown")
+                        UC_buck, Pe_check_buck, self.list_variable_names, self.list_Variable = buckling_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Safety_Class_RF_gamma_SCLB,Mill_Pressure_Test_Factor_alpha_mpt,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m,System_Pressure_Test_Factor_alpha_spt)
                         # print(value_collapse_shutdown)
 
                         
@@ -1179,6 +1185,7 @@ class Ui_MainWindow(object):
             
             i = self.analysis_combobox.currentIndex()
             self.analysis_modecombobox.clear()
+            self.reset_with_combobox()
             match  i :
                 case 1 :
                     # print("Pressure")
@@ -1228,7 +1235,6 @@ class Ui_MainWindow(object):
                     self.alpha_spt_lineedit.clear()
 
                     self.limitState_gamma_SCLB_lineedit.clear()
-
                     self.Water_Depth_label.setText(("Max Water Depth WDmax [m]        "))
 
                     self.hmax_lineEdit.setDisabled(False)
@@ -1404,12 +1410,12 @@ class Ui_MainWindow(object):
         # print("alpha_u : ",data_alpha_u[0])
         
         
-    def select_alpha_u(self,index):
+    # def select_alpha_u(self,index):
        
-        data_alpha_u = self.alpha_u_comboBox.itemData(index)
+    #     data_alpha_u = self.alpha_u_comboBox.itemData(index)
         
-        self.alpha_u_lineEdit.setText(data_alpha_u[0])
-        # print("alpha_u : ",data_alpha_u[0])
+    #     self.alpha_u_lineEdit.setText(data_alpha_u[0])
+    #     # print("alpha_u : ",data_alpha_u[0])
 
 
 
@@ -1650,8 +1656,66 @@ class Ui_MainWindow(object):
         report(self.list_variable_names,self.list_Variable)
 
 
+    
     def document(self):
-        print("To enable text boxes please")
+        run_pdf_viewer()
+    
+    
+    
+    
+    def reset_with_combobox(self):
+        try:
+
+            self.OD_lineEdit.clear()
+            self.tnom_lineEdit.clear()
+        
+            self.tfab_lineEdit.clear()
+            self.tcorr_lineEdit.clear()
+        
+            self.Oo_lineEdit.clear()
+            self.SMYS_lineEdit.clear()
+            self.SMTS_lineEdit.clear()
+            self.fytemp_lineEdit.clear() 
+            self.futemp_lineEdit.clear()
+            self.E_lineEdit.clear()
+            self.v_lineEdit.clear()
+            self.alpha_fab_lineEdit.clear()
+            self.alpha_u_lineEdit.clear()
+            self.Pd_lineEdit.clear()
+            self.gamma_m_lineEdit.clear()
+            self.Pmin_lineEdit.clear()
+            self.href_lineEdit.clear()
+            self.hl_lineEdit.clear()
+            self.rho_cont_lineEdit.clear()
+            self.rho_t_lineEdit.clear()
+            self.gamma_inc_lineEdit.clear()
+            self.WD_min_lineEdit.clear()
+            self.rho_sea_lineEdit.clear()
+            self.hmax_lineEdit.clear()
+            self.hmin_lineEdit.clear()
+
+            self.limitState_gamma_SCPC_lineedit.clear()
+            self.limitState_gamma_SCLB_lineedit.clear()
+            self.alpha_spt_lineedit.clear()
+            self.alpha_mpt_lineedit.clear()
+
+            # self.analysis_combobox.setCurrentIndex(0)
+            # self.analysis_modecombobox.setCurrentIndex(0)
+            # self.select_analysis()
+            self.safety_classcombobox.setCurrentIndex(0)
+            self.gamma_m_comboBox.setCurrentIndex(0)
+            self.alpha_fab_comboBox.setCurrentIndex(0)
+            self.alpha_u_comboBox.setCurrentIndex(0)
+            self.treq_lineedit.clear()
+            self.utility_lineedit.clear() 
+            self.treq_lineedit.setEnabled(False)
+            self.utility_lineedit.setEnabled(False)
+            self.Water_Depth_label.setText("Water Depth WD [m]                        ")
+            self.result_label.setText("Result Window")
+        except Exception as e:
+            print(f"error code:{random.random()}>>>>>>Error in Reset through combobox function....!!!")
+            self.result_label.setText(f"error code:{random.random()}>>>>>>Error in Reset through combobox function....!!!")
+            # print(f"error in reset with combo box : =>> {e}")
 
 
 
@@ -1686,7 +1750,7 @@ class Ui_MainWindow(object):
         self.tfab_label.setText(_translate("MainWindow", "Fabrication Thickness Tolerance tfab [mm]        "))
         self.tcorr_label.setText(_translate("MainWindow", " Corrosion Allowance tcorr [mm]            "))
         self.Oo_label.setText(_translate("MainWindow", "Ovality of Pipe Oo [%]     "))
-        self.note_position.setText(_translate("MainWindow", "** To calculate \" Fabrication Thickness Tolerance \" in mm \"tfab\" = 12.5% of \"tnom\""))
+        self.note_position.setText(_translate("MainWindow", "** To calculate \" Fabrication Thickness Tolerance \" in mm \"tfab\" = 12.5% of \"tnom\" & \"tnom\" must be Greater than \"tcorr\" **"))
         self.dimension_label.setText(_translate("MainWindow", "DIMENSIONS"))
         self.LOAD_title.setText(_translate("MainWindow", "LOADS"))
         self.Pd_label.setText(_translate("MainWindow", "Design Pressure Pd [barg]                                                                           "))

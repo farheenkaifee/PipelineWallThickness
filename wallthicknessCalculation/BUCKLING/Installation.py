@@ -9,7 +9,7 @@ import numpy.polynomial.polynomial  as roots
 
 
 def buckling_installation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo,SMYS_σsmys,SMTS_σsmts,Derating_value_temp_yieldStress_fy_temp,Derating_value_temp_tensileStress_fu_temp,Youngs_Modulus_E ,Poission_s_Ratio_ν ,Maximum_Fabrication_Factor_alpha_fab,Pd,Pmin,Elevation_at_Pressure_Reference_Level_href,Elevation_level_at_Pressure_Point_hl ,Product_Density_ρcont,Hydrotest_Water_Density_ρt,Incidental_to_Design_Pressure_Ratio_gamma_inc,Water_Depth_WD,Sea_Water_Density_ρsea,Max_Elevation_wrt_MSL_hmax,Safety_Class_RF_gamma_SCLB,Mill_Pressure_Test_Factor_alpha_mpt,Material_Strength_Factor_alpha_u,Material_resistant_factor_gamma_m,System_Pressure_Test_Factor_alpha_spt):
-    # return print("Collapsecheck Installation..!!!")
+    print("Buckling Installation..!!!")
         
 
     try:
@@ -213,16 +213,16 @@ def buckling_installation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabr
 
         # #  Utility Check in externakl pressure  Collapse check
 
-        UC_coll = round(float(Pe/Pc_t1_at_γm_Safety_Class_RF_gamma_SCLB),3)
-        print("UC_coll" , UC_coll)
+        # UC_coll = round(float(Pe/Pc_t1_at_γm_Safety_Class_RF_gamma_SCLB),3)
+        # print("UC_coll" , UC_coll)
 
         # Collapse Check 
 
-        if(Pe <= Pc_t1_at_γm_Safety_Class_RF_gamma_SCLB ):
-            Pe_check_coll = "Wall Thickness Accepted ✅"
+        # if(Pe <= Pc_t1_at_γm_Safety_Class_RF_gamma_SCLB ):
+        #     Pe_check_coll = "Wall Thickness Accepted ✅"
 
-        else:
-            Pe_check_coll = "Redesign Wall Thickness ❌"
+        # else:
+        #     Pe_check_coll = "Redesign Wall Thickness ❌"
 
         # ____________Propagation Buckling Check___________________
 
@@ -261,7 +261,7 @@ def buckling_installation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabr
         list_variable = [Gravity_of_Acceleration_g, ρemp, Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo, SMYS_σsmys, SMTS_σsmts, Derating_value_temp_yieldStress_fy_temp, Derating_value_temp_tensileStress_fu_temp, Youngs_Modulus_E, Poission_s_Ratio_ν, Maximum_Fabrication_Factor_alpha_fab, Material_Strength_Factor_alpha_u, Pd, Material_resistant_factor_gamma_m, Pmin, Elevation_at_Pressure_Reference_Level_href, Elevation_level_at_Pressure_Point_hl, Product_Density_ρcont, Hydrotest_Water_Density_ρt, Incidental_to_Design_Pressure_Ratio_gamma_inc, Water_Depth_WD, Sea_Water_Density_ρsea, Max_Elevation_wrt_MSL_hmax, Safety_Class_RF_gamma_SCLB, Measured_Minimum_Thickness_for_Test_Pressure_t1, Depth, fy, fu, fcb, Pinc, Pt, Plt, Pe, Pel_t, Pp_t, UC_buck, Pe_check_buck ]
 
 
-        return UC_coll, Pe_check_coll, UC_buck, Pe_check_buck, list_variable_names, list_variable
+        return UC_buck, Pe_check_buck, list_variable_names, list_variable
 
  
 # "Constant for Mill Pressure test k"
@@ -269,5 +269,5 @@ def buckling_installation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabr
 
 
 
-    except:
-        print(f"error code:{random.random()}>>>>>>Error in Collapse installation check...")
+    except Exception as e:
+        print(f"error code:{random.random()}>>>>>>{e}")
