@@ -31,6 +31,10 @@ from Features.Open import fileread
 
 from Features.document import run_pdf_viewer
 
+<<<<<<< HEAD
+=======
+from Features.Help import Help
+>>>>>>> cebf2a76d23a4ab2769302f87840425186515d05
 
 
 class Ui_MainWindow(object):
@@ -919,6 +923,7 @@ class Ui_MainWindow(object):
         self.actionReset.triggered.connect(self.reset)
         self.actionOpen.triggered.connect(self.open_Doc)
         # self.actionDocumentation.triggered.connect(self.document)
+        self.actionDocumentation.triggered.connect(self.helpBox)
 
         self.actionDocumentation.triggered.connect(self.document)
         self.menuViewReport.triggered.connect(self.create_report)
