@@ -285,6 +285,6 @@ def buckling_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabricat
 
 
     except:
-        print(f"error code:{random.random()}>>>>>>Error in Collapse Shutdown check...")
+        print(f"error code:{random.random()}>>>>>>Error in Buckling Shutdown check...")
         
 
