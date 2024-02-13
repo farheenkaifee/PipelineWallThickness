@@ -1712,7 +1712,11 @@ class Ui_MainWindow(object):
             # print(f"error in reset with combo box : =>> {e}")
 
 
+    def helpBox(self):
+        Help()
+        print("Displaying important information...")
 
+        
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -1818,6 +1822,7 @@ class Ui_MainWindow(object):
         self.actionMaximize.setShortcut(_translate("MainWindow", "Shift+M"))
         self.actionMinimize_Shift_N.setText(_translate("MainWindow", "Minimize"))
         self.actionMinimize_Shift_N.setShortcut(_translate("MainWindow", "Shift+N"))
+
 
 
 
