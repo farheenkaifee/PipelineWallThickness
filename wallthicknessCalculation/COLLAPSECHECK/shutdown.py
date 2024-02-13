@@ -284,7 +284,11 @@ def collapse_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabricat
         return UC_coll, Pe_check_coll, UC_buck, Pe_check_buck, list_variable_names, list_variable
 
 
-    except:
-        print(f"error code:{random.random()}>>>>>>Error in Collapse Shutdown check...")
+    except Exception as error:
+        print("An error occurred:", error)
+        
+
+        # print(f"error code:{random.random()}>>>>>>Error in Collapse Shutdown check...")
+        # print(f"error code:{random.random()}>>>>>>Error in Collapse Shutdown check...")
         
 

@@ -270,4 +270,4 @@ def buckling_installation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabr
 
 
     except:
-        print(f"error code:{random.random()}>>>>>>Error in Collapse installation check...")
+        print(f"error code:{random.random()}>>>>>>Error in Buckling installation check...")

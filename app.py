@@ -12,8 +12,6 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 import random
 
-import os
-
 from PyQt5.QtWebEngineWidgets import QWebEngineView
 
 from Features.Report import  report
@@ -30,6 +28,8 @@ from wallthicknessCalculation.BUCKLING.shutdown import buckling_shutdown
 from Features.Save import saveAs
 
 from Features.Open import fileread
+
+from Features.document import run_pdf_viewer
 
 
 
@@ -924,8 +924,9 @@ class Ui_MainWindow(object):
         self.actionSave_As.triggered.connect(self.saveAs_doc)
         self.actionReset.triggered.connect(self.reset)
         self.actionOpen.triggered.connect(self.open_Doc)
-
         # self.actionDocumentation.triggered.connect(self.document)
+
+        self.actionDocumentation.triggered.connect(self.document)
         self.menuViewReport.triggered.connect(self.create_report)
         
         
@@ -1655,8 +1656,9 @@ class Ui_MainWindow(object):
         report(self.list_variable_names,self.list_Variable)
 
 
+    
     def document(self):
-        print("To enable text boxes please")
+        run_pdf_viewer()
     
     
     
