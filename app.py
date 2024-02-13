@@ -12,8 +12,6 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 import random
 
-from PyQt5.QtWebEngineWidgets import QWebEngineView
-
 from Features.Report import  report
 
 from wallthicknessCalculation.PRESSURECONTAINMENT.systemTest import pressure_sysTest
