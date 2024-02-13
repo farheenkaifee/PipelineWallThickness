@@ -29,12 +29,9 @@ from Features.Save import saveAs
 
 from Features.Open import fileread
 
-<<<<<<< HEAD
 from Features.document import run_pdf_viewer
 
-=======
 from Features.Help import Help
->>>>>>> wallThicknessUpdate
 
 
 class Ui_MainWindow(object):
@@ -928,11 +925,8 @@ class Ui_MainWindow(object):
         self.actionSave_As.triggered.connect(self.saveAs_doc)
         self.actionReset.triggered.connect(self.reset)
         self.actionOpen.triggered.connect(self.open_Doc)
-<<<<<<< HEAD
         # self.actionDocumentation.triggered.connect(self.document)
-=======
         self.actionDocumentation.triggered.connect(self.helpBox)
->>>>>>> wallThicknessUpdate
 
         self.actionDocumentation.triggered.connect(self.document)
         self.menuViewReport.triggered.connect(self.create_report)
