@@ -1,11 +1,6 @@
-# from tkinter import *
-# from tkinter import messagebox
-import sys
-from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QMessageBox
+from PyQt5.QtWidgets import QMessageBox
 
-	
-# object of TK()
-# main = Tk()
+
 
 # function to use the 
 # askquestion() function
