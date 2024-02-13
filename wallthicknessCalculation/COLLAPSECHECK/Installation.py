@@ -228,22 +228,22 @@ def collapse_installation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabr
 
         # ++++++++++++++++++++ Using DNGVL - ST - F101 ++++++++++++++++++
 
-        print("_____________Propagation Buckling Check___________________")
+        # print("_____________Propagation Buckling Check___________________")
 
-        # Propagating Buckling Criteria
+        # # Propagating Buckling Criteria
 
-        D = Outside_Diameter_OD
-        t2 = round(float(Nominal_Wall_Thickness_tnom-Corrosion_Allowance_tcorr),3)
-        print("t2",t2)
-        Effective_wall_Thickness_Ppr_t2 = round(35*fy*Maximum_Fabrication_Factor_alpha_fab*((t2/Outside_Diameter_OD)**2.5),3)
-        print("Effective_wall_Thickness_Ppr_t2",Effective_wall_Thickness_Ppr_t2)
-        # if(Pe - Pmin <= Effective_wall_Thickness_Ppr_t2/Pressure_testFactor_gamma_m*Safety_Class_RF_gamma_SCLB):
-        #     print("Effective_wall_Thickness_Ppr_t2")
-        # else:
-        #     print("External Pressure Exceeds")
+        # D = Outside_Diameter_OD
+        # t2 = round(float(Nominal_Wall_Thickness_tnom-Corrosion_Allowance_tcorr),3)
+        # print("t2",t2)
+        # Effective_wall_Thickness_Ppr_t2 = round(35*fy*Maximum_Fabrication_Factor_alpha_fab*((t2/Outside_Diameter_OD)**2.5),3)
+        # print("Effective_wall_Thickness_Ppr_t2",Effective_wall_Thickness_Ppr_t2)
+        # # if(Pe - Pmin <= Effective_wall_Thickness_Ppr_t2/Pressure_testFactor_gamma_m*Safety_Class_RF_gamma_SCLB):
+        # #     print("Effective_wall_Thickness_Ppr_t2")
+        # # else:
+        # #     print("External Pressure Exceeds")
 
-        D_upon_t2 = round(float(D/t2),3)
-        print("D_upon_t2",D_upon_t2)
+        # D_upon_t2 = round(float(D/t2),3)
+        # print("D_upon_t2",D_upon_t2)
 
 
         # # Utility Check
@@ -269,5 +269,5 @@ def collapse_installation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabr
 
 
 
-    except:
-        print(f"error code:{random.random()}>>>>>>Error in Collapse installation check...")
+    except Exception as e:
+        print(f"error code:{random.random()}>>>>>>{e}")

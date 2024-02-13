@@ -250,33 +250,33 @@ def collapse_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabricat
 
         # ++++++++++++++++++++ Using DNGVL - ST - F101 ++++++++++++++++++
 
-        print("_____________Propagation Buckling Check___________________")
+        # print("_____________Propagation Buckling Check___________________")
 
-        # Propagating Buckling Criteria
+        # # Propagating Buckling Criteria
 
-        D = Outside_Diameter_OD
-        t2 = round(float(Nominal_Wall_Thickness_tnom-Corrosion_Allowance_tcorr),3)
-        print("t2",t2)
-        Effective_wall_Thickness_Ppr_t2 = round((35*fy*Maximum_Fabrication_Factor_alpha_fab*((t2/Outside_Diameter_OD)**2.5)),3)
-        print("Effective_wall_Thickness_Ppr_t2",Effective_wall_Thickness_Ppr_t2)
-        # if(Pe - Pmin <= Effective_wall_Thickness_Ppr_t2/Pressure_testFactor_gamma_m*γSC_LB):
-        #     print("Effective_wall_Thickness_Ppr_t2")
+        # D = Outside_Diameter_OD
+        # t2 = round(float(Nominal_Wall_Thickness_tnom-Corrosion_Allowance_tcorr),3)
+        # print("t2",t2)
+        # Effective_wall_Thickness_Ppr_t2 = round((35*fy*Maximum_Fabrication_Factor_alpha_fab*((t2/Outside_Diameter_OD)**2.5)),3)
+        # print("Effective_wall_Thickness_Ppr_t2",Effective_wall_Thickness_Ppr_t2)
+        # # if(Pe - Pmin <= Effective_wall_Thickness_Ppr_t2/Pressure_testFactor_gamma_m*γSC_LB):
+        # #     print("Effective_wall_Thickness_Ppr_t2")
+        # # else:
+        # #     print("External Pressure Exceeds")
+
+        # D_upon_t2 = round(float(D/t2),3)
+        # print("D_upon_t2",D_upon_t2)
+
+
+        #     # Utility Check
+        # UC_buck = round(float(Pe/(Effective_wall_Thickness_Ppr_t2/(Material_resistant_factor_gamma_m*γSC_LB))),3)
+        # print("UC_buck",UC_buck)
+
+        # # PBuckle
+        # if(Pe <= Effective_wall_Thickness_Ppr_t2/(Material_resistant_factor_gamma_m*γSC_LB)):
+        #     Pe_check_buck = ("Wall Thickness Accepted ✅")
         # else:
-        #     print("External Pressure Exceeds")
-
-        D_upon_t2 = round(float(D/t2),3)
-        print("D_upon_t2",D_upon_t2)
-
-
-            # Utility Check
-        UC_buck = round(float(Pe/(Effective_wall_Thickness_Ppr_t2/(Material_resistant_factor_gamma_m*γSC_LB))),3)
-        print("UC_buck",UC_buck)
-
-        # PBuckle
-        if(Pe <= Effective_wall_Thickness_Ppr_t2/(Material_resistant_factor_gamma_m*γSC_LB)):
-            Pe_check_buck = ("Wall Thickness Accepted ✅")
-        else:
-            Pe_check_buck = ("Redesign Wall Thickness ❌")
+        #     Pe_check_buck = ("Redesign Wall Thickness ❌")
 
       
 
@@ -285,7 +285,7 @@ def collapse_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabricat
         list_variable = [Gravity_of_Acceleration_g, ρemp, Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo, SMYS_σsmys, SMTS_σsmts, Derating_value_temp_yieldStress_fy_temp, Derating_value_temp_tensileStress_fu_temp, Youngs_Modulus_E, Poission_s_Ratio_ν, Maximum_Fabrication_Factor_alpha_fab, Material_Strength_Factor_alpha_u, Pd, Material_resistant_factor_gamma_m, Pmin, Elevation_at_Pressure_Reference_Level_href, Elevation_level_at_Pressure_Point_hl, Product_Density_ρcont, Hydrotest_Water_Density_ρt, Incidental_to_Design_Pressure_Ratio_gamma_inc, Water_Depth_WD, Sea_Water_Density_ρsea, Max_Elevation_wrt_MSL_hmax, Safety_Class_RF_gamma_SCLB, Measured_Minimum_Thickness_for_Test_Pressure_t1, Depth, fy, fu, fcb, Pinc, Pt, Plt, Pe, t1, t2, Pel_t1, Pp_t1, UC_coll, Pe_check_coll]
      
 
-        return UC_coll, Pe_check_coll, UC_buck, Pe_check_buck, list_variable_names, list_variable
+        return UC_coll, Pe_check_coll, list_variable_names, list_variable
 
 
     except Exception as error:
