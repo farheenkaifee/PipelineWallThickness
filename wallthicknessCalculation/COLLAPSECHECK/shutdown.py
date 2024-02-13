@@ -241,6 +241,10 @@ def collapse_shutdown(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabricat
 
         else:
             Pe_check_coll = "Redesign Wall Thickness ❌"
+        
+        
+        
+        print(Pe_check_coll)
 
         # ____________Propagation Buckling Check___________________
 

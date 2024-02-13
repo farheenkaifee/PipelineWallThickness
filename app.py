@@ -1179,6 +1179,7 @@ class Ui_MainWindow(object):
             
             i = self.analysis_combobox.currentIndex()
             self.analysis_modecombobox.clear()
+            self.reset_with_combobox()
             match  i :
                 case 1 :
                     # print("Pressure")
@@ -1404,12 +1405,12 @@ class Ui_MainWindow(object):
         # print("alpha_u : ",data_alpha_u[0])
         
         
-    def select_alpha_u(self,index):
+    # def select_alpha_u(self,index):
        
-        data_alpha_u = self.alpha_u_comboBox.itemData(index)
+    #     data_alpha_u = self.alpha_u_comboBox.itemData(index)
         
-        self.alpha_u_lineEdit.setText(data_alpha_u[0])
-        # print("alpha_u : ",data_alpha_u[0])
+    #     self.alpha_u_lineEdit.setText(data_alpha_u[0])
+    #     # print("alpha_u : ",data_alpha_u[0])
 
 
 
@@ -1652,6 +1653,63 @@ class Ui_MainWindow(object):
 
     def document(self):
         print("To enable text boxes please")
+    
+    
+    
+    
+    def reset_with_combobox(self):
+        try:
+
+            self.OD_lineEdit.clear()
+            self.tnom_lineEdit.clear()
+        
+            self.tfab_lineEdit.clear()
+            self.tcorr_lineEdit.clear()
+        
+            self.Oo_lineEdit.clear()
+            self.SMYS_lineEdit.clear()
+            self.SMTS_lineEdit.clear()
+            self.fytemp_lineEdit.clear() 
+            self.futemp_lineEdit.clear()
+            self.E_lineEdit.clear()
+            self.v_lineEdit.clear()
+            self.alpha_fab_lineEdit.clear()
+            self.alpha_u_lineEdit.clear()
+            self.Pd_lineEdit.clear()
+            self.gamma_m_lineEdit.clear()
+            self.Pmin_lineEdit.clear()
+            self.href_lineEdit.clear()
+            self.hl_lineEdit.clear()
+            self.rho_cont_lineEdit.clear()
+            self.rho_t_lineEdit.clear()
+            self.gamma_inc_lineEdit.clear()
+            self.WD_min_lineEdit.clear()
+            self.rho_sea_lineEdit.clear()
+            self.hmax_lineEdit.clear()
+            self.hmin_lineEdit.clear()
+
+            self.limitState_gamma_SCPC_lineedit.clear()
+            self.limitState_gamma_SCLB_lineedit.clear()
+            self.alpha_spt_lineedit.clear()
+            self.alpha_mpt_lineedit.clear()
+
+            # self.analysis_combobox.setCurrentIndex(0)
+            # self.analysis_modecombobox.setCurrentIndex(0)
+            # self.select_analysis()
+            self.safety_classcombobox.setCurrentIndex(0)
+            self.gamma_m_comboBox.setCurrentIndex(0)
+            self.alpha_fab_comboBox.setCurrentIndex(0)
+            self.alpha_u_comboBox.setCurrentIndex(0)
+            self.treq_lineedit.clear()
+            self.utility_lineedit.clear() 
+            self.treq_lineedit.setEnabled(False)
+            self.utility_lineedit.setEnabled(False)
+            self.Water_Depth_label.setText("Water Depth WD [m]                        ")
+            self.result_label.setText("Result Window")
+        except Exception as e:
+            print(f"error code:{random.random()}>>>>>>Error in Reset through combobox function....!!!")
+            self.result_label.setText(f"error code:{random.random()}>>>>>>Error in Reset through combobox function....!!!")
+            # print(f"error in reset with combo box : =>> {e}")
 
 
 
