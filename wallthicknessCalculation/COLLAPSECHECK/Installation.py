@@ -246,22 +246,22 @@ def collapse_installation(Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabr
         print("D_upon_t2",D_upon_t2)
 
 
-        # Utility Check
-        UC_buck = round(float(Pe/(Effective_wall_Thickness_Ppr_t2/(Material_resistant_factor_gamma_m*Safety_Class_RF_gamma_SCLB))),3)
-        print("UC_buck",UC_buck)
+        # # Utility Check
+        # UC_buck = round(float(Pe/(Effective_wall_Thickness_Ppr_t2/(Material_resistant_factor_gamma_m*Safety_Class_RF_gamma_SCLB))),3)
+        # print("UC_buck",UC_buck)
 
-        # PBuckle
-        if(Pe <= Effective_wall_Thickness_Ppr_t2/(Material_resistant_factor_gamma_m*Safety_Class_RF_gamma_SCLB)):
-            Pe_check_buck = ("Wall Thickness Accepted ✅")
-        else:
-            Pe_check_buck = ("Redesign Wall Thickness ❌")
+        # # PBuckle
+        # if(Pe <= Effective_wall_Thickness_Ppr_t2/(Material_resistant_factor_gamma_m*Safety_Class_RF_gamma_SCLB)):
+        #     Pe_check_buck = ("Wall Thickness Accepted ✅")
+        # else:
+        #     Pe_check_buck = ("Redesign Wall Thickness ❌")
             
         list_variable_names = ["Gravity of Acceleration g  [N]","density of empty State  [kg/m³]","Nominal Outer Diameter OD  [mm]","Nominal Wall Thickness tnom  [mm]", "Fabrication tolerance tfab  [mm]", "Corrosion Allowance tcorr  [mm]","Ovality of Pipe Oo","Specified minimum yield stress SMYS","Specified minimum tensile strength SMTS","Derating value temp yield Stress fytemp  [Mpa]","Derating value temp tensile strength futemp  [Mpa]","Youngs Modulus E  [Mpa]","Poission's Ration v","Maximum Fabrication αfab","Material Strength Factor αu","design Pressure Pd  [Mpa]", "Material Resistant Factor γm","Pmin  [Mpa]","Elevation at Pressure Reference Level href  [m]","Elevation Level at Pressure Point hl  [m]", "Product Density ρcont  [kg/m³]", "Hydrotest Water Density ρt  [kg/m³]","Incidental to Design Pressure Ratio γinc","Water Depth WD  [m]","Sea Water Density ρsea  [kg/m³]","Max Elevation wrt MSL hmax  [m]","Safety Class RF gamma SCLB", "Measured Minimum Thickness for Test Pressure t1  [mm]", "Depth  [m]", "Design Yield Stress fy  [Mpa]", "Design Tensile Strength fu  [Mpa]", "Minimum of fy;fu/1.15 fcb  [Mpa]", "Incidental pressure Pinc  [Mpa]","System Test Pressure Pt  [Mpa]", "Local System test Pressure Plt  [Mpa]", "External Pressure Pe  [Mpa]","Elastic Collapse Pressure Pel_t  [Mpa]", "Plastic Collapse Pressure Pp(t)  [Mpa]", "Utility Check coll","P check"]
         
         list_variable = [Gravity_of_Acceleration_g, ρemp, Outside_Diameter_OD, Nominal_Wall_Thickness_tnom, Fabrication_Thickness_Tolerance_tfab, Corrosion_Allowance_tcorr, Ovality_of_Pipe_Oo, SMYS_σsmys, SMTS_σsmts, Derating_value_temp_yieldStress_fy_temp, Derating_value_temp_tensileStress_fu_temp, Youngs_Modulus_E, Poission_s_Ratio_ν, Maximum_Fabrication_Factor_alpha_fab, Material_Strength_Factor_alpha_u, Pd, Material_resistant_factor_gamma_m, Pmin, Elevation_at_Pressure_Reference_Level_href, Elevation_level_at_Pressure_Point_hl, Product_Density_ρcont, Hydrotest_Water_Density_ρt, Incidental_to_Design_Pressure_Ratio_gamma_inc, Water_Depth_WD, Sea_Water_Density_ρsea, Max_Elevation_wrt_MSL_hmax, Safety_Class_RF_gamma_SCLB, Measured_Minimum_Thickness_for_Test_Pressure_t1, Depth, fy, fu, fcb, Pinc, Pt, Plt, Pe, Pel_t, Pp_t, UC_coll, Pe_check_coll]
 
 
-        return UC_coll, Pe_check_coll, UC_buck, Pe_check_buck, list_variable_names, list_variable
+        return UC_coll, Pe_check_coll, list_variable_names, list_variable
 
  
 # "Constant for Mill Pressure test k"
